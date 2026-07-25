@@ -176,6 +176,21 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-black);
 }
 
+.navbar.menu-open {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: transparent !important;
+}
+
+.navbar.menu-open .nav-brand-name,
+.navbar.menu-open .lang-switcher {
+  color: var(--color-black);
+}
+
+.navbar.menu-open .lang-switcher {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
 .nav-brand {
   display: flex;
   align-items: center;

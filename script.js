@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.classList.toggle('open');
     navCenter.classList.toggle('mobile-open');
     navSocial.classList.toggle('mobile-open');
+    navbar.classList.toggle('menu-open');
   });
 
   // ── Hero Slideshow ─────────────────────────────
