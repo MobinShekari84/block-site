@@ -109,6 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentSlide = index;
 
+    // Force reflow so CSS animation restarts from 0 width
+    void heroIndicators[currentSlide].offsetWidth;
+
     heroSlides[currentSlide].classList.add('active');
     heroIndicators[currentSlide].classList.add('active');
 

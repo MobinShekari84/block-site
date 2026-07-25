@@ -108,6 +108,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   letter-spacing: 0.02em;
   color: var(--color-dark-gray);
+  text-align: justify;
 }
 
 .text-label {
@@ -269,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.1em;
+  letter-spacing: normal;
   text-transform: uppercase;
   color: var(--color-white);
   padding: 2px 14px 0 14px;
@@ -306,6 +307,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar.scrolled .nav-toggle span {
+  background-color: var(--color-black);
+}
+
+.nav-toggle.open span {
   background-color: var(--color-black);
 }
 
@@ -453,12 +458,20 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(45deg);
 }
 
-/* Slide indicators */
-.hero-indicators {
+/* Slideshow Controls */
+.hero-controls {
   position: absolute;
   bottom: clamp(2rem, 4vh, 4rem);
   right: clamp(2rem, 5vw, 4rem);
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  direction: ltr; /* Ensure counter and bars flow LTR */
+}
+
+.hero-indicators {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -493,10 +506,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Slide counter */
 .hero-counter {
-  position: absolute;
-  bottom: clamp(4rem, 10vh, 8rem);
-  right: clamp(2rem, 5vw, 4rem);
-  z-index: 3;
   font-size: 0.8rem;
   font-weight: 300;
   letter-spacing: 0.1em;
@@ -705,6 +714,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.8;
   color: var(--color-mid-gray);
   max-width: 320px;
+  text-align: justify;
 }
 
 .footer-col-title {
@@ -919,7 +929,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 1.5rem;
   }
 
-  .hero-indicators {
+  .hero-controls {
     right: 1.5rem;
     bottom: 2rem;
   }
@@ -980,6 +990,20 @@ body.lang-fa .hero-title {
   font-size: clamp(2rem, 5vw, 4rem);
 }
 
+body.lang-fa .lang-switcher {
+  letter-spacing: 0.1em;
+}
+
+body.lang-fa .nav-link,
+body.lang-fa .hero-subtitle,
+body.lang-fa .hero-btn,
+body.lang-fa .hero-counter,
+body.lang-fa .project-card-meta,
+body.lang-fa .footer-link,
+body.lang-fa .footer-col-title {
+  font-size: 110%;
+}
+
 /* ============================================
    RTL SUPPORT (Persian)
    ============================================ */
@@ -988,13 +1012,7 @@ html[dir="rtl"] .hero-content {
   right: clamp(2rem, 5vw, 4rem);
 }
 
-html[dir="rtl"] .hero-indicators {
-  right: auto;
-  left: clamp(2rem, 5vw, 4rem);
-  direction: ltr;
-}
-
-html[dir="rtl"] .hero-counter {
+html[dir="rtl"] .hero-controls {
   right: auto;
   left: clamp(2rem, 5vw, 4rem);
 }
@@ -1021,7 +1039,7 @@ html[dir="rtl"] .lang-dropdown {
 }
 
 @media (max-width: 768px) {
-  html[dir="rtl"] .hero-indicators {
+  html[dir="rtl"] .hero-controls {
     right: auto;
     left: 1.5rem;
   }
