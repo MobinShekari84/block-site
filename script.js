@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('navAbout').textContent = t.nav.about;
 
     // Lang button
-    langBtn.textContent = isFa ? 'ENGLISH' : 'فارسی';
+    langBtn.textContent = isFa ? 'EN' : 'FA';
 
     // Hero
     const slideData = t.hero.slides[currentSlide];

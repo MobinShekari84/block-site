@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 22">
+  <mask id="cut-fa">
+    <rect width="36" height="22" rx="4" fill="#ffffff" />
+    <text x="18" y="15.5" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="12" text-anchor="middle" fill="#000000" letter-spacing="0.5">FA</text>
+  </mask>
+  <rect width="36" height="22" rx="4" fill="currentColor" mask="url(#cut-fa)" />
+</svg>

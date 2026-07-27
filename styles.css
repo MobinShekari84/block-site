@@ -3,8 +3,98 @@
    Theme: White & Minimal
    ============================================ */
 
+/* --- Yekan Bakh Font Definitions --- */
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('fonts/Yekan Bakh Fa 01 Hairline.eot');
+  src: url('fonts/Yekan Bakh Fa 01 Hairline.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Yekan Bakh Fa 01 Hairline.woff') format('woff'),
+    url('fonts/Yekan Bakh Fa 01 Hairline.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('fonts/Yekan Bakh Fa 02 Thin.eot');
+  src: url('fonts/Yekan Bakh Fa 02 Thin.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Yekan Bakh Fa 02 Thin.woff') format('woff'),
+    url('fonts/Yekan Bakh Fa 02 Thin.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('fonts/Yekan Bakh Fa 03 Light.eot');
+  src: url('fonts/Yekan Bakh Fa 03 Light.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Yekan Bakh Fa 03 Light.woff') format('woff'),
+    url('fonts/Yekan Bakh Fa 03 Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('fonts/Yekan Bakh Fa 04 Regular.eot');
+  src: url('fonts/Yekan Bakh Fa 04 Regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Yekan Bakh Fa 04 Regular.woff') format('woff'),
+    url('fonts/Yekan Bakh Fa 04 Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('fonts/Yekan Bakh Fa 05 Medium.eot');
+  src: url('fonts/Yekan Bakh Fa 05 Medium.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Yekan Bakh Fa 05 Medium.woff') format('woff'),
+    url('fonts/Yekan Bakh Fa 05 Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('fonts/Yekan Bakh Fa 06 Bold.eot');
+  src: url('fonts/Yekan Bakh Fa 06 Bold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Yekan Bakh Fa 06 Bold.woff') format('woff'),
+    url('fonts/Yekan Bakh Fa 06 Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('fonts/Yekan Bakh Fa 07 Heavy.eot');
+  src: url('fonts/Yekan Bakh Fa 07 Heavy.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Yekan Bakh Fa 07 Heavy.woff') format('woff'),
+    url('fonts/Yekan Bakh Fa 07 Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YekanBakh';
+  src: url('fonts/Yekan Bakh Fa 08 Fat.eot');
+  src: url('fonts/Yekan Bakh Fa 08 Fat.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Yekan Bakh Fa 08 Fat.woff') format('woff'),
+    url('fonts/Yekan Bakh Fa 08 Fat.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* --- CSS Custom Properties --- */
 :root {
+  /* Color Palette */
   --color-white: #ffffff;
   --color-off-white: #fafafa;
   --color-light-gray: #f0f0f0;
@@ -13,10 +103,61 @@
   --color-black: #0a0a0a;
   --color-accent: #1a1a1a;
 
+  /* Text Semantic Colors */
+  --text-color-primary: var(--color-black);
+  --text-color-secondary: #262626;
+  --text-color-muted: #525252;
+  --text-color-inverse: var(--color-white);
+  --text-color-inverse-muted: rgba(255, 255, 255, 0.88);
+  --text-color-counter-dim: rgba(255, 255, 255, 0.8);
+
+  /* Font Families */
   --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-persian: 'YekanBakh', Tahoma, sans-serif;
   --font-display: 'Playfair Display', Georgia, serif;
 
+  /* Font Weights */
+  --font-weight-hairline: 100;
+  --font-weight-thin: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 800;
+  --font-weight-fat: 900;
+
+  /* Font Sizes (Scale) */
+  --font-size-xs: 0.85rem;          /* Labels, footer titles, meta */
+  --font-size-sm: 0.92rem;          /* Nav links, hero btn, section links */
+  --font-size-sub: 0.98rem;         /* Subtitles, brand name, footer links/desc */
+  --font-size-base: 1.12rem;        /* Main body text, footer brand */
+  --font-size-md: 1.2rem;           /* Project card titles */
+  --font-size-counter: 1.35rem;     /* Active slide counter */
+  --font-size-overlay: clamp(1.25rem, 1.8vw, 1.6rem); /* Project card overlay */
+  --font-size-section: clamp(2rem, 3.5vw, 3.2rem);   /* Section headings */
+  --font-size-hero: clamp(2.8rem, 6.5vw, 5.5rem);     /* Hero main title */
+  --font-size-display: clamp(2.8rem, 6.5vw, 6rem);    /* Display headings */
+
+  /* Line Heights */
+  --line-height-none: 1;
+  --line-height-display: 1.05;
+  --line-height-hero: 1.08;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.7;
+  --line-height-loose: 1.8;
+
+  /* Letter Spacings */
+  --letter-spacing-tight-display: -0.02em;
+  --letter-spacing-tight-hero: -0.01em;
+  --letter-spacing-normal: 0.02em;
+  --letter-spacing-wide: 0.05em;
+  --letter-spacing-counter: 0.1em;
+  --letter-spacing-nav: 0.15em;
+  --letter-spacing-label: 0.2em;
+  --letter-spacing-overlay: 0.25em;
+
+  /* Spacings */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
@@ -24,10 +165,19 @@
   --spacing-xl: 6rem;
   --spacing-2xl: 8rem;
 
+  /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-slow: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Text Animations & Transitions */
+  --anim-fade-in-up-hero-title: fadeInUp 0.8s ease forwards 0.3s;
+  --anim-fade-in-up-hero-sub: fadeInUp 0.8s ease forwards 0.6s;
+  --anim-fade-in-up-hero-btn: fadeInUp 0.8s ease forwards 0.9s;
+  --text-transition-color: color var(--transition-fast);
+  --text-transition-smooth: color var(--transition-smooth);
+  --reveal-transition: opacity 0.8s ease, transform 0.8s ease;
 
   --nav-height: 80px;
   --max-width: 1400px;
@@ -50,10 +200,10 @@ html {
 
 body {
   font-family: var(--font-primary);
-  font-weight: 300;
-  color: var(--color-black);
+  font-weight: var(--font-weight-light);
+  color: var(--text-color-primary);
   background-color: var(--color-white);
-  line-height: 1.6;
+  line-height: var(--line-height-normal);
   overflow-x: hidden;
 }
 
@@ -81,42 +231,42 @@ button {
 
 /* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
-  line-height: 1.2;
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
 }
 
 .heading-display {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: var(--color-white);
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-tight-display);
+  line-height: var(--line-height-display);
+  color: var(--text-color-inverse);
 }
 
 .heading-section {
   font-family: var(--font-primary);
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-weight: 200;
-  letter-spacing: 0.15em;
+  font-size: var(--font-size-section);
+  font-weight: var(--font-weight-thin);
+  letter-spacing: var(--letter-spacing-nav);
   text-transform: uppercase;
-  color: var(--color-black);
+  color: var(--text-color-primary);
 }
 
 .text-body {
-  font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  color: var(--color-dark-gray);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--text-color-secondary);
   text-align: justify;
 }
 
 .text-label {
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-label);
   text-transform: uppercase;
-  color: var(--color-mid-gray);
+  color: var(--text-color-muted);
 }
 
 /* --- Animated Link Underline --- */
@@ -173,7 +323,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar.scrolled .nav-brand-name,
 .navbar.scrolled .nav-link,
 .navbar.scrolled .nav-social-link {
-  color: var(--color-black);
+  color: var(--text-color-primary);
 }
 
 .navbar.menu-open {
@@ -184,7 +334,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar.menu-open .nav-brand-name,
 .navbar.menu-open .lang-switcher {
-  color: var(--color-black);
+  color: var(--text-color-primary);
 }
 
 .navbar.menu-open .lang-switcher {
@@ -203,12 +353,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-brand-name {
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-size: var(--font-size-sub);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-label);
   text-transform: uppercase;
-  color: var(--color-white);
-  transition: color var(--transition-smooth);
+  color: var(--text-color-inverse);
+  transition: var(--text-transition-smooth);
 }
 
 .nav-center {
@@ -218,11 +368,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link {
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-nav);
   text-transform: uppercase;
-  color: var(--color-white);
+  color: var(--text-color-inverse);
   transition: color var(--transition-fast), opacity var(--transition-fast), font-weight var(--transition-fast);
   position: relative;
 }
@@ -253,14 +403,24 @@ h1, h2, h3, h4, h5, h6 {
 .nav-social {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.75rem;
 }
 
 .nav-social-link {
   display: flex;
   align-items: center;
-  color: var(--color-white);
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  color: var(--text-color-inverse);
+  border: none;
+  background: transparent;
+  cursor: pointer;
   transition: color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.navbar.scrolled .nav-social-link {
+  color: var(--text-color-primary);
 }
 
 .nav-social-link:hover {
@@ -268,41 +428,63 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
-.nav-social-link svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
+/* Icon CSS Masks (Using Local Outline Assets) */
+.icon-social {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  transition: background-color var(--transition-fast);
 }
 
-/* --- Language Switcher --- */
+.icon-instagram {
+  -webkit-mask-image: url('assets/instagram.svg');
+  mask-image: url('assets/instagram.svg');
+}
+
+.icon-linkedin {
+  -webkit-mask-image: url('assets/linkedin.svg');
+  mask-image: url('assets/linkedin.svg');
+}
+
+/* --- Language Switcher (Refined Outline Button Style) --- */
 .lang-switcher {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 26px;
-  min-width: 65px;
-  font-family: var(--font-primary), 'YekanBakh', Tahoma, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
+  text-align: center;
+  direction: ltr !important;
+  height: 24px;
+  min-width: 38px;
+  padding: 0 6px;
+  font-family: var(--font-primary), sans-serif !important;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
   line-height: 1;
-  letter-spacing: normal;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-white);
-  padding: 2px 14px 0 14px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all var(--transition-fast);
+  color: var(--text-color-inverse);
   background: transparent;
+  border: 1.2px solid currentColor;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .navbar.scrolled .lang-switcher {
-  color: var(--color-black);
-  border-color: rgba(0, 0, 0, 0.2);
+  color: var(--text-color-primary);
+  border-color: currentColor;
 }
 
 .lang-switcher:hover {
-  border-color: currentColor;
+  opacity: 0.7;
+  transform: translateY(-2px);
 }
 
 /* --- Mobile Menu Toggle --- */
@@ -403,44 +585,44 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.08;
-  color: var(--color-white);
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-tight-hero);
+  line-height: var(--line-height-hero);
+  color: var(--text-color-inverse);
   margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards 0.3s;
+  animation: var(--anim-fade-in-up-hero-title);
 }
 
 .hero-subtitle {
-  font-size: 0.85rem;
-  font-weight: 300;
-  letter-spacing: 0.15em;
+  font-size: var(--font-size-sub);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-nav);
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-color-inverse-muted);
   margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards 0.6s;
+  animation: var(--anim-fade-in-up-hero-sub);
 }
 
 .hero-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-label);
   text-transform: uppercase;
-  color: var(--color-white);
+  color: var(--text-color-inverse);
   padding: 14px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   transition: all var(--transition-smooth);
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards 0.9s;
+  animation: var(--anim-fade-in-up-hero-btn);
 }
 
 .hero-btn:hover {
@@ -521,16 +703,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Slide counter */
 .hero-counter {
-  font-size: 0.8rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-counter);
+  color: var(--text-color-counter-dim);
 }
 
 .hero-counter .current {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--color-white);
+  font-size: var(--font-size-counter);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-color-inverse);
 }
 
 @keyframes fadeInUp {
@@ -561,11 +743,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-link {
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-nav);
   text-transform: uppercase;
-  color: var(--color-mid-gray);
+  color: var(--text-color-muted);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -573,7 +755,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-link:hover {
-  color: var(--color-black);
+  color: var(--text-color-primary);
   gap: 0.75rem;
 }
 
@@ -608,7 +790,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: var(--reveal-transition);
 }
 
 .project-card.visible {
@@ -652,11 +834,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-card-view {
   font-family: var(--font-primary);
-  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
-  font-weight: 500;
-  letter-spacing: 0.25em;
+  font-size: var(--font-size-overlay);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-overlay);
   text-transform: uppercase;
-  color: var(--color-white);
+  color: var(--text-color-inverse);
   text-align: center;
   padding: 12px 0;
   background: none;
@@ -685,18 +867,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-card-title {
-  font-size: 1.05rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  color: var(--color-black);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--text-color-primary);
 }
 
 .project-card-meta {
-  font-size: 0.75rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-counter);
   text-transform: uppercase;
-  color: var(--color-mid-gray);
+  color: var(--text-color-muted);
 }
 
 /* ============================================
@@ -716,28 +898,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-brand-name {
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-nav);
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
 .footer-brand-desc {
-  font-size: 0.85rem;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--color-mid-gray);
+  font-size: var(--font-size-sub);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-loose);
+  color: var(--text-color-muted);
   max-width: 320px;
   text-align: justify;
 }
 
 .footer-col-title {
-  font-size: 0.7rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-label);
   text-transform: uppercase;
-  color: var(--color-mid-gray);
+  color: var(--text-color-muted);
   margin-bottom: 1.25rem;
 }
 
@@ -748,22 +930,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-link {
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: var(--color-dark-gray);
-  transition: color var(--transition-fast);
+  font-size: var(--font-size-sub);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-color-secondary);
+  transition: var(--text-transition-color);
 }
 
 .footer-link:hover {
-  color: var(--color-black);
+  color: var(--text-color-primary);
 }
 
 .footer-contact-item {
-  font-size: 0.85rem;
-  font-weight: 300;
-  color: var(--color-dark-gray);
+  font-size: var(--font-size-sub);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-color-secondary);
   margin-bottom: 0.5rem;
-  line-height: 1.7;
+  line-height: var(--line-height-relaxed);
 }
 
 .footer-social {
@@ -804,17 +986,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-copyright {
-  font-size: 0.75rem;
-  font-weight: 300;
-  color: var(--color-mid-gray);
-  letter-spacing: 0.05em;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-color-muted);
+  letter-spacing: var(--letter-spacing-wide);
 }
 
 .footer-credit {
-  font-size: 0.75rem;
-  font-weight: 300;
-  color: var(--color-mid-gray);
-  letter-spacing: 0.05em;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-color-muted);
+  letter-spacing: var(--letter-spacing-wide);
 }
 
 /* ============================================
@@ -823,7 +1005,7 @@ h1, h2, h3, h4, h5, h6 {
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: var(--reveal-transition);
 }
 
 .reveal.visible {
@@ -990,7 +1172,7 @@ body.lang-fa .footer-link,
 body.lang-fa .footer-contact-item,
 body.lang-fa .footer-copyright,
 body.lang-fa .footer-credit {
-  font-family: 'YekanBakh', Tahoma, sans-serif;
+  font-family: var(--font-persian);
   letter-spacing: normal !important;
 }
 
@@ -998,15 +1180,17 @@ body.lang-fa .hero-title,
 body.lang-fa .heading-display,
 body.lang-fa .heading-section,
 body.lang-fa .footer-brand-name {
-  font-weight: 800;
+  font-weight: var(--font-weight-heavy);
 }
 
 body.lang-fa .hero-title {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.3rem, 5.5vw, 4.5rem);
 }
 
 body.lang-fa .lang-switcher {
-  letter-spacing: 0.1em;
+  direction: ltr !important;
+  font-family: var(--font-primary), sans-serif !important;
+  letter-spacing: 0.05em !important;
 }
 
 body.lang-fa .nav-link,
