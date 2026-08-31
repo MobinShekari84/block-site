@@ -23,10 +23,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Vazirmatn:wght@200;300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
     rel="stylesheet">
 
   <!-- Styles -->
+  <link rel="stylesheet" href="components/InteractivePlan/InteractivePlan.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="logo.css">
 
@@ -96,18 +97,18 @@
     <div class="hero-slideshow">
       <!-- Slide 1 -->
       <div class="hero-slide active">
-        <img src="assets/villa-alborz-hero.jpg"
+        <img src="assets/villa-alborz-hero.webp"
           alt="Villa Alborz — modern minimalist villa with clean lines and natural light" fetchpriority="high"
           width="1920" height="1080">
       </div>
       <!-- Slide 2 -->
       <div class="hero-slide">
-        <img src="assets/noor-tower-hero.jpg" alt="Noor Tower — residential tower with geometric facade"
+        <img src="assets/noor-tower-hero.webp" alt="Noor Tower — residential tower with geometric facade"
           fetchpriority="low" width="1920" height="1080">
       </div>
       <!-- Slide 3 -->
       <div class="hero-slide">
-        <img src="assets/saye-complex-hero.jpg" alt="Saye Complex — commercial building with minimal concrete exterior"
+        <img src="assets/saye-complex-hero.webp" alt="Saye Complex — commercial building with minimal concrete exterior"
           fetchpriority="low" width="1920" height="1080">
       </div>
     </div>
@@ -148,17 +149,13 @@
         <p class="text-label" id="projectsLabel">Selected Work</p>
         <h2 class="heading-section" id="projectsTitle">Projects</h2>
       </div>
-      <a href="#" class="section-link" id="projectsViewAll">
-        View All Projects
-        <span class="section-link-arrow" aria-hidden="true"></span>
-      </a>
     </header>
 
     <div class="projects-grid">
-      <!-- Project 1 -->
+      <!-- Project%201 -->
       <article class="project-card">
         <a href="#" class="project-card-image">
-          <img src="assets/villa-alborz-thumb.jpg" alt="Villa Alborz — minimalist residential architecture"
+          <img src="assets/villa-alborz-thumb.webp" alt="Villa Alborz — minimalist residential architecture"
             loading="lazy" width="800" height="1000">
           <div class="project-card-overlay">
             <span class="project-card-view">Villa Alborz</span>
@@ -173,7 +170,7 @@
       <!-- Project 2 -->
       <article class="project-card">
         <a href="#" class="project-card-image">
-          <img src="assets/noor-tower-thumb.jpg" alt="Noor Tower — mixed-use tower with geometric facade" loading="lazy"
+          <img src="assets/noor-tower-thumb.webp" alt="Noor Tower — mixed-use tower with geometric facade" loading="lazy"
             width="800" height="1000">
           <div class="project-card-overlay">
             <span class="project-card-view">Noor Tower</span>
@@ -188,7 +185,7 @@
       <!-- Project 3 -->
       <article class="project-card">
         <a href="#" class="project-card-image">
-          <img src="assets/saye-complex-thumb.jpg"
+          <img src="assets/saye-complex-thumb.webp"
             alt="Saye Complex — commercial architecture with clean concrete design" loading="lazy" width="800"
             height="1000">
           <div class="project-card-overlay">
@@ -201,6 +198,20 @@
         </div>
       </article>
     </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SPATIAL VIEWPORT (Interactive 3D)
+       ═══════════════════════════════════════════ -->
+    <section class="section light-theme" id="spatial" aria-label="Interactive Project%201 Showcase">
+    <header class="section-header reveal">
+      <div>
+        <p class="text-label" id="spatialLabel">Project 1 Showcase</p>
+        <h2 class="heading-section" id="spatialTitle">Interactive Plan</h2>
+      </div>
+    </header>
+
+    <div id="spatial-container"></div>
   </section>
 
   <!-- ═══════════════════════════════════════════
@@ -258,8 +269,10 @@
     </div>
   </footer>
 
-  <!-- Script -->
+  <!-- Scripts -->
   <script src="script.js"></script>
+  <script src="components/InteractivePlan/InteractivePlan.js"></script>
+  <script src="spatial.js"></script>
 </body>
 
 </html>

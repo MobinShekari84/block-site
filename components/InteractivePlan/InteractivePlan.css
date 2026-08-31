@@ -1,0 +1,487 @@
+/* ==========================================================================
+   INTERACTIVE PLAN COMPONENT STYLES
+   ========================================================================== */
+
+/* ============================================
+   INTERACTIVE RENDER GALLERY (Light Theme)
+   ============================================ */
+.section.light-theme {
+  background-color: var(--color-white);
+  color: var(--text-color-primary);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-light-gray);
+}
+
+.spatial-wrapper {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr; /* 1/3 to 2/3 ratio approx */
+  gap: 2rem;
+  
+  margin-top: 2rem;
+}
+
+.spatial-blueprint.light-blueprint {
+  background: var(--color-off-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1.5rem;
+  min-height: 0;
+  min-width: 0;
+}
+
+.blueprint-inner {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blueprint-svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+/* Light Theme Hotspots */
+.hotspot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--color-black);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hotspot:hover, .hotspot.active {
+  transform: translate(-50%, -50%) scale(1.3);
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px var(--color-black);
+}
+
+.hotspot::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 30px; height: 30px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease;
+}
+.hotspot.active::after {
+  transform: translate(-50%, -50%) scale(1);
+  animation: pulseLight 2s infinite;
+}
+
+@keyframes pulseLight {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* FOV Cone Light */
+.fov-cone {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 35px solid rgba(0, 0, 0, 0.15);
+  transform-origin: top center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.hotspot.active .fov-cone {
+  opacity: 1;
+}
+
+/* Right Sidebar */
+.render-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.render-main {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--color-off-white);
+  border: 1px solid var(--color-light-gray);
+}
+
+.render-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.render-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.thumb-btn {
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity var(--transition-fast), border-color var(--transition-fast);
+  padding: 0;
+  background: none;
+}
+
+.thumb-btn:hover {
+  opacity: 0.8;
+}
+
+.thumb-btn.active {
+  opacity: 1;
+  border-color: var(--color-black);
+}
+
+.thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+@media (max-width: 900px) {
+  .spatial-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+  }
+  .spatial-blueprint.light-blueprint {
+    height: 45vh;
+  }
+  .render-sidebar {
+    height: auto;
+  }
+  
+  }
+/* ============================================
+   FULLSCREEN LIGHTBOX
+   ============================================ */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-overlay[aria-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.lightbox-header {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 10001;
+}
+[dir="rtl"] .lightbox-header {
+  right: auto;
+  left: 20px;
+}
+
+.lb-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--color-light-gray);
+  color: var(--color-black);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.lb-btn:hover {
+  background: var(--color-white);
+  border-color: var(--color-black);
+  transform: scale(1.05);
+}
+
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--color-black);
+  padding: 20px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 10000;
+}
+.lb-nav:hover {
+  opacity: 0.8;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lb-prev { left: 20px; }
+.lb-next { right: 20px; }
+[dir="rtl"] .lb-prev { left: auto; right: 20px; transform: translateY(-50%) scaleX(-1); }
+[dir="rtl"] .lb-next { right: auto; left: 20px; transform: translateY(-50%) scaleX(-1); }
+[dir="rtl"] .lb-nav:hover { transform: translateY(-50%) scaleX(-1) scale(1.1); }
+
+
+.lightbox-body {
+  width: 90vw;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-body img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+/* Lightbox Minimap */
+.lightbox-minimap {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  aspect-ratio: 1755 / 2482;
+  background: var(--color-off-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10001;
+}
+[dir="rtl"] .lightbox-minimap {
+  left: auto;
+  right: 20px;
+}
+.lightbox-minimap.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.lightbox-minimap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.minimap-pin {
+  pointer-events: none;
+}
+
+#active-render {
+  cursor: zoom-in;
+}
+
+
+/* ============================================
+   BILINGUAL (RTL) SUPPORT
+   ============================================ */
+[dir="rtl"] {
+  font-family: 'YekanBakh', sans-serif;
+}
+.lang-fa .text-label,
+.lang-fa .heading-section,
+.lang-fa .telemetry-label,
+.lang-fa .hud-badge,
+.lang-fa .btn-outline {
+  font-family: 'YekanBakh', sans-serif;
+  letter-spacing: 0;
+}
+
+/* ============================================
+   TELEMETRY HUD REDESIGN (UNIVERSAL FLOATING PILL)
+   ============================================ */
+/* Base container: invisible wrapper */
+.telemetry-hud.light-hud {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  pointer-events: auto;
+  max-width: calc(100% - 40px);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+[dir="rtl"] .telemetry-hud.light-hud {
+  left: auto;
+  right: 20px;
+}
+
+/* Hidden text wrapper by default */
+.hud-main {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+/* Standalone floating (i) button by default */
+.hud-expand {
+  display: flex;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-black);
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+/* EXPANDED STATE (Applies to both Desktop & Mobile) */
+.telemetry-hud.light-hud.expanded {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.telemetry-hud.light-hud.expanded .hud-main {
+  display: flex;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.telemetry-hud.light-hud.expanded .hud-expand {
+  background: rgba(0,0,0,0.05);
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  width: 28px;
+  height: 28px;
+  font-size: 0.85rem;
+}
+
+/* Badges styling */
+.telemetry-label {
+  color: var(--text-color-muted);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.hud-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.hud-badge {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-color-primary);
+  white-space: normal;
+  word-break: break-word;
+}
+
+
+@media (max-width: 600px) {
+  .telemetry-hud.light-hud {
+    bottom: 10px;
+    left: 10px;
+    max-width: calc(100% - 20px);
+  }
+  [dir="rtl"] .telemetry-hud.light-hud {
+    right: 10px;
+    left: auto;
+  }
+  .telemetry-hud.light-hud.expanded .hud-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+  flex-shrink: 1;
+}
+  .hud-badges {
+    flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+  .hud-badge {
+    white-space: normal;
+    text-align: left;
+    word-break: break-word;
+  }
+  [dir="rtl"] .hud-badge {
+    text-align: right;
+  }
+}

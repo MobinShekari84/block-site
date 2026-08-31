@@ -6,10 +6,7 @@
 /* --- Yekan Bakh Font Definitions --- */
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 01 Hairline.eot');
-  src: url('fonts/Yekan Bakh Fa 01 Hairline.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Yekan Bakh Fa 01 Hairline.woff') format('woff'),
-    url('fonts/Yekan Bakh Fa 01 Hairline.ttf') format('truetype');
+  src: url('fonts/Yekan Bakh Fa 01 Hairline.woff2') format('woff2');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -17,10 +14,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 02 Thin.eot');
-  src: url('fonts/Yekan Bakh Fa 02 Thin.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Yekan Bakh Fa 02 Thin.woff') format('woff'),
-    url('fonts/Yekan Bakh Fa 02 Thin.ttf') format('truetype');
+  src: url('fonts/Yekan Bakh Fa 02 Thin.woff2') format('woff2');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -28,10 +22,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 03 Light.eot');
-  src: url('fonts/Yekan Bakh Fa 03 Light.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Yekan Bakh Fa 03 Light.woff') format('woff'),
-    url('fonts/Yekan Bakh Fa 03 Light.ttf') format('truetype');
+  src: url('fonts/Yekan Bakh Fa 03 Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -39,10 +30,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 04 Regular.eot');
-  src: url('fonts/Yekan Bakh Fa 04 Regular.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Yekan Bakh Fa 04 Regular.woff') format('woff'),
-    url('fonts/Yekan Bakh Fa 04 Regular.ttf') format('truetype');
+  src: url('fonts/Yekan Bakh Fa 04 Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -50,10 +38,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 05 Medium.eot');
-  src: url('fonts/Yekan Bakh Fa 05 Medium.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Yekan Bakh Fa 05 Medium.woff') format('woff'),
-    url('fonts/Yekan Bakh Fa 05 Medium.ttf') format('truetype');
+  src: url('fonts/Yekan Bakh Fa 05 Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -61,10 +46,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 06 Bold.eot');
-  src: url('fonts/Yekan Bakh Fa 06 Bold.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Yekan Bakh Fa 06 Bold.woff') format('woff'),
-    url('fonts/Yekan Bakh Fa 06 Bold.ttf') format('truetype');
+  src: url('fonts/Yekan Bakh Fa 06 Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -72,10 +54,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 07 Heavy.eot');
-  src: url('fonts/Yekan Bakh Fa 07 Heavy.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Yekan Bakh Fa 07 Heavy.woff') format('woff'),
-    url('fonts/Yekan Bakh Fa 07 Heavy.ttf') format('truetype');
+  src: url('fonts/Yekan Bakh Fa 07 Heavy.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -83,10 +62,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 08 Fat.eot');
-  src: url('fonts/Yekan Bakh Fa 08 Fat.eot?#iefix') format('embedded-opentype'),
-    url('fonts/Yekan Bakh Fa 08 Fat.woff') format('woff'),
-    url('fonts/Yekan Bakh Fa 08 Fat.ttf') format('truetype');
+  src: url('fonts/Yekan Bakh Fa 08 Fat.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -1243,3 +1219,4 @@ html[dir="rtl"] .lang-dropdown {
     left: 1.5rem;
   }
 }
+

@@ -1,0 +1,37 @@
+{
+  "projectId": "project-1",
+  "planImageUrl": "assets/Project 1/Plan.png",
+  "aspectRatio": "1755 / 2482",
+  "hotspots": [
+    {
+      "id": "cam-1",
+      "x": 20,
+      "y": 30,
+      "rot": 45,
+      "title": { "en": "Camera 01", "fa": "دوربین ۰۱" },
+      "zone": { "en": "Exterior Approach", "fa": "ورودی خارجی" },
+      "renderUrl": "assets/Project 1/01.webp",
+      "thumbnailUrl": "assets/Project 1/01.webp"
+    },
+    {
+      "id": "cam-2",
+      "x": 35,
+      "y": 25,
+      "rot": 90,
+      "title": { "en": "Camera 02", "fa": "دوربین ۰۲" },
+      "zone": { "en": "Main Atrium", "fa": "آتریوم اصلی" },
+      "renderUrl": "assets/Project 1/02.webp",
+      "thumbnailUrl": "assets/Project 1/02.webp"
+    },
+    {
+      "id": "cam-3",
+      "x": 50,
+      "y": 30,
+      "rot": 135,
+      "title": { "en": "Camera 03", "fa": "دوربین ۰۳" },
+      "zone": { "en": "Living Space", "fa": "فضای نشیمن" },
+      "renderUrl": "assets/Project 1/03.webp",
+      "thumbnailUrl": "assets/Project 1/03.webp"
+    }
+  ]
+}

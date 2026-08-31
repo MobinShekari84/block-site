@@ -134,6 +134,19 @@ document.addEventListener('DOMContentLoaded', () => {
     slideInterval = setInterval(nextSlide, SLIDE_DURATION);
   }
 
+  function stopSlideshow() {
+    clearInterval(slideInterval);
+  }
+
+  // Handle tab visibility to save resources
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopSlideshow();
+    } else {
+      startSlideshow();
+    }
+  });
+
   heroIndicators.forEach((indicator, i) => {
     indicator.addEventListener('click', () => {
       goToSlide(i);
