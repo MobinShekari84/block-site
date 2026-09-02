@@ -2,3 +2,4 @@
 *.pdf
 *.jpg
 plan-*.png
+.DS_Store

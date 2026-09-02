@@ -6,7 +6,7 @@
 /* --- Yekan Bakh Font Definitions --- */
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 01 Hairline.woff2') format('woff2');
+  src: url('../assets/fonts/Yekan Bakh Fa 01 Hairline.woff2') format('woff2');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 02 Thin.woff2') format('woff2');
+  src: url('../assets/fonts/Yekan Bakh Fa 02 Thin.woff2') format('woff2');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -22,7 +22,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 03 Light.woff2') format('woff2');
+  src: url('../assets/fonts/Yekan Bakh Fa 03 Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -30,7 +30,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 04 Regular.woff2') format('woff2');
+  src: url('../assets/fonts/Yekan Bakh Fa 04 Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -38,7 +38,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 05 Medium.woff2') format('woff2');
+  src: url('../assets/fonts/Yekan Bakh Fa 05 Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -46,7 +46,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 06 Bold.woff2') format('woff2');
+  src: url('../assets/fonts/Yekan Bakh Fa 06 Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -54,7 +54,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 07 Heavy.woff2') format('woff2');
+  src: url('../assets/fonts/Yekan Bakh Fa 07 Heavy.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -62,7 +62,7 @@
 
 @font-face {
   font-family: 'YekanBakh';
-  src: url('fonts/Yekan Bakh Fa 08 Fat.woff2') format('woff2');
+  src: url('../assets/fonts/Yekan Bakh Fa 08 Fat.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -420,13 +420,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .icon-instagram {
-  -webkit-mask-image: url('assets/instagram.svg');
-  mask-image: url('assets/instagram.svg');
+  -webkit-mask-image: url('../assets/icons/instagram.svg');
+  mask-image: url('../assets/icons/instagram.svg');
 }
 
 .icon-linkedin {
-  -webkit-mask-image: url('assets/linkedin.svg');
-  mask-image: url('assets/linkedin.svg');
+  -webkit-mask-image: url('../assets/icons/linkedin.svg');
+  mask-image: url('../assets/icons/linkedin.svg');
 }
 
 /* --- Language Switcher (Refined Outline Button Style) --- */
