@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Damas Villa — Block Architecture Studio</title>
   
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/logo.css">
-  <link rel="stylesheet" href="css/damas-villa.css">
+  <link rel="stylesheet" href="css/project-template.css">
 </head>
-<body class="subpage">
+<body class="subpage project-page">
   <nav class="navbar scrolled" id="navbar" aria-label="Main navigation">
     <a href="index.html" class="nav-brand" aria-label="Block Architecture Studio — Home">
       <div class="nav-brand-logo" aria-hidden="true"></div>
@@ -40,59 +39,51 @@
     </div>
   </nav>
 
-  <main class="editorial-main">
-    <!-- Project Header -->
-    <header class="project-header reveal">
-      <h1 class="project-title" id="projectTitle">Damas Villa</h1>
-      <div class="project-meta">
-        <div class="meta-item">
-          <span class="meta-label" id="metaLocLabel">Location</span>
-          <span class="meta-value" id="metaLocValue">Damavand, Iran</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label" id="metaYearLabel">Year</span>
-          <span class="meta-value" id="metaYearValue">2026</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label" id="metaTypeLabel">Typology</span>
-          <span class="meta-value" id="metaTypeValue">Residential</span>
-        </div>
-      </div>
+  <main>
+    <!-- Header Hero -->
+    <section class="project-hero reveal">
+      <img src="assets/damas-villa/01.webp" alt="Damas Villa Hero" class="lightbox-trigger">
+    </section>
+
+    <!-- Minimalist Typography Lockup -->
+    <header class="project-header-text reveal">
+      <h1 class="project-title" data-en="Damas Villa" data-fa="ویلای داماس">Damas Villa</h1>
+      <p class="project-subtitle" data-en="Residential, Damavand, 2026" data-fa="مسکونی، دماوند، ۱۴۰۵">Residential, Damavand, 2026</p>
     </header>
 
-    <!-- Editorial Gallery -->
-    <section class="editorial-gallery">
-      <div class="gallery-row full-width reveal">
-        <img src="assets/damas-villa/01.webp" alt="Damas Villa Hero" class="gallery-img" data-index="0">
-      </div>
-      <div class="gallery-row two-col reveal">
-        <img src="assets/damas-villa/02.webp" alt="Damas Villa Facade" class="gallery-img" data-index="1">
-        <img src="assets/damas-villa/03.webp" alt="Damas Villa Terrace" class="gallery-img" data-index="2">
-      </div>
-      <div class="gallery-row staggered reveal">
-        <div class="stagger-left">
-          <img src="assets/damas-villa/04.webp" alt="Damas Villa Living" class="gallery-img" data-index="3">
+    <div class="project-content">
+      <!-- Split Narrative Block -->
+      <section class="split-narrative reveal">
+        <div class="narrative-text" data-en="Block Architecture Studio designed Damas Villa as a harmonious sanctuary that bridges the rugged topography of Damavand with minimalist residential comfort. The defining characteristic of the project is its strict geometric purity, offset by expansive glazing that invites natural light deep into the core spaces. The material palette—comprising raw concrete, white plaster, and subtle metallic accents—ensures the architecture acts as a quiet canvas for the changing seasons." data-fa="استودیو معماری بلاک ویلای داماس را به عنوان پناهگاهی هارمونیک طراحی کرده است که توپوگرافی خشن دماوند را با آرامش مینیمالیستی پیوند می‌دهد. ویژگی بارز این پروژه، خلوص هندسی دقیق آن است که با شیشه‌های وسیع برای هدایت نور طبیعی به فضاهای داخلی ترکیب شده است. متریال‌های بتن اکسپوز، گچ سفید و جزئیات ظریف فلزی، بستری آرام برای نمایش تغییرات فصول فراهم می‌کنند.">
+          Block Architecture Studio designed Damas Villa as a harmonious sanctuary that bridges the rugged topography of Damavand with minimalist residential comfort. The defining characteristic of the project is its strict geometric purity, offset by expansive glazing that invites natural light deep into the core spaces. The material palette—comprising raw concrete, white plaster, and subtle metallic accents—ensures the architecture acts as a quiet canvas for the changing seasons.
         </div>
-        <div class="stagger-right">
-          <img src="assets/damas-villa/05.webp" alt="Damas Villa Kitchen" class="gallery-img" data-index="4">
+        <div class="narrative-images">
+          <img src="assets/damas-villa/02.webp" alt="Facade Details" class="lightbox-trigger">
+          <img src="assets/damas-villa/03.webp" alt="Terrace View" class="lightbox-trigger">
         </div>
-      </div>
-      <div class="gallery-row two-col reveal">
-        <img src="assets/damas-villa/06.webp" alt="Damas Villa Atrium" class="gallery-img" data-index="5">
-        <img src="assets/damas-villa/07.webp" alt="Damas Villa Bedroom" class="gallery-img" data-index="6">
-      </div>
-      <div class="gallery-row staggered-alt reveal">
-        <div class="stagger-left">
-          <img src="assets/damas-villa/08.webp" alt="Damas Villa Guest" class="gallery-img" data-index="7">
-        </div>
-        <div class="stagger-right">
-          <img src="assets/damas-villa/09.webp" alt="Damas Villa Detail" class="gallery-img" data-index="8">
-        </div>
-      </div>
-      <div class="gallery-row full-width reveal">
-        <img src="assets/damas-villa/plan.webp" alt="Damas Villa Floor Plan" class="gallery-img plan-img" data-index="9" style="background: white; padding: 2rem;">
-      </div>
-    </section>
+      </section>
+
+      <!-- Gallery Grid 1 (3 Columns) -->
+      <section class="gallery-grid-3 reveal">
+        <img src="assets/damas-villa/04.webp" alt="Living Space" class="lightbox-trigger">
+        <img src="assets/damas-villa/05.webp" alt="Kitchen" class="lightbox-trigger">
+        <img src="assets/damas-villa/06.webp" alt="Atrium" class="lightbox-trigger">
+      </section>
+
+      <!-- Gallery Grid 2 (3 Columns) -->
+      <section class="gallery-grid-3 reveal">
+        <img src="assets/damas-villa/07.webp" alt="Bedroom" class="lightbox-trigger">
+        <img src="assets/damas-villa/08.webp" alt="Guest Room" class="lightbox-trigger">
+        <img src="assets/damas-villa/09.webp" alt="Detail" class="lightbox-trigger">
+      </section>
+
+      <!-- Architectural Drawings Grid -->
+      <section class="drawings-grid reveal">
+        <img src="assets/damas-villa/plan-1.webp" alt="Floor Plan 1" class="lightbox-trigger">
+        <img src="assets/damas-villa/plan-2.webp" alt="Floor Plan 2" class="lightbox-trigger">
+        <img src="assets/damas-villa/plan-3.webp" alt="Elevation" class="lightbox-trigger">
+      </section>
+    </div>
   </main>
 
   <footer class="footer" role="contentinfo">
@@ -129,7 +120,7 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
+  <!-- Universal Lightbox -->
   <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
     <div class="lightbox-overlay"></div>
     <div class="lightbox-content">
@@ -149,6 +140,6 @@
   </div>
 
   <script src="js/script.js"></script>
-  <script src="js/damas-villa.js"></script>
+  <script src="js/project-template.js"></script>
 </body>
 </html>
