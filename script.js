@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn: 'Learn More'
       },
       spatial: {
-        label: 'Project 1 Showcase',
+        label: 'Project Showcase',
         title: 'Interactive Plan'
       },
       projects: {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn: 'بیشتر بدانید'
       },
       spatial: {
-        label: 'نمایش پروژه ۱',
+        label: 'نمایش پروژه',
         title: 'پلان تعاملی'
       },
       projects: {
@@ -113,24 +113,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Hero Slideshow ─────────────────────────────
   function goToSlide(index) {
-    heroSlides[currentSlide].classList.remove('active');
-    heroIndicators[currentSlide].classList.remove('active');
+    if(heroSlides.length > 0) heroSlides[currentSlide].classList.remove('active');
+    if(heroIndicators.length > 0) heroIndicators[currentSlide].classList.remove('active');
 
     currentSlide = index;
 
     // Force reflow so CSS animation restarts from 0 width
-    void heroIndicators[currentSlide].offsetWidth;
+    if(heroIndicators.length > 0) void heroIndicators[currentSlide].offsetWidth;
 
-    heroSlides[currentSlide].classList.add('active');
-    heroIndicators[currentSlide].classList.add('active');
+    if(heroSlides.length > 0) heroSlides[currentSlide].classList.add('active');
+    if(heroIndicators.length > 0) heroIndicators[currentSlide].classList.add('active');
 
     // Update text
     const slideData = translations[currentLang].hero.slides[currentSlide];
-    heroTitle.textContent = slideData.title;
-    heroSubtitle.textContent = slideData.subtitle;
+    if(heroTitle) heroTitle.textContent = slideData.title;
+    if(heroSubtitle) heroSubtitle.textContent = slideData.subtitle;
     const isFa = currentLang === 'fa';
     const num = String(currentSlide + 1).padStart(2, '0');
-    counterCurrent.textContent = isFa ? toPersianDigits(num) : num;
+    if(counterCurrent) counterCurrent.textContent = isFa ? toPersianDigits(num) : num;
   }
 
   function nextSlide() {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize slideshow
   const initNum = String(heroSlides.length).padStart(2, '0');
-  counterTotal.textContent = currentLang === 'fa' ? toPersianDigits(initNum) : initNum;
+  if(counterTotal) counterTotal.textContent = currentLang === 'fa' ? toPersianDigits(initNum) : initNum;
   goToSlide(0);
   startSlideshow();
 
@@ -193,13 +193,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hero
     const slideData = t.hero.slides[currentSlide];
-    heroTitle.textContent = slideData.title;
-    heroSubtitle.textContent = slideData.subtitle;
-    heroBtnText.textContent = t.hero.btn;
+    if(heroTitle) heroTitle.textContent = slideData.title;
+    if(heroSubtitle) heroSubtitle.textContent = slideData.subtitle;
+    if(heroBtnText) heroBtnText.textContent = t.hero.btn;
 
     // Update Counter Total
     const totalNum = String(heroSlides.length).padStart(2, '0');
-    counterTotal.textContent = isFa ? toPersianDigits(totalNum) : totalNum;
+    if(counterTotal) counterTotal.textContent = isFa ? toPersianDigits(totalNum) : totalNum;
     
     // Update Counter Current
     const currentNum = String(currentSlide + 1).padStart(2, '0');
@@ -212,8 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (spTitle) spTitle.textContent = t.spatial.title;
 
     // Projects section
-    document.getElementById('projectsLabel').textContent = t.projects.label;
-    document.getElementById('projectsTitle').textContent = t.projects.title;
+    const pLabel = document.getElementById('projectsLabel'); if(pLabel) pLabel.textContent = t.projects.label;
+    const pTitle = document.getElementById('projectsTitle'); if(pTitle) pTitle.textContent = t.projects.title;
     const pva = document.getElementById('projectsViewAll');
     if (pva && pva.childNodes[0]) pva.childNodes[0].textContent = t.projects.viewAll + ' ';
 
