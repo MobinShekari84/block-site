@@ -55,28 +55,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- Bilingual Switcher ---
-  // Any element with data-en and data-fa will swap its textContent automatically
-  const bilingualElements = document.querySelectorAll('[data-en][data-fa]');
-  
-  const langObserver = new MutationObserver(() => {
-    const lang = document.documentElement.lang || 'en';
-    const isFa = lang === 'fa';
-    
-    bilingualElements.forEach(el => {
-      el.textContent = el.getAttribute(`data-${lang}`);
-    });
+  // --- Config-Based Bilingual Switcher ---
+  if (typeof projectConfig !== 'undefined') {
+    const titleEl = document.getElementById('projectTitle');
+    const subtitleEl = document.getElementById('projectSubtitle');
+    const narrativeEl = document.getElementById('projectNarrative');
 
-    document.body.classList.toggle('lang-fa', isFa);
-  });
-  
-  // Initialize and observe
-  langObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
-  
-  // Trigger initial language set
-  const initialLang = document.documentElement.lang || 'en';
-  bilingualElements.forEach(el => {
-    el.textContent = el.getAttribute(`data-${initialLang}`);
-  });
-  document.body.classList.toggle('lang-fa', initialLang === 'fa');
+    const updateTexts = (lang) => {
+      if (titleEl && projectConfig.title) titleEl.textContent = projectConfig.title[lang];
+      if (subtitleEl && projectConfig.subtitle) subtitleEl.textContent = projectConfig.subtitle[lang];
+      if (narrativeEl && projectConfig.narrative) narrativeEl.textContent = projectConfig.narrative[lang];
+    };
+
+    const langObserver = new MutationObserver(() => {
+      const lang = document.documentElement.lang || 'en';
+      updateTexts(lang);
+      document.body.classList.toggle('lang-fa', lang === 'fa');
+    });
+    
+    langObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    
+    const initialLang = document.documentElement.lang || 'en';
+    updateTexts(initialLang);
+    document.body.classList.toggle('lang-fa', initialLang === 'fa');
+  }
 });
