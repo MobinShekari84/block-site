@@ -241,3 +241,23 @@ body:not(.lang-fa) .narrative-text {
 body.lang-fa .narrative-text {
   font-weight: 400; /* keep Farsi readable */
 }
+
+/* Dynamic Navbar Theme for Light Hero Images */
+.navbar.navbar-dark-text .nav-brand-name,
+.navbar.navbar-dark-text .nav-link,
+.navbar.navbar-dark-text .lang-switcher,
+.navbar.navbar-dark-text .nav-social-link {
+  color: var(--color-black);
+}
+
+.navbar.navbar-dark-text .lang-switcher {
+  border-color: currentColor;
+}
+
+.navbar.navbar-dark-text .nav-toggle span {
+  background-color: var(--color-black);
+}
+
+.navbar.navbar-dark-text .nav-brand-logo {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='10' width='35' height='35' fill='none' stroke='%230a0a0a' stroke-width='3'/%3E%3Crect x='55' y='10' width='35' height='35' fill='%230a0a0a'/%3E%3Crect x='10' y='55' width='35' height='35' fill='%230a0a0a'/%3E%3Crect x='55' y='55' width='35' height='35' fill='none' stroke='%230a0a0a' stroke-width='3'/%3E%3C/svg%3E");
+}

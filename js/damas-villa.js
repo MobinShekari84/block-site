@@ -1,5 +1,6 @@
 const projectConfig = {
   id: 'damas-villa',
+  heroTheme: 'light', // 'light' means the image is light, so text should be dark
   title: {
     en: 'Damas Villa',
     fa: 'ویلای داماس'

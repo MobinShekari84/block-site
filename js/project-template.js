@@ -57,6 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Config-Based Bilingual Switcher ---
   if (typeof projectConfig !== 'undefined') {
+    
+    // --- Hero Theme Logic ---
+    if (projectConfig.heroTheme === 'light') {
+      const navbar = document.querySelector('.navbar');
+      if (navbar) navbar.classList.add('navbar-dark-text');
+    }
+
     const titleEl = document.getElementById('projectTitle');
     const subtitleEl = document.getElementById('projectSubtitle');
     const narrativeEl = document.getElementById('projectNarrative');
