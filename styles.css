@@ -89,7 +89,7 @@
 
   /* Font Families */
   --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-persian: 'YekanBakh', Tahoma, sans-serif;
+  --font-persian: 'YekanBakh', 'Yekan Bakh', 'Yekan Fard', 'yekanfard', Tahoma, sans-serif;
   --font-display: 'Playfair Display', Georgia, serif;
 
   /* Font Weights */
@@ -1220,3 +1220,26 @@ html[dir="rtl"] .lang-dropdown {
   }
 }
 
+
+
+/* ============================================
+   BILINGUAL (RTL/FARSI) TYPOGRAPHY FORCES
+   ============================================ */
+html[lang="fa"] h1, 
+html[lang="fa"] h2, 
+html[lang="fa"] h3, 
+html[lang="fa"] h4, 
+html[lang="fa"] h5, 
+html[lang="fa"] h6,
+body.lang-fa h1,
+body.lang-fa .hero-title,
+body.lang-fa .slideshow-header {
+  font-family: var(--font-persian) !important;
+  line-height: 1.4 !important; /* Proper leading for Persian ascenders/descenders */
+}
+
+/* Ensure proper font weight cascading for Farsi */
+html[lang="fa"] .hero-title,
+body.lang-fa .hero-title {
+  font-weight: 700 !important; /* Yekan Bold */
+}

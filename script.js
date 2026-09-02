@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
         btn: 'Learn More'
       },
+      spatial: {
+        label: 'Project 1 Showcase',
+        title: 'Interactive Plan'
+      },
       projects: {
         label: 'Selected Work',
         title: 'Projects',
@@ -46,6 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
           { title: 'مینیمال\nبیشترین تأثیر', subtitle: 'مجتمع تجاری — شیراز، ۲۰۲۴' }
         ],
         btn: 'بیشتر بدانید'
+      },
+      spatial: {
+        label: 'نمایش پروژه ۱',
+        title: 'پلان تعاملی'
       },
       projects: {
         label: 'آثار منتخب',
@@ -197,10 +205,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentNum = String(currentSlide + 1).padStart(2, '0');
     counterCurrent.textContent = isFa ? toPersianDigits(currentNum) : currentNum;
 
+    // Spatial
+    const spLabel = document.getElementById('spatialLabel');
+    if (spLabel) spLabel.textContent = t.spatial.label;
+    const spTitle = document.getElementById('spatialTitle');
+    if (spTitle) spTitle.textContent = t.spatial.title;
+
     // Projects section
     document.getElementById('projectsLabel').textContent = t.projects.label;
     document.getElementById('projectsTitle').textContent = t.projects.title;
-    document.getElementById('projectsViewAll').childNodes[0].textContent = t.projects.viewAll + ' ';
+    const pva = document.getElementById('projectsViewAll');
+    if (pva && pva.childNodes[0]) pva.childNodes[0].textContent = t.projects.viewAll + ' ';
 
     document.querySelectorAll('.project-card').forEach((card, i) => {
       const item = t.projects.items[i];
