@@ -247,6 +247,13 @@ class InteractivePlan {
     this.dom.lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     
+    // Hide global navbar to ensure unhindered fullscreen view
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      this.originalNavbarDisplay = navbar.style.display || '';
+      navbar.style.display = 'none';
+    }
+    
     const data = this.config.hotspots.find(h => String(h.id) === String(this.currentCamId));
     this.dom.lbImg.src = data.renderUrl;
     this.dom.lbDownload.href = data.renderUrl;
@@ -257,6 +264,12 @@ class InteractivePlan {
   closeLightbox() {
     this.dom.lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    
+    // Restore global navbar
+    const navbar = document.querySelector('.navbar');
+    if (navbar && typeof this.originalNavbarDisplay !== 'undefined') {
+      navbar.style.display = this.originalNavbarDisplay;
+    }
   }
 
   updateMinimapPin(camId) {
