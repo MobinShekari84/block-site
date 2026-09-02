@@ -1,34 +1,97 @@
-const damasvillaConfig = {
-  projectId: 'damas-villa',
-  planImageUrl: 'assets/damas-villa/plan.webp',
-  aspectRatio: '16 / 9',
-  categories: [
-    { id: 'exterior', label: { en: 'Exterior', fa: 'نما و محوطه' } },
-    { id: 'interior', label: { en: 'Interior', fa: 'فضاهای داخلی' } }
-  ],
-  hotspots: [
-    { id: 1, x: 20, y: 80, rot: -45, category: 'exterior', title: { en: 'Main Approach', fa: 'ورودی اصلی' }, zone: { en: 'Site', fa: 'محوطه' }, renderUrl: 'assets/damas-villa/01.webp' },
-    { id: 2, x: 10, y: 50, rot: 90, category: 'exterior', title: { en: 'Facade View', fa: 'نمای ساختمان' }, zone: { en: 'Site', fa: 'محوطه' }, renderUrl: 'assets/damas-villa/02.webp' },
-    { id: 3, x: 80, y: 80, rot: -135, category: 'exterior', title: { en: 'Terrace View', fa: 'نمای تراس' }, zone: { en: 'Exterior', fa: 'بیرون' }, renderUrl: 'assets/damas-villa/03.webp' },
-    { id: 4, x: 50, y: 50, rot: 0, category: 'interior', title: { en: 'Living Area', fa: 'فضای نشیمن' }, zone: { en: 'Living', fa: 'نشیمن' }, renderUrl: 'assets/damas-villa/04.webp' },
-    { id: 5, x: 60, y: 40, rot: 45, category: 'interior', title: { en: 'Kitchen', fa: 'آشپزخانه' }, zone: { en: 'Kitchen', fa: 'آشپزخانه' }, renderUrl: 'assets/damas-villa/05.webp' },
-    { id: 6, x: 40, y: 60, rot: 180, category: 'interior', title: { en: 'Atrium', fa: 'پاسیو' }, zone: { en: 'Atrium', fa: 'پاسیو' }, renderUrl: 'assets/damas-villa/06.webp' },
-    { id: 7, x: 70, y: 30, rot: -90, category: 'interior', title: { en: 'Master Bedroom', fa: 'اتاق خواب مستر' }, zone: { en: 'Bedroom', fa: 'خواب' }, renderUrl: 'assets/damas-villa/07.webp' },
-    { id: 8, x: 30, y: 30, rot: 90, category: 'interior', title: { en: 'Guest Room', fa: 'اتاق مهمان' }, zone: { en: 'Bedroom', fa: 'خواب' }, renderUrl: 'assets/damas-villa/08.webp' },
-    { id: 9, x: 80, y: 20, rot: -45, category: 'interior', title: { en: 'Detail View', fa: 'جزئیات' }, zone: { en: 'Detail', fa: 'جزئیات' }, renderUrl: 'assets/damas-villa/09.webp' }
-  ]
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const images = Array.from(document.querySelectorAll('.gallery-img'));
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbClose = document.getElementById('lbClose');
+  const lbPrev = document.getElementById('lbPrev');
+  const lbNext = document.getElementById('lbNext');
+  
+  let currentIndex = 0;
 
-function initSpatial() {
-  if (window.InteractivePlan) {
-    new window.InteractivePlan('#spatial-container', damasvillaConfig);
-  } else {
-    console.error("InteractivePlan class not found!");
+  function openLightbox(index) {
+    currentIndex = index;
+    lbImg.src = images[currentIndex].src;
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    
+    const navbar = document.querySelector('.navbar');
+    if (navbar) navbar.style.display = 'none';
   }
-}
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initSpatial);
-} else {
-  initSpatial();
-}
+  function closeLightbox() {
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    
+    const navbar = document.querySelector('.navbar');
+    if (navbar) navbar.style.display = '';
+  }
+
+  function navLightbox(dir) {
+    currentIndex += dir;
+    if (currentIndex < 0) currentIndex = images.length - 1;
+    if (currentIndex >= images.length) currentIndex = 0;
+    lbImg.src = images[currentIndex].src;
+  }
+
+  images.forEach((img, idx) => {
+    img.addEventListener('click', () => openLightbox(idx));
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', () => navLightbox(-1));
+  lbNext.addEventListener('click', () => navLightbox(1));
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.getAttribute('aria-hidden') === 'false') {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navLightbox(-1);
+      if (e.key === 'ArrowRight') navLightbox(1);
+    }
+  });
+
+  // Translation Hooks
+  const tSub = {
+    en: {
+      title: 'Damas Villa',
+      locLabel: 'Location',
+      locValue: 'Damavand, Iran',
+      yearLabel: 'Year',
+      yearValue: '2026',
+      typeLabel: 'Typology',
+      typeValue: 'Residential'
+    },
+    fa: {
+      title: 'ویلای داماس',
+      locLabel: 'موقعیت',
+      locValue: 'دماوند، ایران',
+      yearLabel: 'سال',
+      yearValue: '۱۴۰۵',
+      typeLabel: 'کاربری',
+      typeValue: 'مسکونی'
+    }
+  };
+
+  const title = document.getElementById('projectTitle');
+  const locL = document.getElementById('metaLocLabel');
+  const locV = document.getElementById('metaLocValue');
+  const yearL = document.getElementById('metaYearLabel');
+  const yearV = document.getElementById('metaYearValue');
+  const typeL = document.getElementById('metaTypeLabel');
+  const typeV = document.getElementById('metaTypeValue');
+
+  const langObserver = new MutationObserver(() => {
+    const lang = document.documentElement.lang || 'en';
+    const isFa = lang === 'fa';
+    
+    title.textContent = tSub[lang].title;
+    locL.textContent = tSub[lang].locLabel;
+    locV.textContent = tSub[lang].locValue;
+    yearL.textContent = tSub[lang].yearLabel;
+    yearV.textContent = tSub[lang].yearValue;
+    typeL.textContent = tSub[lang].typeLabel;
+    typeV.textContent = tSub[lang].typeValue;
+
+    document.body.classList.toggle('lang-fa', isFa);
+  });
+  langObserver.observe(document.documentElement, { attributes: true });
+});

@@ -101,7 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Navbar Scroll ──────────────────────────────
   const handleNavScroll = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    if (!document.body.classList.contains('subpage')) {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }
   };
   window.addEventListener('scroll', handleNavScroll, { passive: true });
 

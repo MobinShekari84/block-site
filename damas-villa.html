@@ -3,153 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO Meta -->
   <title>Damas Villa — Block Architecture Studio</title>
-  <meta name="description"
-    content="Block Architecture Studio is a Tehran-based architecture practice creating minimal, purposeful spaces. Explore our residential, commercial, and mixed-use projects.">
-  <meta name="keywords"
-    content="architecture, minimal design, Tehran architecture, residential design, Block Architecture Studio">
-  <meta name="author" content="Block Architecture Studio">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Block Architecture Studio — Minimal Architecture Design">
-  <meta property="og:description" content="Tehran-based architecture practice creating minimal, purposeful spaces.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_US">
-
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="components/InteractivePlan/InteractivePlan.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="logo.css">
-
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ArchitecturalFirm",
-    "name": "Block Architecture Studio",
-    "url": "https://blockarch.studio",
-    "description": "Tehran-based architecture practice dedicated to minimal, purposeful design.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "No. 42, Fereshteh St.",
-      "addressLocality": "Tehran",
-      "addressCountry": "IR"
-    },
-    "telephone": "+982112345678",
-    "email": "info@blockarch.studio"
-  }
-  </script>
+  <link rel="stylesheet" href="damas-villa.css">
 </head>
-<body>
-  <nav class="navbar" id="navbar" aria-label="Main navigation">
-    <a href="#" class="nav-brand" aria-label="Block Architecture Studio — Home">
+<body class="subpage">
+  <nav class="navbar scrolled" id="navbar" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand" aria-label="Block Architecture Studio — Home">
       <div class="nav-brand-logo" aria-hidden="true"></div>
       <span class="nav-brand-name">Block</span>
     </a>
 
     <ul class="nav-center" id="navCenter">
-      <li><a href="#hero" class="nav-link active" id="navHome">Home</a></li>
-      <li><a href="#projects" class="nav-link" id="navProjects">Projects</a></li>
-      <li><a href="#" class="nav-link" id="navAbout">About</a></li>
+      <li><a href="index.html#hero" class="nav-link" id="navHome">Home</a></li>
+      <li><a href="index.html#projects" class="nav-link" id="navProjects">Projects</a></li>
+      <li><a href="index.html#about" class="nav-link" id="navAbout">About</a></li>
     </ul>
 
     <div style="display: flex; align-items: center; gap: 1.25rem;">
       <div class="nav-social" id="navSocial">
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="nav-social-link"
-          aria-label="Instagram">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="nav-social-link" aria-label="Instagram">
           <span class="icon-social icon-instagram" aria-hidden="true"></span>
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="nav-social-link"
-          aria-label="LinkedIn">
-          <span class="icon-social icon-linkedin" aria-hidden="true"></span>
-        </a>
       </div>
-
       <button class="lang-switcher" id="langSwitcher" aria-label="Switch language" dir="auto">FA</button>
-
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <main style="padding-top: 120px;">
-    <section class="section light-theme" id="spatial" aria-label="Interactive Damas Villa Showcase">
-      <header class="section-header reveal visible">
-        <div>
-          <p class="text-label" id="spatialLabel">Damas Villa Showcase</p>
-          <h2 class="heading-section" id="spatialTitle">Interactive Plan</h2>
+  <main class="editorial-main">
+    <!-- Project Header -->
+    <header class="project-header reveal">
+      <h1 class="project-title" id="projectTitle">Damas Villa</h1>
+      <div class="project-meta">
+        <div class="meta-item">
+          <span class="meta-label" id="metaLocLabel">Location</span>
+          <span class="meta-value" id="metaLocValue">Damavand, Iran</span>
         </div>
-      </header>
-      <div id="spatial-container"></div>
+        <div class="meta-item">
+          <span class="meta-label" id="metaYearLabel">Year</span>
+          <span class="meta-value" id="metaYearValue">2026</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label" id="metaTypeLabel">Typology</span>
+          <span class="meta-value" id="metaTypeValue">Residential</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Editorial Gallery -->
+    <section class="editorial-gallery">
+      <div class="gallery-row full-width reveal">
+        <img src="assets/damas-villa/01.webp" alt="Damas Villa Hero" class="gallery-img" data-index="0">
+      </div>
+      <div class="gallery-row two-col reveal">
+        <img src="assets/damas-villa/02.webp" alt="Damas Villa Facade" class="gallery-img" data-index="1">
+        <img src="assets/damas-villa/03.webp" alt="Damas Villa Terrace" class="gallery-img" data-index="2">
+      </div>
+      <div class="gallery-row staggered reveal">
+        <div class="stagger-left">
+          <img src="assets/damas-villa/04.webp" alt="Damas Villa Living" class="gallery-img" data-index="3">
+        </div>
+        <div class="stagger-right">
+          <img src="assets/damas-villa/05.webp" alt="Damas Villa Kitchen" class="gallery-img" data-index="4">
+        </div>
+      </div>
+      <div class="gallery-row two-col reveal">
+        <img src="assets/damas-villa/06.webp" alt="Damas Villa Atrium" class="gallery-img" data-index="5">
+        <img src="assets/damas-villa/07.webp" alt="Damas Villa Bedroom" class="gallery-img" data-index="6">
+      </div>
+      <div class="gallery-row staggered-alt reveal">
+        <div class="stagger-left">
+          <img src="assets/damas-villa/08.webp" alt="Damas Villa Guest" class="gallery-img" data-index="7">
+        </div>
+        <div class="stagger-right">
+          <img src="assets/damas-villa/09.webp" alt="Damas Villa Detail" class="gallery-img" data-index="8">
+        </div>
+      </div>
+      <div class="gallery-row full-width reveal">
+        <img src="assets/damas-villa/plan.webp" alt="Damas Villa Floor Plan" class="gallery-img plan-img" data-index="9" style="background: white; padding: 2rem;">
+      </div>
     </section>
   </main>
 
   <footer class="footer" role="contentinfo">
     <div class="footer-grid">
-      <!-- Brand Column -->
       <div class="footer-brand">
         <h4 class="footer-brand-name">Block Architecture Studio</h4>
-        <p class="footer-brand-desc" id="footerDesc">
-          Block Architecture Studio is a Tehran-based practice dedicated to creating spaces where minimal form meets
-          purposeful design.
-        </p>
+        <p class="footer-brand-desc" id="footerDesc">Block Architecture Studio is a Tehran-based practice dedicated to creating spaces where minimal form meets purposeful design.</p>
       </div>
-
-      <!-- Navigation Column -->
       <div>
         <h5 class="footer-col-title" id="footerNavTitle">Navigation</h5>
         <ul class="footer-links">
-          <li><a href="#hero" class="footer-link link-hover" id="footerHome">Home</a></li>
-          <li><a href="#projects" class="footer-link link-hover" id="footerProjects">Projects</a></li>
-          <li><a href="#" class="footer-link link-hover" id="footerAbout">About</a></li>
+          <li><a href="index.html#hero" class="footer-link link-hover" id="footerHome">Home</a></li>
+          <li><a href="index.html#projects" class="footer-link link-hover" id="footerProjects">Projects</a></li>
+          <li><a href="index.html#about" class="footer-link link-hover" id="footerAbout">About</a></li>
         </ul>
       </div>
-
-      <!-- Contact Column -->
       <div>
         <h5 class="footer-col-title" id="footerContactTitle">Contact</h5>
         <p class="footer-contact-item" id="footerEmail">info@blockarch.studio</p>
         <p class="footer-contact-item" id="footerPhone">+98 21 1234 5678</p>
-        <p class="footer-contact-item" id="footerAddress" style="white-space: pre-line;">No. 42, Fereshteh St.
-          Tehran, Iran</p>
       </div>
-
-      <!-- Social Column -->
       <div>
         <h5 class="footer-col-title">Social</h5>
         <div class="footer-social">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link"
-            aria-label="Instagram">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
             <span class="icon-social icon-instagram" aria-hidden="true"></span>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-link"
-            aria-label="LinkedIn">
-            <span class="icon-social icon-linkedin" aria-hidden="true"></span>
           </a>
         </div>
       </div>
     </div>
-
     <div class="footer-bottom">
       <p class="footer-copyright" id="footerCopyright">© 2024 Block Architecture Studio. All rights reserved.</p>
       <p class="footer-credit" id="footerCredit">Design & Development by Block Studio</p>
     </div>
   </footer>
 
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-overlay"></div>
+    <div class="lightbox-content">
+      <button class="lb-close" id="lbClose" aria-label="Close Lightbox">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous Image">
+        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
+      </button>
+      <div class="lightbox-img-wrapper">
+        <img id="lbImg" src="" alt="Fullscreen Image">
+      </div>
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next Image">
+        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+      </button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
-  <script src="components/InteractivePlan/InteractivePlan.js"></script>
   <script src="damas-villa.js"></script>
 </body>
 </html>
