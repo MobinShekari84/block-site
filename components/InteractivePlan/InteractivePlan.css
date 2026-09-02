@@ -485,3 +485,41 @@
     text-align: right;
   }
 }
+
+/* Render Category Filters */
+.render-filters {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  background: transparent;
+  border: 1px solid var(--color-light-gray);
+  color: var(--text-color-secondary);
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filter-pill:hover {
+  border-color: var(--color-black);
+  color: var(--color-black);
+}
+
+.filter-pill.active {
+  background: var(--color-black);
+  border-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.lang-fa .filter-pill {
+  font-family: var(--font-persian);
+  font-size: 0.85rem;
+}

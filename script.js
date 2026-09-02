@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         items: [
           { title: 'Villa Alborz', meta: 'Residential — Tehran, 2024', btn: 'Villa Alborz' },
           { title: 'Noor Tower', meta: 'Mixed Use — Isfahan, 2023', btn: 'Noor Tower' },
-          { title: 'Saye Complex', meta: 'Commercial — Shiraz, 2024', btn: 'Saye Complex' }
+          { title: 'Saye Complex', meta: 'Commercial — Shiraz, 2024', btn: 'Saye Complex' },
+          { title: 'Damas Villa', meta: 'Residential — Damavand, 2026', btn: 'Damas Villa' }
         ]
       },
       footer: {
@@ -62,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
         items: [
           { title: 'ویلا البرز', meta: 'مسکونی — تهران، ۲۰۲۴', btn: 'ویلا البرز' },
           { title: 'برج نور', meta: 'ترکیبی — اصفهان، ۲۰۲۳', btn: 'برج نور' },
-          { title: 'مجتمع سایه', meta: 'تجاری — شیراز، ۲۰۲۴', btn: 'مجتمع سایه' }
+          { title: 'مجتمع سایه', meta: 'تجاری — شیراز، ۲۰۲۴', btn: 'مجتمع سایه' },
+          { title: 'ویلای داماس', meta: 'مسکونی — دماوند، ۲۰۲۶', btn: 'ویلای داماس' }
         ]
       },
       footer: {
@@ -280,6 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
           top: target.offsetTop - offset,
           behavior: 'smooth'
         });
+      } else {
+        window.location.href = 'index.html' + targetId;
       }
 
       // Close mobile menu

@@ -8,16 +8,18 @@ class InteractivePlan {
     this.currentCamId = config.hotspots[0].id;
     
     // UI Texts Dictionary (can be expanded)
-    this.uiTexts = {
+        this.uiTexts = {
       en: {
         viewpoint: 'Viewpoint',
         zonePrefix: 'Zone: ',
-        download: 'Download High-Res'
+        download: 'Download High-Res',
+        catAll: 'All'
       },
       fa: {
         viewpoint: 'نقطه دید',
-        zonePrefix: 'منطقه: ',
-        download: 'دانلود نسخه با کیفیت'
+        zonePrefix: 'بخش: ',
+        download: 'دانلود نسخه با کیفیت',
+        catAll: 'همه'
       }
     };
     
@@ -127,6 +129,8 @@ class InteractivePlan {
     this.dom = {
       hotspots: this.container.querySelectorAll('.hotspot'),
       thumbs: this.container.querySelectorAll('.thumb-btn'),
+      filterPills: this.container.querySelectorAll('.filter-pill'),
+      catAll: this.container.querySelector(`#${pId}-cat-all`),
       activeRender: this.container.querySelector(`#${pId}-active-render`),
       telLabel: this.container.querySelector(`#${pId}-tel-label`),
       telCam: this.container.querySelector(`#${pId}-tel-cam`),
@@ -148,6 +152,12 @@ class InteractivePlan {
   bindEvents() {
     this.dom.hotspots.forEach(h => h.addEventListener('click', () => this.switchView(h.getAttribute('data-cam'))));
     this.dom.thumbs.forEach(t => t.addEventListener('click', () => this.switchView(t.getAttribute('data-cam'))));
+    this.dom.filterPills.forEach(p => p.addEventListener('click', () => {
+      this.dom.filterPills.forEach(b => b.classList.remove('active'));
+      p.classList.add('active');
+      this.filterCategory(p.getAttribute('data-cat'));
+    }));
+
 
     this.dom.hudExpand.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -195,6 +205,14 @@ class InteractivePlan {
     this.dom.lbDownload.setAttribute('aria-label', t.download);
     
     this.updateTelemetry(this.currentCamId);
+    if(this.dom.catAll) this.dom.catAll.textContent = t.catAll;
+    if(this.config.categories) {
+      this.config.categories.forEach(cat => {
+        const btn = Array.from(this.dom.filterPills).find(p => p.getAttribute('data-cat') === cat.id);
+        if(btn) btn.textContent = cat.label[this.currentLang];
+      });
+    }
+
     
     // Set RTL on the container itself so styles cascade correctly
     this.container.setAttribute('dir', this.currentLang === 'fa' ? 'rtl' : 'ltr');
@@ -270,6 +288,29 @@ class InteractivePlan {
     if (navbar && typeof this.originalNavbarDisplay !== 'undefined') {
       navbar.style.display = this.originalNavbarDisplay;
     }
+  }
+
+  
+  filterCategory(catId) {
+    let firstCam = null;
+    this.dom.thumbs.forEach(t => {
+      const hData = this.config.hotspots.find(h => String(h.id) === String(t.getAttribute('data-cam')));
+      if (catId === 'all' || (hData && hData.category === catId)) {
+        t.style.display = '';
+        if (!firstCam) firstCam = hData.id;
+        // Also show the hotspot
+        const spot = Array.from(this.dom.hotspots).find(h => String(h.getAttribute('data-cam')) === String(hData.id));
+        if(spot) spot.style.display = '';
+      } else {
+        t.style.display = 'none';
+        // Hide the hotspot
+        const spot = Array.from(this.dom.hotspots).find(h => String(h.getAttribute('data-cam')) === String(hData.id));
+        if(spot) spot.style.display = 'none';
+      }
+    });
+    
+    // Switch to first available camera in this category
+    if (firstCam) this.switchView(firstCam);
   }
 
   updateMinimapPin(camId) {
