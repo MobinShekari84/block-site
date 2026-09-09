@@ -186,9 +186,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.dir = isFa ? 'rtl' : 'ltr';
 
     // Nav links
-    document.getElementById('navHome').textContent = t.nav.home;
-    document.getElementById('navProjects').textContent = t.nav.projects;
-    document.getElementById('navAbout').textContent = t.nav.about;
+    const navHome_el = document.getElementById('navHome'); if (navHome_el) navHome_el.textContent = t.nav.home;
+    const navProjects_el = document.getElementById('navProjects'); if (navProjects_el) navProjects_el.textContent = t.nav.projects;
+    const navAbout_el = document.getElementById('navAbout'); if (navAbout_el) navAbout_el.textContent = t.nav.about;
 
     // Lang button
     langBtn.textContent = isFa ? 'EN' : 'FA';
@@ -229,19 +229,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Footer
-    document.getElementById('footerDesc').textContent = t.footer.desc;
-    document.getElementById('footerNavTitle').textContent = t.footer.nav;
-    document.getElementById('footerContactTitle').textContent = t.footer.contact;
-    document.getElementById('footerEmail').textContent = t.footer.email;
-    document.getElementById('footerPhone').textContent = t.footer.phone;
-    document.getElementById('footerAddress').textContent = t.footer.address;
-    document.getElementById('footerCopyright').textContent = t.footer.copyright;
-    document.getElementById('footerCredit').textContent = t.footer.credit;
+    const footerDesc_el = document.getElementById('footerDesc'); if (footerDesc_el) footerDesc_el.textContent = t.footer.desc;
+    const footerNavTitle_el = document.getElementById('footerNavTitle'); if (footerNavTitle_el) footerNavTitle_el.textContent = t.footer.nav;
+    const footerContactTitle_el = document.getElementById('footerContactTitle'); if (footerContactTitle_el) footerContactTitle_el.textContent = t.footer.contact;
+    const footerEmail_el = document.getElementById('footerEmail'); if (footerEmail_el) footerEmail_el.textContent = t.footer.email;
+    const footerPhone_el = document.getElementById('footerPhone'); if (footerPhone_el) footerPhone_el.textContent = t.footer.phone;
+    const footerAddress_el = document.getElementById('footerAddress'); if (footerAddress_el) footerAddress_el.textContent = t.footer.address;
+    const footerCopyright_el = document.getElementById('footerCopyright'); if (footerCopyright_el) footerCopyright_el.textContent = t.footer.copyright;
+    const footerCredit_el = document.getElementById('footerCredit'); if (footerCredit_el) footerCredit_el.textContent = t.footer.credit;
 
     // Footer nav links
-    document.getElementById('footerHome').textContent = t.nav.home;
-    document.getElementById('footerProjects').textContent = t.nav.projects;
-    document.getElementById('footerAbout').textContent = t.nav.about;
+    const footerHome_el = document.getElementById('footerHome'); if (footerHome_el) footerHome_el.textContent = t.nav.home;
+    const footerProjects_el = document.getElementById('footerProjects'); if (footerProjects_el) footerProjects_el.textContent = t.nav.projects;
+    const footerAbout_el = document.getElementById('footerAbout'); if (footerAbout_el) footerAbout_el.textContent = t.nav.about;
 
     // Toggle Persian font class and RTL direction
     document.body.classList.toggle('lang-fa', isFa);
