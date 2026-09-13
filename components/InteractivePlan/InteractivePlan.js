@@ -91,32 +91,33 @@ class InteractivePlan {
         </div>
 
         <!-- Fullscreen Lightbox (Appended inside container for scoped styles/RTL) -->
-        <div id="${projectId}-lightbox" class="lightbox-overlay" aria-hidden="true">
-          <div class="lightbox-header">
-            <button id="${projectId}-lb-map-toggle" class="lb-btn" aria-label="Toggle Mini-map">
+        <div id="${projectId}-lightbox" class="ip-lightbox-overlay" aria-hidden="true">
+          <div class="ip-lightbox-header">
+            <button id="${projectId}-lb-map-toggle" class="ip-lb-btn" aria-label="Toggle Mini-map">
               <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
             </button>
-            <a id="${projectId}-lb-download" href="#" download class="lb-btn" aria-label="Download High-Res">
+            <a id="${projectId}-lb-download" href="#" download class="ip-lb-btn" aria-label="Download High-Res">
               <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
             </a>
-            <button id="${projectId}-lb-close" class="lb-btn" aria-label="Close Lightbox">
+            <button id="${projectId}-lb-close" class="ip-lb-btn" aria-label="Close Lightbox">
               <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
           </div>
 
-          <button id="${projectId}-lb-prev" class="lb-nav lb-prev" aria-label="Previous Render">
+          <button id="${projectId}-lb-prev" class="ip-lb-nav ip-lb-prev" aria-label="Previous Render">
             <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
           </button>
           
-          <div class="lightbox-body">
+          <div class="ip-lightbox-body">
             <img id="${projectId}-lb-img" src="" alt="Fullscreen Render">
+            <div id="${projectId}-lb-caption" class="ip-lightbox-caption"></div>
           </div>
 
-          <button id="${projectId}-lb-next" class="lb-nav lb-next" aria-label="Next Render">
+          <button id="${projectId}-lb-next" class="ip-lb-nav ip-lb-next" aria-label="Next Render">
             <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
           </button>
           
-          <div id="${projectId}-lb-minimap-container" class="lightbox-minimap">
+          <div id="${projectId}-lb-minimap-container" class="ip-lightbox-minimap">
             <img src="${planImageUrl}" alt="Mini map">
           </div>
         </div>
@@ -133,24 +134,50 @@ class InteractivePlan {
       catAll: this.container.querySelector(`#${pId}-cat-all`),
       activeRender: this.container.querySelector(`#${pId}-active-render`),
       telLabel: this.container.querySelector(`#${pId}-tel-label`),
+      hudLabel: this.container.querySelector(`#${pId}-tel-label`),
       telCam: this.container.querySelector(`#${pId}-tel-cam`),
+      hudCam: this.container.querySelector(`#${pId}-tel-cam`),
       telCoord: this.container.querySelector(`#${pId}-tel-coord`),
+      hudCoord: this.container.querySelector(`#${pId}-tel-coord`),
       hudContainer: this.container.querySelector(`#${pId}-telemetry-hud`),
       hudExpand: this.container.querySelector(`#${pId}-hud-expand`),
+      
       lightbox: this.container.querySelector(`#${pId}-lightbox`),
-      lbClose: this.container.querySelector(`#${pId}-lb-close`),
-      lbPrev: this.container.querySelector(`#${pId}-lb-prev`),
-      lbNext: this.container.querySelector(`#${pId}-lb-next`),
-      lbImg: this.container.querySelector(`#${pId}-lb-img`),
-      lbDownload: this.container.querySelector(`#${pId}-lb-download`),
-      lbMapToggle: this.container.querySelector(`#${pId}-lb-map-toggle`),
-      lbMinimapContainer: this.container.querySelector(`#${pId}-lb-minimap-container`),
       wrapper: this.container.querySelector('.spatial-wrapper')
     };
+
+    // Move lightbox to body to prevent stacking context trapping from parent transforms
+    if (this.dom.lightbox) {
+      // Remove any old orphaned lightboxes from previous language renders
+      Array.from(document.body.children).forEach(child => {
+        if (child.id === `${pId}-lightbox` && child !== this.dom.lightbox) {
+          child.remove();
+        }
+      });
+      
+      document.body.appendChild(this.dom.lightbox);
+      this.dom.lbClose = document.getElementById(`${pId}-lb-close`);
+      this.dom.lbPrev = document.getElementById(`${pId}-lb-prev`);
+      this.dom.lbNext = document.getElementById(`${pId}-lb-next`);
+      this.dom.lbImg = document.getElementById(`${pId}-lb-img`);
+      this.dom.lbCaption = document.getElementById(`${pId}-lb-caption`);
+      this.dom.lbDownload = document.getElementById(`${pId}-lb-download`);
+      this.dom.lbMapToggle = document.getElementById(`${pId}-lb-map-toggle`);
+      this.dom.lbMinimapContainer = document.getElementById(`${pId}-lb-minimap-container`);
+    }
   }
 
   bindEvents() {
-    this.dom.hotspots.forEach(h => h.addEventListener('click', () => this.switchView(h.getAttribute('data-cam'))));
+    this.dom.hotspots.forEach(h => {
+      const handleHotspot = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.switchView(h.getAttribute('data-cam'));
+      };
+      h.addEventListener('click', handleHotspot);
+      h.addEventListener('touchstart', handleHotspot, { passive: false });
+    });
+    
     this.dom.thumbs.forEach(t => t.addEventListener('click', () => this.switchView(t.getAttribute('data-cam'))));
     this.dom.filterPills.forEach(p => p.addEventListener('click', () => {
       this.dom.filterPills.forEach(b => b.classList.remove('active'));
@@ -158,6 +185,42 @@ class InteractivePlan {
       this.filterCategory(p.getAttribute('data-cat'));
     }));
 
+    const blueprintInner = this.container.querySelector('.blueprint-inner');
+    if (blueprintInner) {
+      const handleZoomPan = (clientX, clientY) => {
+        const rect = blueprintInner.getBoundingClientRect();
+        const x = ((clientX - rect.left) / rect.width) * 100;
+        const y = ((clientY - rect.top) / rect.height) * 100;
+        blueprintInner.style.transformOrigin = `${x}% ${y}%`;
+      };
+
+      // Desktop
+      blueprintInner.addEventListener('mousemove', (e) => handleZoomPan(e.clientX, e.clientY));
+      blueprintInner.addEventListener('mouseenter', () => blueprintInner.classList.add('zoomed'));
+      blueprintInner.addEventListener('mouseleave', () => blueprintInner.classList.remove('zoomed'));
+
+      // Mobile Touch
+      blueprintInner.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          blueprintInner.classList.add('zoomed');
+          handleZoomPan(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      blueprintInner.addEventListener('touchmove', (e) => {
+        if (blueprintInner.classList.contains('zoomed') && e.touches.length === 1) {
+          e.preventDefault(); // Prevent page scroll while inspecting plan
+          handleZoomPan(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: false });
+
+      blueprintInner.addEventListener('touchend', () => {
+        blueprintInner.classList.remove('zoomed');
+      });
+      blueprintInner.addEventListener('touchcancel', () => {
+        blueprintInner.classList.remove('zoomed');
+      });
+    }
 
     this.dom.hudExpand.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -177,6 +240,14 @@ class InteractivePlan {
     this.dom.lbMapToggle.addEventListener('click', () => {
       this.dom.lbMinimapContainer.classList.toggle('visible');
     });
+
+    if (this.dom.lightbox) {
+      this.dom.lightbox.addEventListener('click', (e) => {
+        if (e.target === this.dom.lightbox || e.target.classList.contains('ip-lightbox-body')) {
+          this.closeLightbox();
+        }
+      });
+    }
 
     document.addEventListener('keydown', (e) => {
       if (this.dom.lightbox && this.dom.lightbox.getAttribute('aria-hidden') === 'false') {
@@ -218,6 +289,18 @@ class InteractivePlan {
     this.container.setAttribute('dir', this.currentLang === 'fa' ? 'rtl' : 'ltr');
     this.container.classList.toggle('lang-fa', this.currentLang === 'fa');
 
+    // Lightbox is now appended to body, so we must sync its attributes too
+    if (this.dom.lightbox) {
+      this.dom.lightbox.setAttribute('dir', this.currentLang === 'fa' ? 'rtl' : 'ltr');
+      this.dom.lightbox.classList.toggle('lang-fa', this.currentLang === 'fa');
+    }
+
+    // Update active caption
+    const activeData = this.config.hotspots.find(h => String(h.id) === String(this.currentCamId));
+    if (activeData && this.dom.lbCaption) {
+      this.dom.lbCaption.textContent = activeData.title[this.currentLang];
+    }
+
     // Force IntersectionObserver to fire if needed
     if(this.dom.wrapper) this.dom.wrapper.classList.add('visible');
       this.dom.wrapper.style.opacity = '1';
@@ -257,6 +340,7 @@ class InteractivePlan {
     if (this.dom.lightbox && this.dom.lightbox.getAttribute('aria-hidden') === 'false') {
       this.dom.lbImg.src = data.renderUrl;
       this.dom.lbDownload.href = data.renderUrl;
+      if (this.dom.lbCaption) this.dom.lbCaption.textContent = data.title[this.currentLang];
       this.updateMinimapPin(camId);
     }
   }
@@ -275,6 +359,7 @@ class InteractivePlan {
     const data = this.config.hotspots.find(h => String(h.id) === String(this.currentCamId));
     this.dom.lbImg.src = data.renderUrl;
     this.dom.lbDownload.href = data.renderUrl;
+    if (this.dom.lbCaption) this.dom.lbCaption.textContent = data.title[this.currentLang];
     
     this.updateMinimapPin(this.currentCamId);
   }

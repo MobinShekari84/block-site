@@ -1,87 +1,26 @@
+import { siteMeta, projects } from './data/index.js';
+
 /* ============================================
    BLOCK ARCHITECTURE STUDIO — Main Script
    Hero slideshow, scroll effects, language toggle
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ── Language Data ──────────────────────────────
-  const translations = {
-    en: {
-      nav: { home: 'Home', projects: 'Projects', about: 'About' },
-      hero: {
-        slides: [
-          { title: 'Where Form\nMeets Light', subtitle: 'Villa Alborz — Tehran, 2024' },
-          { title: 'Sculpting\nUrban Space', subtitle: 'Residential Tower — Isfahan, 2023' },
-          { title: 'Minimal\nMaximal Impact', subtitle: 'Commercial Complex — Shiraz, 2024' }
-        ],
-        btn: 'Learn More'
-      },
-      spatial: {
-        label: 'Project Showcase',
-        title: 'Interactive Plan'
-      },
-      projects: {
-        label: 'Selected Work',
-        title: 'Projects',
-        viewAll: 'View All Projects',
-        items: [
-          { title: 'Villa Alborz', meta: 'Residential — Tehran, 2024', btn: 'Villa Alborz' },
-          { title: 'Noor Tower', meta: 'Mixed Use — Isfahan, 2023', btn: 'Noor Tower' },
-          { title: 'Saye Complex', meta: 'Commercial — Shiraz, 2024', btn: 'Saye Complex' },
-          { title: 'Damas Villa', meta: 'Residential — Damavand, 2026', btn: 'Damas Villa' }
-        ]
-      },
-      footer: {
-        desc: 'Block Architecture Studio is a Tehran-based practice dedicated to creating spaces where minimal form meets purposeful design.',
-        nav: 'Navigation',
-        contact: 'Contact',
-        email: 'info@blockarch.studio',
-        phone: '+98 21 1234 5678',
-        address: 'No. 42, Fereshteh St.\nTehran, Iran',
-        copyright: '© 2024 Block Architecture Studio. All rights reserved.',
-        credit: 'Design & Development by Block Studio'
-      }
-    },
-    fa: {
-      nav: { home: 'خانه', projects: 'پروژه‌ها', about: 'درباره ما' },
-      hero: {
-        slides: [
-          { title: 'جایی که فرم\nبا نور ملاقات می‌کند', subtitle: 'ویلا البرز — تهران، ۲۰۲۴' },
-          { title: 'مجسمه‌سازی\nفضای شهری', subtitle: 'برج مسکونی — اصفهان، ۲۰۲۳' },
-          { title: 'مینیمال\nبیشترین تأثیر', subtitle: 'مجتمع تجاری — شیراز، ۲۰۲۴' }
-        ],
-        btn: 'بیشتر بدانید'
-      },
-      spatial: {
-        label: 'نمایش پروژه',
-        title: 'پلان تعاملی'
-      },
-      projects: {
-        label: 'آثار منتخب',
-        title: 'پروژه‌ها',
-        viewAll: 'مشاهده همه پروژه‌ها',
-        items: [
-          { title: 'ویلا البرز', meta: 'مسکونی — تهران، ۲۰۲۴', btn: 'ویلا البرز' },
-          { title: 'برج نور', meta: 'ترکیبی — اصفهان، ۲۰۲۳', btn: 'برج نور' },
-          { title: 'مجتمع سایه', meta: 'تجاری — شیراز، ۲۰۲۴', btn: 'مجتمع سایه' },
-          { title: 'ویلای داماس', meta: 'مسکونی — دماوند، ۲۰۲۶', btn: 'ویلای داماس' }
-        ]
-      },
-      footer: {
-        desc: 'استودیو معماری بلاک یک دفتر مستقر در تهران است که فضاهایی را خلق می‌کند که در آن فرم مینیمال با طراحی هدفمند تلاقی می‌کند.',
-        nav: 'ناوبری',
-        contact: 'تماس',
-        email: 'info@blockarch.studio',
-        phone: '۰۲۱-۱۲۳۴-۵۶۷۸',
-        address: 'خیابان فرشته، پلاک ۴۲\nتهران، ایران',
-        copyright: '© ۲۰۲۴ استودیو معماری بلاک. تمامی حقوق محفوظ است.',
-        credit: 'طراحی و توسعه توسط استودیو بلاک'
-      }
-    }
-  };
-
-  let currentLang = 'en';
+  let currentLang = localStorage.getItem('blockLang') || 'en';
   let currentSlide = 0;
+
+  // ── Scroll Reveal ──────────────────────────────
+  window.revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          window.revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
   let slideInterval;
   const SLIDE_DURATION = 6000;
 
@@ -101,17 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Navbar Scroll ──────────────────────────────
   const handleNavScroll = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    if(navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
   };
   window.addEventListener('scroll', handleNavScroll, { passive: true });
 
   // ── Mobile Toggle ──────────────────────────────
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navCenter.classList.toggle('mobile-open');
-    navSocial.classList.toggle('mobile-open');
-    navbar.classList.toggle('menu-open');
-  });
+  if(navToggle) {
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navCenter.classList.toggle('mobile-open');
+      navSocial.classList.toggle('mobile-open');
+      navbar.classList.toggle('menu-open');
+    });
+  }
 
   // ── Hero Slideshow ─────────────────────────────
   function goToSlide(index) {
@@ -127,9 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if(heroIndicators.length > 0) heroIndicators[currentSlide].classList.add('active');
 
     // Update text
-    const slideData = translations[currentLang].hero.slides[currentSlide];
-    if(heroTitle) heroTitle.textContent = slideData.title;
-    if(heroSubtitle) heroSubtitle.textContent = slideData.subtitle;
+    const slideData = siteMeta[currentLang].hero.slides[currentSlide];
+    if(heroTitle && slideData) heroTitle.textContent = slideData.title;
+    if(heroSubtitle && slideData) heroSubtitle.textContent = slideData.subtitle;
+    
     const isFa = currentLang === 'fa';
     const num = String(currentSlide + 1).padStart(2, '0');
     if(counterCurrent) counterCurrent.textContent = isFa ? toPersianDigits(num) : num;
@@ -140,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function startSlideshow() {
+    if(heroSlides.length === 0) return;
     clearInterval(slideInterval);
     slideInterval = setInterval(nextSlide, SLIDE_DURATION);
   }
@@ -157,29 +100,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  heroIndicators.forEach((indicator, i) => {
-    indicator.addEventListener('click', () => {
-      goToSlide(i);
-      startSlideshow();
+  if(heroIndicators.length > 0) {
+    heroIndicators.forEach((indicator, i) => {
+      indicator.addEventListener('click', () => {
+        goToSlide(i);
+        startSlideshow();
+      });
     });
-  });
+  }
 
-  // Initialize slideshow
-  const initNum = String(heroSlides.length).padStart(2, '0');
-  if(counterTotal) counterTotal.textContent = currentLang === 'fa' ? toPersianDigits(initNum) : initNum;
-  goToSlide(0);
-  startSlideshow();
+  // Initialize slideshow if elements exist
+  if(heroSlides.length > 0) {
+    const initNum = String(heroSlides.length).padStart(2, '0');
+    if(counterTotal) counterTotal.textContent = currentLang === 'fa' ? toPersianDigits(initNum) : initNum;
+    goToSlide(0);
+    startSlideshow();
+  }
 
   // ── Helpers ──────────────────────────
   function toPersianDigits(str) {
     const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-    return str.replace(/\d/g, x => farsiDigits[x]);
+    return String(str).replace(/\d/g, x => farsiDigits[x]);
   }
 
   // ── Language Switcher ──────────────────────────
   function setLanguage(lang) {
     currentLang = lang;
-    const t = translations[lang];
+    localStorage.setItem('blockLang', lang);
+    const t = siteMeta[lang];
     const isFa = lang === 'fa';
 
     document.documentElement.lang = lang;
@@ -191,42 +139,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const navAbout_el = document.getElementById('navAbout'); if (navAbout_el) navAbout_el.textContent = t.nav.about;
 
     // Lang button
-    langBtn.textContent = isFa ? 'EN' : 'FA';
+    if(langBtn) langBtn.textContent = isFa ? 'EN' : 'FA';
 
     // Hero
-    const slideData = t.hero.slides[currentSlide];
-    if(heroTitle) heroTitle.textContent = slideData.title;
-    if(heroSubtitle) heroSubtitle.textContent = slideData.subtitle;
-    if(heroBtnText) heroBtnText.textContent = t.hero.btn;
+    if(heroSlides.length > 0) {
+      const slideData = t.hero.slides[currentSlide];
+      if(heroTitle && slideData) heroTitle.textContent = slideData.title;
+      if(heroSubtitle && slideData) heroSubtitle.textContent = slideData.subtitle;
+      if(heroBtnText) heroBtnText.textContent = t.hero.btn;
 
-    // Update Counter Total
-    const totalNum = String(heroSlides.length).padStart(2, '0');
-    if(counterTotal) counterTotal.textContent = isFa ? toPersianDigits(totalNum) : totalNum;
-    
-    // Update Counter Current
-    const currentNum = String(currentSlide + 1).padStart(2, '0');
-    counterCurrent.textContent = isFa ? toPersianDigits(currentNum) : currentNum;
-
-    // Spatial
-    const spLabel = document.getElementById('spatialLabel');
-    if (spLabel) spLabel.textContent = t.spatial.label;
-    const spTitle = document.getElementById('spatialTitle');
-    if (spTitle) spTitle.textContent = t.spatial.title;
+      // Update Counter Total
+      const totalNum = String(heroSlides.length).padStart(2, '0');
+      if(counterTotal) counterTotal.textContent = isFa ? toPersianDigits(totalNum) : totalNum;
+      
+      // Update Counter Current
+      const currentNum = String(currentSlide + 1).padStart(2, '0');
+      if(counterCurrent) counterCurrent.textContent = isFa ? toPersianDigits(currentNum) : currentNum;
+    }
 
     // Projects section
     const pLabel = document.getElementById('projectsLabel'); if(pLabel) pLabel.textContent = t.projects.label;
     const pTitle = document.getElementById('projectsTitle'); if(pTitle) pTitle.textContent = t.projects.title;
-    const pva = document.getElementById('projectsViewAll');
-    if (pva && pva.childNodes[0]) pva.childNodes[0].textContent = t.projects.viewAll + ' ';
-
-    document.querySelectorAll('.project-card').forEach((card, i) => {
-      const item = t.projects.items[i];
-      if (item) {
-        card.querySelector('.project-card-title').textContent = item.title;
-        card.querySelector('.project-card-meta').textContent = item.meta;
-        card.querySelector('.project-card-view').textContent = item.btn;
+    
+    // Dynamically render featured projects
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (projectsGrid) {
+      const featuredProjects = projects.filter(p => p.isFeatured);
+      projectsGrid.innerHTML = ''; // clear grid
+      featuredProjects.forEach((item) => {
+        const yearStr = isFa ? toPersianDigits(item.year) : item.year;
+        const link = item.slug === 'damas-villa' ? 'damas-villa.html' : `projects.html?id=${item.slug}`;
+        
+        projectsGrid.innerHTML += `
+          <article class="project-card reveal">
+            <a href="${link}" class="project-card-image">
+              <img src="${item.coverImage}" alt="${item.title.en}" loading="lazy" width="800" height="1000">
+              <div class="project-card-overlay">
+                <span class="project-card-view">${item.title[lang]}</span>
+              </div>
+            </a>
+            <div class="project-card-info">
+              <h3 class="project-card-title">${item.title[lang]}</h3>
+              <p class="project-card-meta">${item.category[lang]} — ${item.location[lang]}, ${yearStr}</p>
+            </div>
+          </article>
+        `;
+      });
+      // Re-observe newly created project cards
+      if (typeof window.revealObserver !== 'undefined') {
+        projectsGrid.querySelectorAll('.project-card').forEach(el => window.revealObserver.observe(el));
       }
-    });
+    }
 
     // Footer
     const footerDesc_el = document.getElementById('footerDesc'); if (footerDesc_el) footerDesc_el.textContent = t.footer.desc;
@@ -245,34 +208,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle Persian font class and RTL direction
     document.body.classList.toggle('lang-fa', isFa);
-    document.documentElement.dir = isFa ? 'rtl' : 'ltr';
+
+    // Update mega menu if it exists
+    if (typeof window.updateMegaMenuLang === 'function') {
+      window.updateMegaMenuLang();
+    }
   }
 
-  langBtn.addEventListener('click', () => {
-    setLanguage(currentLang === 'en' ? 'fa' : 'en');
-  });
+  if(langBtn) {
+    langBtn.addEventListener('click', () => {
+      setLanguage(currentLang === 'en' ? 'fa' : 'en');
+    });
+  }
+  
+  // Setup initial state
+  setLanguage(currentLang);
 
-  // ── Scroll Reveal ──────────────────────────────
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-  );
 
-  document.querySelectorAll('.project-card, .reveal').forEach((el) => {
-    revealObserver.observe(el);
-  });
 
   // ── Smooth scroll for anchor links ─────────────
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const targetId = link.getAttribute('href');
+      
+      // Skip smooth scroll if it's the projects trigger
+      if (link.id === 'navProjects' || link.id === 'footerProjects') {
+        return; 
+      }
+
       if (targetId === '#') return;
       e.preventDefault();
       const target = document.querySelector(targetId);
@@ -287,9 +250,172 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Close mobile menu
-      navToggle.classList.remove('open');
-      navCenter.classList.remove('mobile-open');
-      navSocial.classList.remove('mobile-open');
+      if(navToggle) navToggle.classList.remove('open');
+      if(navCenter) navCenter.classList.remove('mobile-open');
+      if(navSocial) navSocial.classList.remove('mobile-open');
     });
   });
+
+  // Observe all reveal elements
+  document.querySelectorAll('.project-card, .reveal').forEach((el) => {
+    window.revealObserver.observe(el);
+  });
+
+  // ── Mega Menu ─────────────────────────────────
+  function initMegaMenu() {
+    const megaMenuHTML = `
+      <div class="projects-mega-menu" id="projectsMegaMenu" aria-hidden="true">
+        <div class="mega-menu-header">
+          <div class="mega-menu-title" id="megaMenuTitle">PROJECT ARCHIVE</div>
+          <button class="mega-menu-close" id="megaMenuClose" aria-label="Close">
+            <span class="close-text" id="megaMenuCloseText">CLOSE</span>
+            <span class="close-icon">&times;</span>
+          </button>
+        </div>
+        <div class="mega-menu-filters" id="megaMenuFilters">
+          <!-- Filters injected dynamically -->
+        </div>
+        <div class="mega-menu-content">
+          <div class="mega-menu-list" id="megaMenuList"></div>
+          <div class="mega-menu-preview" id="megaMenuPreview">
+            <img src="" alt="Project Preview" id="megaMenuPreviewImg" loading="lazy">
+            <div class="mega-menu-preview-meta" id="megaMenuPreviewMeta"></div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', megaMenuHTML);
+
+    const megaMenu = document.getElementById('projectsMegaMenu');
+    const closeBtn = document.getElementById('megaMenuClose');
+    const listContainer = document.getElementById('megaMenuList');
+    const previewImg = document.getElementById('megaMenuPreviewImg');
+    const previewMeta = document.getElementById('megaMenuPreviewMeta');
+    const filtersContainer = document.getElementById('megaMenuFilters');
+    
+    let activeCategory = 'all';
+
+    function openMenu() {
+      megaMenu.setAttribute('aria-hidden', 'false');
+      megaMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      renderList();
+    }
+
+    function closeMenu() {
+      megaMenu.setAttribute('aria-hidden', 'true');
+      megaMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleProjectsClick(e) {
+      e.preventDefault();
+      openMenu();
+    }
+
+    // Attach to triggers
+    const triggers = document.querySelectorAll('#navProjects, #footerProjects');
+    triggers.forEach(t => t.addEventListener('click', handleProjectsClick));
+
+    closeBtn.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && megaMenu.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    function renderList() {
+      const isFa = currentLang === 'fa';
+      const categories = ['all', 'Residential', 'Commercial', 'Cultural', 'Mixed Use', 'Hospitality'];
+      
+      const filterLabels = {
+        'all': isFa ? 'همه' : 'All',
+        'Residential': isFa ? 'مسکونی' : 'Residential',
+        'Commercial': isFa ? 'تجاری' : 'Commercial',
+        'Cultural': isFa ? 'فرهنگی' : 'Cultural',
+        'Mixed Use': isFa ? 'ترکیبی' : 'Mixed Use',
+        'Hospitality': isFa ? 'اقامتی' : 'Hospitality'
+      };
+
+      filtersContainer.innerHTML = categories.map(cat => `
+        <button class="filter-pill ${activeCategory === cat ? 'active' : ''}" data-filter="${cat}">
+          ${filterLabels[cat]}
+        </button>
+      `).join('');
+
+      filtersContainer.querySelectorAll('.filter-pill').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          activeCategory = e.target.getAttribute('data-filter');
+          renderList();
+        });
+      });
+
+      const filtered = activeCategory === 'all' 
+        ? projects 
+        : projects.filter(p => p.category.en === activeCategory);
+
+      listContainer.innerHTML = filtered.map((p, index) => {
+        const num = String(index + 1).padStart(2, '0');
+        const year = isFa ? toPersianDigits(p.year) : p.year;
+        const link = p.slug === 'damas-villa' ? 'damas-villa.html' : `projects.html?id=${p.slug}`;
+        return `
+          <a href="${link}" class="mega-list-item" data-id="${p.slug}" data-title="${p.title[currentLang]}" data-meta="${p.category[currentLang]} — ${p.location[currentLang]}, ${year}">
+            <span class="mega-list-num">${isFa ? toPersianDigits(num) : num} /</span>
+            <span class="mega-list-title">${p.title[currentLang]}</span>
+            <span class="mega-list-year">${year}</span>
+          </a>
+        `;
+      }).join('');
+
+      // Preload images into preview container for instant crossfading
+      const previewContainer = document.getElementById('megaMenuPreview');
+      const existingMeta = document.getElementById('megaMenuPreviewMeta');
+      
+      // We will keep the meta tag but clear the old images
+      previewContainer.innerHTML = filtered.map(p => `
+        <img src="${p.coverImage}" alt="${p.title.en}" id="preview-img-${p.slug}" class="mega-preview-img" loading="eager">
+      `).join('') + `<div class="mega-menu-preview-meta" id="megaMenuPreviewMeta">${existingMeta ? existingMeta.innerHTML : ''}</div>`;
+      
+      const newMeta = document.getElementById('megaMenuPreviewMeta');
+      const listItems = listContainer.querySelectorAll('.mega-list-item');
+      
+      listItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          const slug = item.getAttribute('data-id');
+          // Hide all images
+          previewContainer.querySelectorAll('.mega-preview-img').forEach(img => {
+            img.classList.remove('active');
+          });
+          // Show current
+          const targetImg = document.getElementById(`preview-img-${slug}`);
+          if (targetImg) targetImg.classList.add('active');
+          
+          newMeta.innerHTML = `<strong>${item.getAttribute('data-title')}</strong><br>${item.getAttribute('data-meta')}`;
+          
+          listItems.forEach(sibling => sibling.classList.remove('hovered'));
+          item.classList.add('hovered');
+        });
+      });
+
+      // trigger first item hover initially
+      if (listItems.length > 0) {
+        listItems[0].dispatchEvent(new Event('mouseenter'));
+      }
+      
+      // Update localized labels
+      const titleEl = document.getElementById('megaMenuTitle');
+      const closeEl = document.getElementById('megaMenuCloseText');
+      if (titleEl) titleEl.textContent = isFa ? 'آرشیو پروژه‌ها' : 'PROJECT ARCHIVE';
+      if (closeEl) closeEl.textContent = isFa ? 'بستن' : 'CLOSE';
+    }
+
+    // Export renderList so setLanguage can call it if the menu is open
+    window.updateMegaMenuLang = () => {
+      if (megaMenu.classList.contains('open')) {
+        renderList();
+      }
+    };
+  }
+
+  initMegaMenu();
 });

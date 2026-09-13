@@ -52,10 +52,10 @@
 .project-content {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 clamp(1.5rem, 5vw, 4rem) 8rem;
+  padding: 0 clamp(1.5rem, 5vw, 4rem) 4rem;
   display: flex;
   flex-direction: column;
-  gap: clamp(4rem, 8vw, 8rem);
+  gap: 2rem;
 }
 
 /* Split Narrative */
@@ -260,4 +260,367 @@ body.lang-fa .narrative-text {
 
 .navbar.navbar-dark-text .nav-brand-logo {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='10' width='35' height='35' fill='none' stroke='%230a0a0a' stroke-width='3'/%3E%3Crect x='55' y='10' width='35' height='35' fill='%230a0a0a'/%3E%3Crect x='10' y='55' width='35' height='35' fill='%230a0a0a'/%3E%3Crect x='55' y='55' width='35' height='35' fill='none' stroke='%230a0a0a' stroke-width='3'/%3E%3C/svg%3E");
+}
+
+/* =========================================
+   Modern Editorial Refactor
+   ========================================= */
+
+/* Hero Parallax */
+.parallax-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-hero img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  /* Will-change for parallax performance */
+  will-change: transform;
+}
+
+.project-hero-overlay {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.2) 100%);
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.project-hero-overlay .project-title {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  margin: 0;
+}
+
+/* Metadata Bar */
+.project-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--color-light-gray);
+  background: var(--color-white);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.meta-item span {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color-secondary);
+}
+
+.meta-item strong {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Editorial Brief */
+.editorial-brief {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* Tighter footprint for title */
+  gap: 2rem; /* Standardized gap */
+  margin-top: 2rem;
+}
+
+.brief-title h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Dynamic Gallery Rhythms */
+.editorial-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Strict uniform spacing */
+}
+
+.gallery-panorama img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.gallery-diptych {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; /* Strict uniform spacing */
+}
+
+.gallery-diptych img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+}
+
+.gallery-triptych {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; /* Strict uniform spacing */
+}
+
+.gallery-triptych img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+/* Specs Drawer */
+.specs-drawer {
+  background: var(--color-off-white);
+  padding: 4rem;
+  margin-top: 2rem;
+  border-radius: 4px;
+}
+
+.specs-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--color-light-gray);
+  padding-bottom: 1rem;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.spec-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.spec-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-color-secondary);
+}
+
+.spec-value {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Next Project Teaser */
+.next-project-teaser {
+  text-decoration: none;
+  background: var(--color-white);
+  padding-bottom: 6rem;
+}
+
+.next-project-content {
+  position: relative;
+  text-align: center;
+  color: var(--text-color-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem; /* Distinct visual gap before thumbnail container begins */
+}
+
+.next-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin: 0;
+  color: var(--text-color-secondary);
+}
+
+.next-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1;
+}
+
+.next-project-thumbnail-wrapper {
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-off-white);
+}
+
+.next-project-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.next-project-teaser:hover .next-project-bg {
+  transform: scale(1.03);
+}
+
+/* RTL Support for Teaser */
+body.lang-fa .next-title,
+body.lang-fa .next-label {
+  font-family: var(--font-persian);
+  letter-spacing: normal;
+}
+
+body.lang-fa .next-title {
+  font-weight: 700;
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .editorial-brief {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .specs-drawer {
+    padding: 2rem;
+  }
+}
+
+/* Narrative Typography Updates */
+.brief-text {
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--text-color-primary);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+@media (min-width: 992px) {
+  .brief-text {
+    column-count: 2;
+    column-gap: 3rem;
+  }
+}
+
+/* =========================================
+   Architectural Demarcation System
+   ========================================= */
+
+.architectural-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 6rem clamp(1.5rem, 5vw, 4rem);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .architectural-section {
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    padding: 8rem clamp(1.5rem, 5vw, 4rem);
+  }
+}
+
+.section-index {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+  .section-index {
+    position: sticky;
+    top: 120px;
+    margin-bottom: 0;
+  }
+}
+
+.idx-num, .idx-title {
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-color-secondary);
+}
+
+.section-body {
+  width: 100%;
+}
+
+/* Tonal Shifts */
+.tonal-shift-light,
+.tonal-shift-drafting,
+.tonal-shift-dark {
+  position: relative;
+}
+
+.tonal-shift-light::before,
+.tonal-shift-drafting::before,
+.tonal-shift-dark::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: -1;
+}
+
+.tonal-shift-light::before {
+  background-color: #FAF9F6;
+}
+
+.tonal-shift-drafting::before {
+  background-color: #F3F3F1;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.tonal-shift-dark::before {
+  background-color: #121212;
+}
+
+.tonal-shift-dark {
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tonal-shift-dark .idx-num, 
+.tonal-shift-dark .idx-title, 
+.tonal-shift-dark .spec-label {
+  color: rgba(255,255,255,0.5);
+}
+.tonal-shift-dark .spec-value {
+  color: #fff;
+}
+
+/* RTL Support */
+body.lang-fa .idx-num,
+body.lang-fa .idx-title {
+  font-family: var(--font-persian);
+  letter-spacing: normal;
 }

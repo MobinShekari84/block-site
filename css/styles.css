@@ -1232,8 +1232,18 @@ html[lang="fa"] h4,
 html[lang="fa"] h5, 
 html[lang="fa"] h6,
 body.lang-fa h1,
+body.lang-fa h2,
+body.lang-fa h3,
+body.lang-fa h4,
+body.lang-fa h5,
+body.lang-fa h6,
+body.lang-fa .project-title,
 body.lang-fa .hero-title,
-body.lang-fa .slideshow-header {
+body.lang-fa .heading-section,
+body.lang-fa .slideshow-header,
+body.lang-fa .next-title,
+body.lang-fa .mega-list-title,
+body.lang-fa .brief-title h2 {
   font-family: var(--font-persian) !important;
   line-height: 1.4 !important; /* Proper leading for Persian ascenders/descenders */
 }
@@ -1242,4 +1252,201 @@ body.lang-fa .slideshow-header {
 html[lang="fa"] .hero-title,
 body.lang-fa .hero-title {
   font-weight: 700 !important; /* Yekan Bold */
+}
+
+/* =========================================
+   Mega Menu / Projects Overlay
+   ========================================= */
+
+.projects-mega-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10000; /* Above navbar */
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  overflow: hidden;
+}
+
+.projects-mega-menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mega-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem clamp(1.5rem, 5vw, 4rem);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mega-menu-title {
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.mega-menu-close {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-color-primary);
+}
+.mega-menu-close .close-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.mega-menu-filters {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mega-menu-filters .filter-pill {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mega-menu-filters .filter-pill:hover,
+.mega-menu-filters .filter-pill.active {
+  background: var(--text-color-primary);
+  color: var(--color-white);
+  border-color: var(--text-color-primary);
+}
+
+.mega-menu-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .mega-menu-content {
+    grid-template-columns: 1fr 1fr; /* Split layout */
+  }
+}
+
+.mega-menu-list {
+  padding: 2rem clamp(1.5rem, 5vw, 4rem);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-list-item {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: var(--text-color-primary);
+  transition: transform 0.3s ease;
+}
+
+.mega-list-item:hover, .mega-list-item.hovered {
+  transform: translateX(10px);
+}
+
+.mega-list-num {
+  font-size: 0.85rem;
+  color: var(--text-color-secondary);
+}
+
+.mega-list-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+.mega-list-year {
+  font-size: 0.85rem;
+  color: var(--text-color-secondary);
+}
+
+.mega-menu-preview {
+  display: none;
+  position: relative;
+  background: var(--color-off-white);
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .mega-menu-preview {
+    display: block;
+  }
+}
+
+.mega-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0; left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 1s ease;
+  transform: scale(1.05);
+}
+
+.mega-preview-img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mega-menu-preview-meta {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* RTL Support */
+body.lang-fa .mega-menu-title,
+body.lang-fa .mega-menu-close,
+body.lang-fa .filter-pill,
+body.lang-fa .mega-list-num,
+body.lang-fa .mega-list-year {
+  font-family: var(--font-persian);
+  letter-spacing: normal;
+}
+body.lang-fa .mega-list-item:hover, 
+body.lang-fa .mega-list-item.hovered {
+  transform: translateX(-10px);
+}
+body.lang-fa .mega-menu-preview-meta {
+  left: auto;
+  right: 2rem;
+  font-family: var(--font-persian);
 }

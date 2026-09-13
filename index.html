@@ -27,7 +27,6 @@
     rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="components/InteractivePlan/InteractivePlan.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/logo.css">
 
@@ -65,7 +64,7 @@
     <ul class="nav-center" id="navCenter">
       <li><a href="#hero" class="nav-link active" id="navHome">Home</a></li>
       <li><a href="#projects" class="nav-link" id="navProjects">Projects</a></li>
-      <li><a href="#" class="nav-link" id="navAbout">About</a></li>
+      <li><a href="about.html" class="nav-link" id="navAbout">About</a></li>
     </ul>
 
     <div style="display: flex; align-items: center; gap: 1.25rem;">
@@ -152,79 +151,7 @@
     </header>
 
     <div class="projects-grid">
-      <!-- Project%201 -->
-      <article class="project-card">
-        <a href="#spatial" class="project-card-image">
-          <img src="assets/images/villa-alborz-thumb.webp" alt="Villa Alborz — minimalist residential architecture"
-            loading="lazy" width="800" height="1000">
-          <div class="project-card-overlay">
-            <span class="project-card-view">Villa Alborz</span>
-          </div>
-        </a>
-        <div class="project-card-info">
-          <h3 class="project-card-title">Villa Alborz</h3>
-          <p class="project-card-meta">Residential — Tehran, 2024</p>
-        </div>
-      </article>
-
-      <!-- Project 2 -->
-      <article class="project-card">
-        <a href="#" class="project-card-image">
-          <img src="assets/images/noor-tower-thumb.webp" alt="Noor Tower — mixed-use tower with geometric facade" loading="lazy"
-            width="800" height="1000">
-          <div class="project-card-overlay">
-            <span class="project-card-view">Noor Tower</span>
-          </div>
-        </a>
-        <div class="project-card-info">
-          <h3 class="project-card-title">Noor Tower</h3>
-          <p class="project-card-meta">Mixed Use — Isfahan, 2023</p>
-        </div>
-      </article>
-
-      <!-- Project 3 -->
-      <article class="project-card">
-        <a href="#" class="project-card-image">
-          <img src="assets/images/saye-complex-thumb.webp"
-            alt="Saye Complex — commercial architecture with clean concrete design" loading="lazy" width="800"
-            height="1000">
-          <div class="project-card-overlay">
-            <span class="project-card-view">Saye Complex</span>
-          </div>
-        </a>
-        <div class="project-card-info">
-          <h3 class="project-card-title">Saye Complex</h3>
-          <p class="project-card-meta">Commercial — Shiraz, 2024</p>
-        </div>
-      </article>
-            <!-- Card 4: Damas Villa -->
-        <article class="project-card reveal" aria-labelledby="proj4-title">
-          <a href="damas-villa.html" class="project-card-image">
-            <img src="assets/damas-villa/01.webp" alt="Damas Villa Exterior" loading="lazy" width="800" height="1000">
-            <div class="project-card-overlay">
-              <span class="project-card-view">Damas Villa</span>
-            </div>
-          </a>
-          <div class="project-card-info">
-            <h3 class="project-card-title" id="proj4-title">Damas Villa</h3>
-            <p class="project-card-meta">Residential — Damavand, 2026</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-  <!-- ═══════════════════════════════════════════
-       SPATIAL VIEWPORT (Interactive 3D)
-       ═══════════════════════════════════════════ -->
-    <section class="section light-theme" id="spatial" aria-label="Interactive Project%201 Showcase">
-    <header class="section-header reveal">
-      <div>
-        <p class="text-label" id="spatialLabel">Project 1 Showcase</p>
-        <h2 class="heading-section" id="spatialTitle">Interactive Plan</h2>
-      </div>
-    </header>
-
-    <div id="spatial-container"></div>
+    </div>
   </section>
 
   <!-- ═══════════════════════════════════════════
@@ -247,7 +174,7 @@
         <ul class="footer-links">
           <li><a href="#hero" class="footer-link link-hover" id="footerHome">Home</a></li>
           <li><a href="#projects" class="footer-link link-hover" id="footerProjects">Projects</a></li>
-          <li><a href="#" class="footer-link link-hover" id="footerAbout">About</a></li>
+          <li><a href="about.html" class="footer-link link-hover" id="footerAbout">About</a></li>
         </ul>
       </div>
 
@@ -283,9 +210,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/script.js"></script>
-  <script src="components/InteractivePlan/InteractivePlan.js"></script>
-  <script src="js/spatial.js"></script>
+  <script type="module" src="js/script.js"></script>
 </body>
 
 </html>
