@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroTitle = document.getElementById('heroTitle');
   const heroSubtitle = document.getElementById('heroSubtitle');
   const heroBtnText = document.getElementById('heroBtnText');
+  const heroActionBtn = document.getElementById('heroActionBtn');
   const counterCurrent = document.getElementById('counterCurrent');
   const counterTotal = document.getElementById('counterTotal');
 
@@ -69,8 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update text
     const slideData = siteMeta[currentLang].hero.slides[currentSlide];
-    if(heroTitle && slideData) heroTitle.textContent = slideData.title;
+        if(heroTitle && slideData) heroTitle.textContent = slideData.title;
     if(heroSubtitle && slideData) heroSubtitle.textContent = slideData.subtitle;
+    if(heroActionBtn && slideData.link) heroActionBtn.href = slideData.link;
     
     const isFa = currentLang === 'fa';
     const num = String(currentSlide + 1).padStart(2, '0');
@@ -144,8 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero
     if(heroSlides.length > 0) {
       const slideData = t.hero.slides[currentSlide];
-      if(heroTitle && slideData) heroTitle.textContent = slideData.title;
+            if(heroTitle && slideData) heroTitle.textContent = slideData.title;
       if(heroSubtitle && slideData) heroSubtitle.textContent = slideData.subtitle;
+      if(heroActionBtn && slideData.link) heroActionBtn.href = slideData.link;
       if(heroBtnText) heroBtnText.textContent = t.hero.btn;
 
       // Update Counter Total

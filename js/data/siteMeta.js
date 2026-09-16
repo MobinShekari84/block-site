@@ -2,10 +2,10 @@ export const siteMeta = {
   en: {
     nav: { home: 'Home', projects: 'Projects', about: 'About' },
     hero: {
-      slides: [
-        { title: 'Where Form\nMeets Light', subtitle: 'Villa Alborz — Tehran, 2024' },
-        { title: 'Sculpting\nUrban Space', subtitle: 'Residential Tower — Isfahan, 2023' },
-        { title: 'Minimal\nMaximal Impact', subtitle: 'Commercial Complex — Shiraz, 2024' }
+            slides: [
+        { title: 'Geometric\nPurity', subtitle: 'Damas Villa — Damavand, 2026', link: '/projects/damas-villa/' },
+        { title: 'Coastal\nSerenity', subtitle: 'Khane Darya — Mahmoudabad, 2024', link: '/projects/khane-darya/' },
+        { title: 'Nature\nEmbraced', subtitle: 'Sarziarate Villa — Tehran, 2024', link: '/projects/sarziarate/' }
       ],
       btn: 'Learn More'
     },
@@ -38,10 +38,10 @@ export const siteMeta = {
   fa: {
     nav: { home: 'خانه', projects: 'پروژه‌ها', about: 'درباره ما' },
     hero: {
-      slides: [
-        { title: 'جایی که فرم\nبا نور ملاقات می‌کند', subtitle: 'ویلا البرز — تهران، ۲۰۲۴' },
-        { title: 'مجسمه‌سازی\nفضای شهری', subtitle: 'برج مسکونی — اصفهان، ۲۰۲۳' },
-        { title: 'مینیمال\nبیشترین تأثیر', subtitle: 'مجتمع تجاری — شیراز، ۲۰۲۴' }
+            slides: [
+        { title: 'خلوص\nهندسی', subtitle: 'ویلای داماس — دماوند، ۲۰۲۶', link: '/projects/damas-villa/' },
+        { title: 'آرامش\nساحلی', subtitle: 'خانه دریا — محمودآباد، ۲۰۲۴', link: '/projects/khane-darya/' },
+        { title: 'در آغوش\nطبیعت', subtitle: 'ویلا سرزیارت — تهران، ۲۰۲۴', link: '/projects/sarziarate/' }
       ],
       btn: 'بیشتر بدانید'
     },
