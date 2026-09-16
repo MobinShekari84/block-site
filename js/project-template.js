@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextTitle = document.getElementById('nextProjectTitle');
   if (teaser && nextTitle && nextProject) {
     teaser.style.display = 'block';
-    teaser.href = nextProject.slug + '.html'; // Assuming slug.html routing for static demo
+    teaser.href = ['damas-villa', 'khane-darya'].includes(nextProject.slug) ? nextProject.slug + '.html' : 'projects.html?id=' + nextProject.slug; // Assuming slug.html routing for static demo
     
     // Set background image
     const bg = teaser.querySelector('.next-project-bg');

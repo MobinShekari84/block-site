@@ -47,7 +47,7 @@
 @font-face {
   font-family: 'YekanBakh';
   src: url('../assets/fonts/Yekan Bakh Fa 06 Bold.woff2') format('woff2');
-  font-weight: 700;
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -55,7 +55,7 @@
 @font-face {
   font-family: 'YekanBakh';
   src: url('../assets/fonts/Yekan Bakh Fa 07 Heavy.woff2') format('woff2');
-  font-weight: 800;
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -90,7 +90,7 @@
   /* Font Families */
   --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-persian: 'YekanBakh', 'Yekan Bakh', 'Yekan Fard', 'yekanfard', Tahoma, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* Font Weights */
   --font-weight-hairline: 100;
@@ -271,7 +271,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   NAVBAR
+      # NAVBAR
    ============================================ */
 .navbar {
   position: fixed;
@@ -498,7 +498,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   HERO / SLIDESHOW
+      # HERO / SLIDESHOW
    ============================================ */
 .hero {
   position: relative;
@@ -699,7 +699,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   PROJECTS SECTION
+      # PROJECTS SECTION
    ============================================ */
 .section {
   padding: var(--spacing-xl) clamp(1.5rem, 5vw, 4rem);
@@ -858,7 +858,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   FOOTER
+      # FOOTER
    ============================================ */
 .footer {
   padding: var(--spacing-xl) clamp(1.5rem, 5vw, 4rem) var(--spacing-lg);
@@ -976,7 +976,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   SCROLL REVEAL ANIMATION
+      # SCROLL REVEAL ANIMATION
    ============================================ */
 .reveal {
   opacity: 0;
@@ -990,7 +990,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   REDUCED MOTION
+      # REDUCED MOTION
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .hero-slide img {
@@ -1017,7 +1017,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   RESPONSIVE
+      # RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
   .projects-grid {
@@ -1124,7 +1124,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   PERSIAN LANGUAGE — Global Font Override
+      # PERSIAN LANGUAGE — Global Font Override
    ============================================ */
 body.lang-fa,
 body.lang-fa .hero-title,
@@ -1156,7 +1156,7 @@ body.lang-fa .hero-title,
 body.lang-fa .heading-display,
 body.lang-fa .heading-section,
 body.lang-fa .footer-brand-name {
-  font-weight: var(--font-weight-heavy);
+  font-weight: 300;
 }
 
 body.lang-fa .hero-title {
@@ -1180,7 +1180,7 @@ body.lang-fa .footer-col-title {
 }
 
 /* ============================================
-   RTL SUPPORT (Persian)
+      # RTL SUPPORT (Persian)
    ============================================ */
 html[dir="rtl"] .hero-content {
   left: auto;
@@ -1223,7 +1223,7 @@ html[dir="rtl"] .lang-dropdown {
 
 
 /* ============================================
-   BILINGUAL (RTL/FARSI) TYPOGRAPHY FORCES
+      # BILINGUAL (RTL/FARSI) TYPOGRAPHY FORCES
    ============================================ */
 html[lang="fa"] h1, 
 html[lang="fa"] h2, 
@@ -1245,17 +1245,98 @@ body.lang-fa .next-title,
 body.lang-fa .mega-list-title,
 body.lang-fa .brief-title h2 {
   font-family: var(--font-persian) !important;
-  line-height: 1.4 !important; /* Proper leading for Persian ascenders/descenders */
+  line-height: 1.4 !important;
+  /* Proper leading for Persian ascenders/descenders */
+  font-weight: 300 !important;
 }
 
 /* Ensure proper font weight cascading for Farsi */
 html[lang="fa"] .hero-title,
 body.lang-fa .hero-title {
-  font-weight: 700 !important; /* Yekan Bold */
+  font-weight: 300 !important; /* Yekan Light */
 }
 
+/* ============================================
+      # ENGLISH (LTR) HELVETICA DISPLAY TYPOGRAPHY
+   ============================================ */
+body:not(.lang-fa) {
+  --font-size-hero: clamp(2.5rem, 8vw, 7rem);
+  --font-size-display: clamp(2.5rem, 8vw, 7.5rem);
+  --font-size-section: clamp(2rem, 5vw, 4.5rem);
+}
+
+body:not(.lang-fa) h1,
+body:not(.lang-fa) h2,
+body:not(.lang-fa) h3,
+body:not(.lang-fa) .hero-title,
+body:not(.lang-fa) .project-title,
+body:not(.lang-fa) .section-title,
+body:not(.lang-fa) .heading-display,
+body:not(.lang-fa) .heading-section,
+body:not(.lang-fa) .mega-list-title,
+body:not(.lang-fa) .archive-title,
+body:not(.lang-fa) .specs-title,
+body:not(.lang-fa) .next-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+/* Adjustments for massive hero / display text */
+body:not(.lang-fa) .hero-title,
+body:not(.lang-fa) .project-title,
+body:not(.lang-fa) .heading-display {
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+/* ============================================
+      # ENGLISH (LTR) ULTRA-MINIMAL BODY TYPOGRAPHY
+   ============================================ */
+body:not(.lang-fa) {
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.015em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body:not(.lang-fa) p,
+body:not(.lang-fa) .text-body,
+body:not(.lang-fa) .narrative-text,
+body:not(.lang-fa) .phil-text,
+body:not(.lang-fa) .team-bio,
+body:not(.lang-fa) .project-description,
+body:not(.lang-fa) .spec-label,
+body:not(.lang-fa) .spec-value,
+body:not(.lang-fa) .gallery-caption,
+body:not(.lang-fa) .text-label,
+body:not(.lang-fa) .footer-brand-desc,
+body:not(.lang-fa) .project-card-meta {
+  font-weight: 300;
+  line-height: 1.75;
+  letter-spacing: 0.015em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body:not(.lang-fa) .footer-brand-desc,
+body:not(.lang-fa) .spec-label {
+  font-weight: 300;
+}
+
+/* Override global font weight variables for English (LTR) for that ultra-minimal look */
+body:not(.lang-fa) {
+  --font-weight-regular: 300;
+  --font-weight-medium: 300;
+  --font-weight-light: 200;
+}
+
+
+
+
 /* =========================================
-   Mega Menu / Projects Overlay
+      # Mega Menu / Projects Overlay
    ========================================= */
 
 .projects-mega-menu {
@@ -1350,7 +1431,7 @@ body.lang-fa .hero-title {
 
 @media (min-width: 900px) {
   .mega-menu-content {
-    grid-template-columns: 1fr 1fr; /* Split layout */
+    grid-template-columns: 1fr 2fr; /* List takes 1/3, Image takes 2/3 */
   }
 }
 
@@ -1366,7 +1447,7 @@ body.lang-fa .hero-title {
   grid-template-columns: 40px 1fr auto;
   align-items: center;
   gap: 1.5rem;
-  padding: 1.5rem 0;
+  padding: 0.8rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   text-decoration: none;
   color: var(--text-color-primary);
@@ -1384,7 +1465,13 @@ body.lang-fa .hero-title {
 
 .mega-list-title {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+}
+
+/* Explicit override for mega list titles to be ultra-thin */
+body:not(.lang-fa) .mega-list-title {
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
 }
 
 .mega-list-year {
@@ -1450,3 +1537,4 @@ body.lang-fa .mega-menu-preview-meta {
   right: 2rem;
   font-family: var(--font-persian);
 }
+

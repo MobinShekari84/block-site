@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
       projectsGrid.innerHTML = ''; // clear grid
       featuredProjects.forEach((item) => {
         const yearStr = isFa ? toPersianDigits(item.year) : item.year;
-        const link = item.slug === 'damas-villa' ? 'damas-villa.html' : `projects.html?id=${item.slug}`;
+        const link = ['damas-villa', 'khane-darya'].includes(item.slug) ? `${item.slug}.html` : `projects.html?id=${item.slug}`;
         
         projectsGrid.innerHTML += `
           <article class="project-card reveal">
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetId = link.getAttribute('href');
       
       // Skip smooth scroll if it's the projects trigger
-      if (link.id === 'navProjects' || link.id === 'footerProjects') {
+      if (link.id === 'navProjects' || link.id === 'footerProjects' || !targetId.startsWith('#')) {
         return; 
       }
 
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
           behavior: 'smooth'
         });
       } else {
-        window.location.href = 'index.html' + targetId;
+        window.location.href = '/' + targetId;
       }
 
       // Close mobile menu
@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
       listContainer.innerHTML = filtered.map((p, index) => {
         const num = String(index + 1).padStart(2, '0');
         const year = isFa ? toPersianDigits(p.year) : p.year;
-        const link = p.slug === 'damas-villa' ? 'damas-villa.html' : `projects.html?id=${p.slug}`;
+        const link = ['damas-villa', 'khane-darya'].includes(p.slug) ? `${p.slug}.html` : `projects.html?id=${p.slug}`;
         return `
           <a href="${link}" class="mega-list-item" data-id="${p.slug}" data-title="${p.title[currentLang]}" data-meta="${p.category[currentLang]} — ${p.location[currentLang]}, ${year}">
             <span class="mega-list-num">${isFa ? toPersianDigits(num) : num} /</span>

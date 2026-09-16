@@ -1,10 +1,13 @@
 export const aboutData = {
   hero: {
-    manifesto: {
-      en: "We design spaces that breathe. A synthesis of light, materiality, and contextual integrity.",
-      fa: "ما فضاهایی طراحی می‌کنیم که نفس می‌کشند. تلفیقی از نور، متریال و اصالت بستر."
+    title: {
+      en: "Crafting Spatial Quietude",
+      fa: "خلق آرامش فضایی"
     },
-    image: "assets/about/Out-view.webp"
+    subtitle: {
+      en: "We design spaces that breathe, merging tactile materiality with an essential understanding of light and form.",
+      fa: "ما فضاهایی طراحی می‌کنیم که نفس می‌کشند؛ پیوندی میان مادیت ملموس و درک بنیادین از نور و فرم."
+    }
   },
   narrative: {
     en: "Block Architecture Studio is a multidisciplinary practice driven by the pursuit of essential form. Founded on the belief that architecture should resonate with both its environment and its inhabitants, our collective explores the intersection of traditional craftsmanship and contemporary spatial design. We are dedicated to creating enduring structures that prioritize natural light, tactile materiality, and contextual sensitivity. Every project is approached as a unique dialogue between site constraints and human experience, resulting in spaces that are both monumental and intimately personal.",
@@ -26,14 +29,14 @@ export const aboutData = {
     },
     {
       id: "team-2",
-      name: { en: "Rojin Molaei", fa: "روژین ملایی" },
+      name: { en: "Rojin Molaei", fa: "روژین مولایی" },
       role: { en: "Lead Designer", fa: "طراح ارشد" },
       bio: {
         en: "Specializing in spatial fluidity and tactile materiality, bringing an unparalleled level of detail to the studio's environments.",
         fa: "تخصص در سیالیت فضایی و متریال‌های لمسی، و افزودن سطح بی‌نظیری از جزئیات به فضاهای استودیو."
       },
       portraitPath: "assets/about/Rojin-Molaei.webp",
-      credentials: { en: "B.Arch", fa: "کارشناسی معماری" },
+      credentials: { en: "M.Arch", fa: "کارشناسی ارشد معماری" },
       order: 2,
       social: { linkedin: "#", instagram: "#" }
     },
@@ -52,7 +55,6 @@ export const aboutData = {
     }
   ],
   gallery: [
-    { id: "img-1", imagePath: "assets/about/Out-view.webp", caption: { en: "Studio Facade", fa: "نمای استودیو" } },
     { id: "img-2", imagePath: "assets/about/In1.webp", caption: { en: "Main Drafting Space", fa: "فضای اصلی طراحی" } },
     { id: "img-3", imagePath: "assets/about/in2.webp", caption: { en: "Collaborative Area", fa: "فضای همفکری" } },
     { id: "img-4", imagePath: "assets/about/in3.webp", caption: { en: "Material Library", fa: "آرشیو متریال" } },

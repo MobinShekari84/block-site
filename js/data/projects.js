@@ -13,7 +13,7 @@ export const projects = [
     coverImage: 'assets/images/villa-alborz-thumb.webp',
     galleryImages: [],
     specs: { area: null, client: null, status: null },
-    isFeatured: true,
+    isFeatured: false,
     heroTheme: null,
     spatialPlan: null
   },
@@ -52,6 +52,51 @@ export const projects = [
     isFeatured: false,
     heroTheme: null,
     spatialPlan: null
+  },
+  {
+    id: 'khane-darya',
+    slug: 'khane-darya',
+    title: { en: 'Khane Darya No.199', fa: 'خانه دریا پلاک ۱۹۹' },
+    category: { en: 'Residential', fa: 'مسکونی' },
+    year: 2024,
+    location: { en: 'Mahmudabad', fa: 'محمودآباد' },
+    description: { 
+      en: 'Situated in the coastal enclave of Khane Darya, Villa No. 199 is a bold exploration of modern coastal living. The design navigates the delicate balance between openness to the lush northern environment and the necessity for private sanctuary. Expansive glass facades frame the surrounding garden, drawing the landscape inward, while solid architectural planes provide structural and visual anchoring. The transition from the street to the secluded back garden is orchestrated through a sequence of transparent and semi-transparent volumes, allowing natural light to permeate the core of the house. The material palette embraces its coastal context, blending warm textures with clean, modernist lines to create a timeless retreat.', 
+      fa: 'ویلای پلاک ۱۹۹ در شهرک ساحلی خانه دریا، کاوشی جسورانه در زندگی مدرن ساحلی است. این طراحی تعادل ظریفی میان گشودگی به محیط سرسبز شمالی و نیاز به یک پناهگاه خصوصی برقرار می‌کند. نماهای شیشه‌ای وسیع، باغ پیرامون را قاب گرفته و منظره را به داخل هدایت می‌کنند، در حالی که سطوح معماری صلب، تکیه‌گاهی ساختاری و بصری فراهم می‌آورند. گذار از خیابان به حیاط خلوت پشتی از طریق توالی حجم‌های شفاف و نیمه‌شفاف ساماندهی شده است که اجازه می‌دهد نور طبیعی در قلب خانه نفوذ کند. پالت متریال با احترام به بستر ساحلی خود، بافت‌های گرم را با خطوط تمیز مدرنیستی ترکیب می‌کند تا یک خلوتگاه بی‌زمان خلق کند.' 
+    },
+    coverImage: 'assets/KhaneDarya199/View1.PNG',
+    galleryImages: [
+      'assets/KhaneDarya199/View2.PNG',
+      'assets/KhaneDarya199/View3.PNG',
+      'assets/KhaneDarya199/View4.PNG',
+      'assets/KhaneDarya199/BackGarden1.jpg',
+      'assets/KhaneDarya199/BackGarden2.jpg',
+      'assets/KhaneDarya199/BackGarden3.jpg',
+      'assets/KhaneDarya199/BackGarden4.jpg',
+      'assets/KhaneDarya199/BackGarden5.jpg'
+    ],
+    drawings: [
+      'assets/KhaneDarya199/portfolio plan.png',
+      'assets/KhaneDarya199/NO 199 First Floor plan.jpg',
+      'assets/KhaneDarya199/NO 199 North Elevation.jpg',
+      'assets/KhaneDarya199/NO 199 South Elevation.jpg'
+    ],
+    specs: { 
+      area: { en: '520 sqm', fa: '۵۲۰ متر مربع' },
+      status: { en: 'Completed', fa: 'تکمیل شده' },
+      materials: { en: 'Wood, Glass, White Plaster', fa: 'چوب، شیشه، گچ سفید' },
+      architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
+    },
+    isFeatured: true,
+    heroTheme: 'light',
+    spatialPlan: {
+      planImageUrl: 'assets/KhaneDarya199/portfolio plan.png',
+      aspectRatio: '1600 / 1200',
+      hotspots: [
+        { id: 1, x: 30, y: 30, rot: 45, title: { en: 'Living Space', fa: 'فضای نشیمن' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: 'assets/KhaneDarya199/View2.PNG' },
+        { id: 2, x: 70, y: 60, rot: 90, title: { en: 'Back Garden', fa: 'حیاط پشتی' }, zone: { en: 'Exterior', fa: 'خارجی' }, renderUrl: 'assets/KhaneDarya199/BackGarden1.jpg' }
+      ]
+    }
   },
   {
     id: 'damas-villa',

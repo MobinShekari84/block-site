@@ -15,67 +15,59 @@ body {
 }
 
 /* --- Hero & Manifesto --- */
-.about-hero {
-  padding-top: max(12rem, 15vh);
-  padding-bottom: 6rem;
-  max-width: 1400px;
+.about-hero-gradient {
+  min-height: 100vh;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: 
+    linear-gradient(rgba(245, 245, 245, 0.7), rgba(245, 245, 245, 0.9)),
+    url('../assets/about/in2.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #FBFBFA; /* Warm off-white base */
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
   margin: 0 auto;
-  padding-left: clamp(1.5rem, 5vw, 4rem);
-  padding-right: clamp(1.5rem, 5vw, 4rem);
-}
-
-.about-hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-}
-
-@media (min-width: 992px) {
-  .about-hero-grid {
-    grid-template-columns: 1fr 1.2fr;
-    align-items: end;
-    gap: 6rem;
-  }
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  text-align: center;
 }
 
 .hero-manifesto {
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
-  line-height: 1.15;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.1;
+  font-weight: 300;
+  letter-spacing: -0.01em;
   color: var(--about-text-primary);
-  margin: 0;
-  text-align: justify;
-  padding-bottom: 2rem;
+  margin: 0 0 2rem 0;
+  text-align: center;
 }
 
-.hero-manifesto.lang-fa {
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--about-text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+  letter-spacing: 0.01em;
+}
+
+.hero-manifesto.lang-fa,
+.hero-subtitle.lang-fa {
   font-family: var(--font-persian);
   line-height: 1.5;
   letter-spacing: normal;
-}
-
-.about-hero-image {
-  overflow: hidden;
-}
-
-.about-hero-image img {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  background: #EFEFEA;
-  transform: scale(1.0);
-  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about-hero-image:hover img {
-  transform: scale(1.03);
-}
-
-@media (min-width: 992px) {
-  .about-hero-image img {
-    aspect-ratio: 4/5;
-  }
 }
 
 /* --- Narrative Section --- */
@@ -391,14 +383,4 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.about-hero-text {
-  animation: heroEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-}
-
-.about-hero-image {
-  animation: heroEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-  opacity: 0;
 }

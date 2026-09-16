@@ -12,7 +12,7 @@
 /* Header Hero */
 .project-hero {
   width: 100%;
-  height: 75vh;
+  height: 100vh;
   min-height: 500px;
   position: relative;
   overflow: hidden;
@@ -39,6 +39,12 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
+}
+
+/* Force thinner font-weight for English project titles */
+body:not(.lang-fa) .project-title {
+  font-weight: 300 ;
+  letter-spacing: -0.01em ;
 }
 
 .project-subtitle {
@@ -147,7 +153,7 @@
     grid-template-columns: 1fr;
   }
   .project-hero {
-    height: 50vh;
+    height: 100vh;
   }
 }
 
@@ -263,7 +269,7 @@ body.lang-fa .narrative-text {
 }
 
 /* =========================================
-   Modern Editorial Refactor
+      # Modern Editorial Refactor
    ========================================= */
 
 /* Hero Parallax */
@@ -310,8 +316,24 @@ body.lang-fa .narrative-text {
   max-width: 1400px;
   margin: 0 auto;
   padding: 3rem clamp(1.5rem, 5vw, 4rem);
-  border-bottom: 1px solid var(--color-light-gray);
+  /* border-bottom: 1px solid var(--color-light-gray); */
+  position: relative;
   background: var(--color-white);
+}
+
+body.lang-fa .project-meta-bar::after {
+  left: auto;
+  right: clamp(1.5rem, 5vw, 4rem);
+}
+
+.project-meta-bar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: clamp(1.5rem, 5vw, 4rem); /* Align with padding */
+  width: 33%;
+  height: 1px;
+  background-color: var(--color-light-gray);
 }
 
 .meta-item {
@@ -397,8 +419,24 @@ body.lang-fa .narrative-text {
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 3rem;
-  border-bottom: 1px solid var(--color-light-gray);
+  /* border-bottom: 1px solid var(--color-light-gray); */
+  position: relative;
   padding-bottom: 1rem;
+}
+
+.specs-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 33%;
+  height: 1px;
+  background-color: var(--color-light-gray);
+}
+
+body.lang-fa .specs-title::after {
+  left: auto;
+  right: 0;
 }
 
 .specs-grid {
@@ -489,7 +527,8 @@ body.lang-fa .next-label {
 }
 
 body.lang-fa .next-title {
-  font-weight: 700;
+  font-weight: 300; /* Replaced 700 */
+  
 }
 
 /* Responsive Overrides */
@@ -522,7 +561,7 @@ body.lang-fa .next-title {
 }
 
 /* =========================================
-   Architectural Demarcation System
+      # Architectural Demarcation System
    ========================================= */
 
 .architectural-section {

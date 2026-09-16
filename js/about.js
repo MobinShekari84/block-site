@@ -9,14 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- 1. Hero Section ---
     const heroHTML = `
-      <section class="about-hero reveal">
-        <div class="about-hero-grid">
-          <div class="about-hero-text">
-            <h1 class="hero-manifesto ${isFa ? 'lang-fa' : ''}">${aboutData.hero.manifesto[lang]}</h1>
-          </div>
-          <div class="about-hero-image">
-            <img src="${aboutData.hero.image}" alt="Block Architecture Studio" fetchpriority="high">
-          </div>
+      <section class="about-hero-gradient reveal">
+        <div class="about-hero-content">
+          <h1 class="hero-manifesto ${isFa ? 'lang-fa' : ''}">${aboutData.hero.title[lang]}</h1>
+          <p class="hero-subtitle ${isFa ? 'lang-fa' : ''}">${aboutData.hero.subtitle[lang]}</p>
         </div>
       </section>
     `;
@@ -191,9 +187,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Lightbox Logic for Gallery
+let lbImages = [];
+let lbCurrentIndex = 0;
+
 document.addEventListener('click', (e) => {
   const trigger = e.target.closest('.gallery-figure img');
+  
   if (trigger) {
+    lbImages = Array.from(document.querySelectorAll('.gallery-figure img'));
+    lbCurrentIndex = lbImages.indexOf(trigger);
+    
     let lb = document.getElementById('about-lightbox');
     if (!lb) {
       lb = document.createElement('div');
@@ -202,25 +205,61 @@ document.addEventListener('click', (e) => {
       lb.innerHTML = `
         <div class="lightbox-overlay"></div>
         <div class="lightbox-content">
-          <button class="lb-close" aria-label="Close Lightbox">✕</button>
+          <button class="lb-close" id="about-lbClose" aria-label="Close Lightbox">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+          </button>
+          <button class="lb-nav lb-prev" id="about-lbPrev" aria-label="Previous Image">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
+          </button>
           <div class="lightbox-img-wrapper">
             <img id="about-lb-img" src="" alt="Fullscreen Image">
           </div>
+          <button class="lb-nav lb-next" id="about-lbNext" aria-label="Next Image">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+          </button>
         </div>
       `;
       document.body.appendChild(lb);
       
       lb.addEventListener('click', (ev) => {
-        if (ev.target.classList.contains('lightbox-overlay') || ev.target.classList.contains('lb-close')) {
+        if (ev.target.closest('.lightbox-overlay') || ev.target.closest('#about-lbClose')) {
           lb.classList.remove('active');
           document.body.style.overflow = '';
+        }
+      });
+      
+      document.getElementById('about-lbPrev').addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        lbCurrentIndex = (lbCurrentIndex - 1 + lbImages.length) % lbImages.length;
+        document.getElementById('about-lb-img').src = lbImages[lbCurrentIndex].src;
+      });
+
+      document.getElementById('about-lbNext').addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        lbCurrentIndex = (lbCurrentIndex + 1) % lbImages.length;
+        document.getElementById('about-lb-img').src = lbImages[lbCurrentIndex].src;
+      });
+      
+      // Keyboard support
+      document.addEventListener('keydown', (ev) => {
+        if (lb.classList.contains('active')) {
+          if (ev.key === 'Escape') {
+            lb.classList.remove('active');
+            document.body.style.overflow = '';
+          } else if (ev.key === 'ArrowLeft') {
+            lbCurrentIndex = (lbCurrentIndex - 1 + lbImages.length) % lbImages.length;
+            document.getElementById('about-lb-img').src = lbImages[lbCurrentIndex].src;
+          } else if (ev.key === 'ArrowRight') {
+            lbCurrentIndex = (lbCurrentIndex + 1) % lbImages.length;
+            document.getElementById('about-lb-img').src = lbImages[lbCurrentIndex].src;
+          }
         }
       });
     }
     
     const lbImg = document.getElementById('about-lb-img');
     lbImg.src = trigger.src;
-    lb.classList.add('active');
+    document.getElementById('about-lightbox').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 });
