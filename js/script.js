@@ -160,6 +160,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Projects section
     const pLabel = document.getElementById('projectsLabel'); if(pLabel) pLabel.textContent = t.projects.label;
     const pTitle = document.getElementById('projectsTitle'); if(pTitle) pTitle.textContent = t.projects.title;
+    // About Summary section
+    const asLabel = document.getElementById('aboutSummaryLabel'); if(asLabel) asLabel.textContent = t.aboutSummary.label;
+    const asTitle = document.getElementById('aboutSummaryTitle'); if(asTitle) asTitle.textContent = t.aboutSummary.title;
+    const asText = document.getElementById('aboutSummaryText');
+    if(asText) {
+      asText.textContent = t.aboutSummary.text;
+      if(isFa) asText.classList.add('lang-fa'); else asText.classList.remove('lang-fa');
+    }
+    const asBtn = document.getElementById('aboutSummaryBtnText'); if(asBtn) asBtn.textContent = t.aboutSummary.btn;
     
     // Dynamically render featured projects
     const projectsGrid = document.querySelector('.projects-grid');
