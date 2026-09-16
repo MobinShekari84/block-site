@@ -22,7 +22,7 @@ export const aboutData = {
         en: "Leading the studio's design vision and philosophical approach with extensive experience in high-end architecture.",
         fa: "هدایت چشم‌انداز طراحی و رویکرد فلسفی استودیو با تجربه‌ای گسترده در معماری لوکس."
       },
-      portraitPath: "assets/about/Alireza-Ghajar.webp",
+      portraitPath: "/assets/about/Alireza-Ghajar.webp",
       credentials: { en: "M.Arch", fa: "کارشناسی ارشد معماری" },
       order: 1,
       social: { linkedin: "#", instagram: "#" }
@@ -35,7 +35,7 @@ export const aboutData = {
         en: "Specializing in spatial fluidity and tactile materiality, bringing an unparalleled level of detail to the studio's environments.",
         fa: "تخصص در سیالیت فضایی و متریال‌های لمسی، و افزودن سطح بی‌نظیری از جزئیات به فضاهای استودیو."
       },
-      portraitPath: "assets/about/Rojin-Molaei.webp",
+      portraitPath: "/assets/about/Rojin-Molaei.webp",
       credentials: { en: "M.Arch", fa: "کارشناسی ارشد معماری" },
       order: 2,
       social: { linkedin: "#", instagram: "#" }
@@ -48,19 +48,19 @@ export const aboutData = {
         en: "Driving architectural innovation and precision, Amin bridges conceptual design with structural reality.",
         fa: "امین با تمرکز بر نوآوری و دقت معماری، پیونددهنده طراحی مفهومی و واقعیت ساختاری است."
       },
-      portraitPath: "assets/about/Amin-Shekari.webp",
+      portraitPath: "/assets/about/Amin-Shekari.webp",
       credentials: { en: "M.Arch", fa: "کارشناسی ارشد معماری" },
       order: 3,
       social: { linkedin: "#", instagram: "#" }
     }
   ],
   gallery: [
-    { id: "img-2", imagePath: "assets/about/In1.webp", caption: { en: "Main Drafting Space", fa: "فضای اصلی طراحی" } },
-    { id: "img-3", imagePath: "assets/about/in2.webp", caption: { en: "Collaborative Area", fa: "فضای همفکری" } },
-    { id: "img-4", imagePath: "assets/about/in3.webp", caption: { en: "Material Library", fa: "آرشیو متریال" } },
-    { id: "img-5", imagePath: "assets/about/in4.webp", caption: { en: "Presentation Room", fa: "اتاق ارائه" } },
-    { id: "img-6", imagePath: "assets/about/in5.webp", caption: { en: "Model Workshop", fa: "کارگاه ماکت" } },
-    { id: "img-7", imagePath: "assets/about/in6.webp", caption: { en: "Lounge Area", fa: "فضای استراحت" } }
+    { id: "img-2", imagePath: "/assets/about/In1.webp", caption: { en: "Main Drafting Space", fa: "فضای اصلی طراحی" } },
+    { id: "img-3", imagePath: "/assets/about/in2.webp", caption: { en: "Collaborative Area", fa: "فضای همفکری" } },
+    { id: "img-4", imagePath: "/assets/about/in3.webp", caption: { en: "Material Library", fa: "آرشیو متریال" } },
+    { id: "img-5", imagePath: "/assets/about/in4.webp", caption: { en: "Presentation Room", fa: "اتاق ارائه" } },
+    { id: "img-6", imagePath: "/assets/about/in5.webp", caption: { en: "Model Workshop", fa: "کارگاه ماکت" } },
+    { id: "img-7", imagePath: "/assets/about/in6.webp", caption: { en: "Lounge Area", fa: "فضای استراحت" } }
   ],
   philosophy: [
     {

@@ -44,7 +44,10 @@ if not os.path.exists(asset_folder):
     print(f"\n[+] Created image folder at assets/{slug}/")
     
 # 3. Generate HTML Page
-html_target = os.path.join(project_root, f"{slug}.html")
+project_dir = os.path.join(project_root, "projects", slug)
+if not os.path.exists(project_dir):
+    os.makedirs(project_dir, exist_ok=True)
+html_target = os.path.join(project_dir, "index.html")
 if os.path.exists(html_target):
     print(f"[!] Warning: {slug}.html already exists. It will be overwritten.")
 
@@ -59,7 +62,7 @@ html_content = html_content.replace('{{EN_TITLE}}', en_title)
 with open(html_target, "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print(f"[+] Generated {slug}.html successfully.")
+print(f"[+] Generated projects/{slug}/index.html successfully.")
 
 # 4. Generate JSON Object for projects.js
 new_project_obj = f"""  {{
@@ -73,10 +76,10 @@ new_project_obj = f"""  {{
       en: '{en_desc}', 
       fa: '{fa_desc}' 
     }},
-    coverImage: 'assets/{slug}/cover.webp',
+    coverImage: '/assets/{slug}/cover.webp',
     galleryImages: [
-      'assets/{slug}/1.webp',
-      'assets/{slug}/2.webp'
+      '/assets/{slug}/1.webp',
+      '/assets/{slug}/2.webp'
     ],
     drawings: [],
     specs: {{ 
