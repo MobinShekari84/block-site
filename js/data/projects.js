@@ -77,6 +77,15 @@ export const projects = [
     },
     isFeatured: true,
     heroTheme: 'light',
+    spatialPlan: {
+      planImageUrl: '/assets/sarziarate/Floor1.webp',
+      aspectRatio: '1600 / 1200',
+      hotspots: [
+        { id: 1, x: 30, y: 80, rot: 0, title: { en: 'Front Approach', fa: 'نمای ورودی' }, zone: { en: 'Exterior', fa: 'خارجی' }, renderUrl: '/assets/sarziarate/OutFrontSnow.webp' },
+        { id: 2, x: 50, y: 40, rot: 90, title: { en: 'Living Space', fa: 'فضای نشیمن' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/sarziarate/LivingRoom.webp' },
+        { id: 3, x: 75, y: 25, rot: -90, title: { en: 'Kitchen', fa: 'آشپزخانه' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/sarziarate/Kitchen.webp' }
+      ]
+    }
   },
   {
     id: 'damas-villa',
@@ -117,9 +126,9 @@ export const projects = [
       planImageUrl: '/assets/damas-villa/plan-2.webp',
       aspectRatio: '1755 / 2482',
       hotspots: [
-        { id: 1, x: 25, y: 35, rot: 45, title: { en: 'Exterior Approach', fa: 'ورودی خارجی' }, zone: { en: 'Exterior', fa: 'خارجی' }, renderUrl: '/assets/damas-villa/08.webp' },
-        { id: 2, x: 50, y: 50, rot: 90, title: { en: 'Living Space', fa: 'فضای نشیمن' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/damas-villa/09.webp' },
-        { id: 3, x: 75, y: 65, rot: 135, title: { en: 'Inside Villa Render', fa: 'رندر داخلی ویلا' }, zone: { en: 'Lounge', fa: 'نشیمن خصوصی' }, renderUrl: '/assets/damas-villa/inside-villa.webp' }
+        { id: 1, x: 25, y: 35, rot: 45, title: { en: 'Front Approach', fa: 'نمای ورودی' }, zone: { en: 'Exterior', fa: 'خارجی' }, renderUrl: '/assets/damas-villa/FrontOutView.webp' },
+        { id: 2, x: 50, y: 50, rot: 90, title: { en: 'Interior Space', fa: 'فضای داخلی' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/damas-villa/inside-villa.webp' },
+        { id: 3, x: 75, y: 65, rot: 135, title: { en: 'Arched Window', fa: 'پنجره قوسی' }, zone: { en: 'Lounge', fa: 'نشیمن خصوصی' }, renderUrl: '/assets/damas-villa/Arched_window_with_modern_chande.webp' }
       ]
     }
   }
