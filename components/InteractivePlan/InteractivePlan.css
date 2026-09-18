@@ -72,8 +72,8 @@
   position: absolute;
   width: 24px;
   height: 24px;
-  background: var(--color-black);
-  border: 2px solid var(--color-white);
+  background: #2563eb; /* Modern Electric Blue */
+  border: 2px solid #ffffff;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
@@ -102,9 +102,9 @@
 
 .hotspot:hover, .hotspot.active {
   transform: translate(-50%, -50%) scale(1.2);
-  background: #ff3333; /* Bright architectural red for high visibility */
-  border: 2px solid var(--color-white);
-  box-shadow: 0 4px 15px rgba(255, 51, 51, 0.4);
+  background: #3b82f6; /* Lighter vivid blue */
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.5);
 }
 
 .blueprint-inner.zoomed .hotspot:hover, 
@@ -117,7 +117,7 @@
   position: absolute;
   top: 50%; left: 50%;
   width: 40px; height: 40px;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(37, 99, 235, 0.2);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.3s ease;
