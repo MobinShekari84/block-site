@@ -204,28 +204,6 @@ export const projects = [
       '/assets/office-renovation/gallery/040_1.webp'
     ],
     drawings: [
-      '/assets/office-renovation/drawings/000_sheet_1.webp',
-      '/assets/office-renovation/drawings/001_پروپوزال_پیشنهادی_جناب_آقای_دکتر_پور_عابدی.webp',
-      '/assets/office-renovation/drawings/002_Dr._PourAbedi.webp',
-      '/assets/office-renovation/drawings/003_برآورد_مالی_سناریو_حداکثری_متریال_متوسط_رو_به_پایین_(_با_حذفیات).webp',
-      '/assets/office-renovation/drawings/004_Dr.Pour_Abedi_Electrical_Plan.webp',
-      '/assets/office-renovation/drawings/005_Dr.Pour_Abedi_Lighting_Plan.webp',
-      '/assets/office-renovation/drawings/006_Elevtrical_plan.webp',
-      '/assets/office-renovation/drawings/007_Security_Camera.webp',
-      '/assets/office-renovation/drawings/008_W.C.Template.webp',
-      '/assets/office-renovation/drawings/009_Lighting_Plan.webp',
-      '/assets/office-renovation/drawings/010_Ceiling_Plan.webp',
-      '/assets/office-renovation/drawings/011_برآورد_مالی_سناریو_حداکثری_با_متریال_متوسط_رو_به_بالا_(بدون_حذفیات).webp',
-      '/assets/office-renovation/drawings/012_Plan.webp',
-      '/assets/office-renovation/drawings/013_W.C.Template_2.webp',
-      '/assets/office-renovation/drawings/014_Furniture_Plan.webp',
-      '/assets/office-renovation/drawings/015_W.C.Template.webp',
-      '/assets/office-renovation/drawings/016_Lighting_Plan.webp',
-      '/assets/office-renovation/drawings/017_Electrical_Plan.webp',
-      '/assets/office-renovation/drawings/018_برآورد_مالی_سناریو_حداقلی_با_متریال_متوسط_رو_به_پایین_(با_حذفیات).webp',
-      '/assets/office-renovation/drawings/019_Security_cam.webp',
-      '/assets/office-renovation/drawings/020_Ceiling_Plan.webp',
-      '/assets/office-renovation/drawings/021_برآورد_مالی_سناریو_حداقلی_با_متریال_متوسط_رو_به_بالا_(بدون_حذفیات).webp'
     ],
     specs: { 
       area: { en: 'Unknown sqm', fa: 'نامشخص' },
