@@ -45,6 +45,93 @@ export const projects = [
     }
   },
   {
+    id: 'namdar-building',
+    slug: 'namdar-building',
+    title: { en: 'Namdar Building Renovation', fa: 'بازسازی ساختمان نامدار' },
+    category: { en: 'Renovation', fa: 'بازسازی' },
+    year: 2025,
+    location: { en: 'Tehran', fa: 'تهران' },
+    description: { 
+      en: 'A comprehensive renovation of the Namdar Building, reimagining the spatial flow and integrating modern minimal elements into the classic structure.', 
+      fa: 'یک بازسازی جامع برای ساختمان نامدار که جریان فضایی را دوباره طراحی کرده و عناصر مینیمال مدرن را با ساختار کلاسیک تلفیق می‌کند.' 
+    },
+    coverImage: '/assets/namdar-building/image_1.webp',
+    galleryImages: [
+      '/assets/namdar-building/image_1.webp',
+      '/assets/namdar-building/image_2.webp',
+      '/assets/namdar-building/image_3.webp',
+      '/assets/namdar-building/image_4.webp',
+      '/assets/namdar-building/image_5.webp'
+    ],
+    drawings: [],
+    specs: { 
+      area: { en: 'Unknown sqm', fa: 'نامشخص' },
+      status: { en: 'Completed', fa: 'تکمیل شده' },
+      materials: { en: 'Wood, Concrete', fa: 'چوب، بتن' },
+      architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
+    },
+    isFeatured: false,
+    heroTheme: 'light',
+  },
+  {
+    id: 'office-renovation',
+    slug: 'office-renovation',
+    title: { en: 'Office Renovation', fa: 'بازسازی دفتر اداری' },
+    category: { en: 'Commercial', fa: 'تجاری' },
+    year: 2025,
+    location: { en: 'Tehran', fa: 'تهران' },
+    description: { 
+      en: 'A sleek, modern redesign for an administrative office, prioritizing open workspaces, natural lighting, and elegant acoustic partitions.', 
+      fa: 'یک طراحی مجدد براق و مدرن برای یک دفتر اداری، با اولویت دادن به فضاهای کاری باز، نور طبیعی و پارتیشن‌های آکوستیک زیبا.' 
+    },
+    coverImage: '/assets/office-renovation/image_1.webp',
+    galleryImages: [
+      '/assets/office-renovation/image_1.webp',
+      '/assets/office-renovation/image_2.webp',
+      '/assets/office-renovation/image_3.webp',
+      '/assets/office-renovation/image_4.webp',
+      '/assets/office-renovation/image_5.webp'
+    ],
+    drawings: [],
+    specs: { 
+      area: { en: 'Unknown sqm', fa: 'نامشخص' },
+      status: { en: 'Completed', fa: 'تکمیل شده' },
+      materials: { en: 'Wood, Concrete', fa: 'چوب، بتن' },
+      architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
+    },
+    isFeatured: false,
+    heroTheme: 'light',
+  },
+  {
+    id: 'sheikh-bahayi',
+    slug: 'sheikh-bahayi',
+    title: { en: 'Sheikh Bahayi Renovation', fa: 'بازسازی شیخ بهایی' },
+    category: { en: 'Residential', fa: 'مسکونی' },
+    year: 2025,
+    location: { en: 'Tehran', fa: 'تهران' },
+    description: { 
+      en: 'A residential interior overhaul in the Sheikh Bahayi neighborhood, focusing on warm tones, smart layouts, and a seamless connection between living and kitchen areas.', 
+      fa: 'یک بازسازی داخلی مسکونی در محله شیخ بهایی، با تمرکز بر رنگ‌های گرم، چیدمان هوشمندانه و ارتباط یکپارچه بین فضاهای نشیمن و آشپزخانه.' 
+    },
+    coverImage: '/assets/sheikh-bahayi/image_1.webp',
+    galleryImages: [
+      '/assets/sheikh-bahayi/image_1.webp',
+      '/assets/sheikh-bahayi/image_2.webp',
+      '/assets/sheikh-bahayi/image_3.webp',
+      '/assets/sheikh-bahayi/image_4.webp',
+      '/assets/sheikh-bahayi/image_5.webp'
+    ],
+    drawings: [],
+    specs: { 
+      area: { en: 'Unknown sqm', fa: 'نامشخص' },
+      status: { en: 'Completed', fa: 'تکمیل شده' },
+      materials: { en: 'Wood, Concrete', fa: 'چوب، بتن' },
+      architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
+    },
+    isFeatured: false,
+    heroTheme: 'light',
+  },
+  {
     id: 'sarziarate',
     slug: 'sarziarate',
     title: { en: 'Sarziarate Villa', fa: 'ویلا سرزیارت' },
