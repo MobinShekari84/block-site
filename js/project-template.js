@@ -50,26 +50,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if(projectConfig.galleryImages && projectConfig.galleryImages.length > 0) {
       const g = projectConfig.galleryImages;
       if(g[0]) {
-        galleryTopHTML = `<div class="gallery-panorama reveal" style="margin-bottom: 2rem;"><img src="${g[0]}" class="lightbox-trigger" loading="lazy"></div>`;
+        galleryTopHTML = `<div class="gallery-panorama reveal" style="margin-bottom: 2rem;"><img src="${g[0]}" class="lightbox-trigger reveal" loading="lazy"></div>`;
       }
 
       galleryBottomHTML += `<div class="editorial-gallery">`;
       if(g[1] && g[2]) galleryBottomHTML += `
-        <div class="gallery-diptych reveal">
-          <img src="${g[1]}" class="lightbox-trigger" loading="lazy">
-          <img src="${g[2]}" class="lightbox-trigger" loading="lazy">
+        <div class="gallery-diptych">
+          <img src="${g[1]}" class="lightbox-trigger reveal" loading="lazy">
+          <img src="${g[2]}" class="lightbox-trigger reveal" loading="lazy">
         </div>`;
       if(g[3] && g[4] && g[5]) galleryBottomHTML += `
-        <div class="gallery-triptych reveal">
-          <img src="${g[3]}" class="lightbox-trigger" loading="lazy">
-          <img src="${g[4]}" class="lightbox-trigger" loading="lazy">
-          <img src="${g[5]}" class="lightbox-trigger" loading="lazy">
+        <div class="gallery-triptych">
+          <img src="${g[3]}" class="lightbox-trigger reveal" loading="lazy">
+          <img src="${g[4]}" class="lightbox-trigger reveal" loading="lazy">
+          <img src="${g[5]}" class="lightbox-trigger reveal" loading="lazy">
         </div>`;
         
       if(g.length > 6) {
-        galleryBottomHTML += `<div class="gallery-triptych reveal">`;
+        galleryBottomHTML += `<div class="gallery-triptych">`;
         for(let i = 6; i < g.length; i++) {
-          galleryBottomHTML += `<img src="${g[i]}" class="lightbox-trigger" loading="lazy">`;
+          galleryBottomHTML += `<img src="${g[i]}" class="lightbox-trigger reveal" loading="lazy">`;
         }
         galleryBottomHTML += `</div>`;
       }
@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let drawingsHTML = '';
     const d = projectConfig.drawings || [];
     if (d.length > 0) {
-      drawingsHTML = `<div class="gallery-triptych reveal">`;
+      drawingsHTML = `<div class="gallery-triptych">`;
       d.forEach(img => {
-        drawingsHTML += `<img src="${img}" class="lightbox-trigger" loading="lazy">`;
+        drawingsHTML += `<img src="${img}" class="lightbox-trigger reveal" loading="lazy">`;
       });
       drawingsHTML += `</div>`;
     }
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mainContainer.innerHTML = `
       <section class="project-hero parallax-hero reveal">
-        <img src="${projectConfig.coverImage}" alt="Hero Image" class="lightbox-trigger">
+        <img src="${projectConfig.coverImage}" alt="Hero Image" class="lightbox-trigger reveal">
         <div class="project-hero-overlay">
           <h1 class="project-title" id="projectTitle">${projectConfig.title[currentLang]}</h1>
         </div>
@@ -129,14 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
       ${metaHTML}
 
       <!-- 01: NARRATIVE -->
-      <div class="architectural-section reveal" id="section-narrative">
-        <div class="section-index">
+      <div class="architectural-section" id="section-narrative">
+        <div class="section-index reveal">
           <span class="idx-num">01 /</span>
           <span class="idx-title">${i18n.narrative}</span>
         </div>
         <div class="section-body">
           ${galleryTopHTML}
-          <div class="brief-text narrative-text">
+          <div class="brief-text narrative-text reveal">
             ${projectConfig.description ? (projectConfig.description[currentLang] || '') : ''}
           </div>
         </div>
@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <!-- 02: VISUAL ARCHIVE -->
       ${galleryBottomHTML ? `
-      <div class="architectural-section reveal tonal-shift-light" id="section-archive">
-        <div class="section-index">
+      <div class="architectural-section tonal-shift-light" id="section-archive">
+        <div class="section-index reveal">
           <span class="idx-num">02 /</span>
           <span class="idx-title">${i18n.archive}</span>
         </div>
@@ -158,8 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
       
       <!-- 03: DRAWINGS -->
       ${drawingsHTML ? `
-      <div class="architectural-section reveal tonal-shift-light" id="section-drawings">
-        <div class="section-index">
+      <div class="architectural-section tonal-shift-light" id="section-drawings">
+        <div class="section-index reveal">
           <span class="idx-num">03 /</span>
           <span class="idx-title">${i18n.drawings}</span>
         </div>
@@ -172,8 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <!-- 04: SPATIAL MAPPING -->
 
       ${spatialHTML ? `
-      <div class="architectural-section reveal tonal-shift-drafting" id="section-spatial">
-        <div class="section-index">
+      <div class="architectural-section tonal-shift-drafting" id="section-spatial">
+        <div class="section-index reveal">
           <span class="idx-num">03 /</span>
           <span class="idx-title">${i18n.spatial}</span>
         </div>
@@ -185,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <!-- 05: MATERIALITY -->
       ${specsDrawerHTML ? `
-      <div class="architectural-section reveal tonal-shift-dark" id="section-specs">
-        <div class="section-index">
+      <div class="architectural-section tonal-shift-dark" id="section-specs">
+        <div class="section-index reveal">
           <span class="idx-num">05 /</span>
           <span class="idx-title">${i18n.specs}</span>
         </div>
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           });
         },
-        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+        { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
       );
       document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     }, 100);
