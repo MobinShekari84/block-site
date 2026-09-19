@@ -55,7 +55,7 @@ export const projects = [
       en: 'A comprehensive renovation of the Namdar Building, reimagining the spatial flow and integrating modern minimal elements into the classic structure.', 
       fa: 'یک بازسازی جامع برای ساختمان نامدار که جریان فضایی را دوباره طراحی کرده و عناصر مینیمال مدرن را با ساختار کلاسیک تلفیق می‌کند.' 
     },
-    coverImage: '/assets/namdar-building/image_1.webp',
+    coverImage: '/assets/namdar-building/gallery/006_Enscape_2025-04-12-22-06-20.webp',
     galleryImages: [
       '/assets/namdar-building/gallery/000_Enscape_2025-05-15-12-23-21.webp',
       '/assets/namdar-building/gallery/001_Enscape_2025-05-28-18-01-44.webp',
