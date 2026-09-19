@@ -1,5 +1,34 @@
 export const projects = [
   {
+    id: 'sisangan-mazandaran',
+    slug: 'sisangan-mazandaran',
+    title: { en: 'Sisangan Mazandaran', fa: 'سیسنگان مازندران' },
+    category: { en: 'Residential', fa: 'مسکونی' },
+    year: 2026,
+    location: { en: 'Sisangan, Mazandaran', fa: 'سیسنگان، مازندران' },
+    description: { 
+      en: 'A serene residential project located in the lush landscapes of Sisangan, Mazandaran, designed to harmonize with the surrounding natural beauty.', 
+      fa: 'یک پروژه مسکونی آرامش‌بخش واقع در مناظر سرسبز سیسنگان مازندران، که برای هماهنگی با زیبایی‌های طبیعی اطراف طراحی شده است.' 
+    },
+    coverImage: '/assets/sisangan-mazandaran/image_1.webp',
+    galleryImages: [
+      '/assets/sisangan-mazandaran/gallery/000_Enscape_2025-10-29-23-13-47.webp',
+      '/assets/sisangan-mazandaran/gallery/001_Enscape_2025-10-29-23-19-11.webp',
+      '/assets/sisangan-mazandaran/gallery/002_Enscape_2026-05-31-23-44-17.webp',
+      '/assets/sisangan-mazandaran/gallery/003_Enscape_2026-05-31-23-45-20.webp',
+      '/assets/sisangan-mazandaran/gallery/004_Enscape_2026-05-31-23-46-07.webp'
+    ],
+    drawings: [],
+    specs: { 
+      area: { en: 'Unknown', fa: 'نامشخص' },
+      status: { en: 'In Progress', fa: 'در حال طراحی' },
+      materials: { en: 'Wood, Stone, Glass', fa: 'چوب، سنگ، شیشه' },
+      architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
+    },
+    isFeatured: false,
+    heroTheme: 'light'
+  },
+  {
     id: 'khane-darya',
     slug: 'khane-darya',
     title: { en: 'Khane Darya No.199', fa: 'خانه دریا پلاک ۱۹۹' },
