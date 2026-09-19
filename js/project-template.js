@@ -54,22 +54,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       galleryBottomHTML += `<div class="editorial-gallery">`;
-      if(g[1] && g[2]) galleryBottomHTML += `
-        <div class="gallery-diptych">
-          <img src="${g[1]}" class="lightbox-trigger reveal" loading="lazy">
-          <img src="${g[2]}" class="lightbox-trigger reveal" loading="lazy">
-        </div>`;
-      if(g[3] && g[4] && g[5]) galleryBottomHTML += `
-        <div class="gallery-triptych">
-          <img src="${g[3]}" class="lightbox-trigger reveal" loading="lazy">
-          <img src="${g[4]}" class="lightbox-trigger reveal" loading="lazy">
-          <img src="${g[5]}" class="lightbox-trigger reveal" loading="lazy">
-        </div>`;
-        
-      if(g.length > 6) {
+      let imgIndex = 1;
+      
+      // If we have at least 2 images available for the archive, show a nice diptych first
+      if (imgIndex + 1 < g.length) {
+        galleryBottomHTML += `
+          <div class="gallery-diptych">
+            <img src="${g[imgIndex]}" class="lightbox-trigger reveal" loading="lazy">
+            <img src="${g[imgIndex+1]}" class="lightbox-trigger reveal" loading="lazy">
+          </div>`;
+        imgIndex += 2;
+      }
+      
+      // Any remaining images go into the flexible triptych grid
+      if (imgIndex < g.length) {
         galleryBottomHTML += `<div class="gallery-triptych">`;
-        for(let i = 6; i < g.length; i++) {
-          galleryBottomHTML += `<img src="${g[i]}" class="lightbox-trigger reveal" loading="lazy">`;
+        for(; imgIndex < g.length; imgIndex++) {
+          galleryBottomHTML += `<img src="${g[imgIndex]}" class="lightbox-trigger reveal" loading="lazy">`;
         }
         galleryBottomHTML += `</div>`;
       }
