@@ -156,9 +156,8 @@ export const projects = [
     year: 2025,
     location: { en: 'Tehran', fa: 'تهران' },
     description: { 
-      en: 'A sleek, modern redesign for an administrative office, prioritizing open workspaces, natural lighting, and elegant acoustic partitions.', 
-      fa: 'یک طراحی مجدد براق و مدرن برای یک دفتر اداری، با اولویت دادن به فضاهای کاری باز، نور طبیعی و پارتیشن‌های آکوستیک زیبا.' 
-    },
+      en: 'A modern, minimalist office renovation designed for Dr. Pour Abedi. The project was proposed in two scenarios (minimal and maximal) to balance budget and scope. The final design prioritizes open workspaces, natural lighting, and elegant acoustic glass partitions. The material palette features warm oak wood, smoked glass, black metal accents, and a neutral base of warm white and light gray.', 
+      fa: 'بازسازی و طراحی داخلی مدرن و مینیمال دفتر کار دکتر پور عابدی. این پروژه در دو سناریوی حداقلی (اقتصادی) و حداکثری طراحی شد. طرح نهایی بر فضاهای کاری باز، نور طبیعی و پارتیشن‌های شیشه‌ای آکوستیک تأکید دارد. پالت متریال شامل چوب بلوط گرم، شیشه دودی، فلز مشکی و رنگ‌های پایه سفید گرم و طوسی روشن است.' },
     coverImage: '/assets/office-renovation/image_1.webp',
     galleryImages: [
       '/assets/office-renovation/gallery/000_8.webp',
@@ -206,7 +205,13 @@ export const projects = [
     drawings: [
     ],
     specs: { 
-      area: { en: 'Unknown sqm', fa: 'نامشخص' },
+      client: { en: 'Dr. Pour Abedi', fa: 'دکتر پور عابدی' },
+      designer: { en: 'Amin Shekari Ardakani', fa: 'امین شکاری اردکانی' },
+      date: { en: 'June 2026 (1405/03/17)', fa: 'خرداد ۱۴۰۵' },
+      materials: { en: 'Warm Oak Wood, Smoked Glass, Metal, Carpet Tiles', fa: 'چوب بلوط گرم، شیشه دودی، فلز، موکت تایل' },
+      flooring: { en: 'Herringbone Wood & Charcoal Carpet', fa: 'کفپوش جناقی بلوط و موکت زغالی' },
+      lighting: { en: 'Matte, 4000K-5000K', fa: 'نور مات ۴۰۰۰ تا ۵۰۰۰ کلوین' },
+      scenarios: { en: 'Minimal & Maximal', fa: 'حداقلی و حداکثری' }},
       status: { en: 'Completed', fa: 'تکمیل شده' },
       materials: { en: 'Wood, Concrete', fa: 'چوب، بتن' },
       architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
