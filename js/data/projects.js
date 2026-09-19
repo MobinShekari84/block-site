@@ -282,9 +282,7 @@ export const projects = [
       '/assets/sarziarate/Kitchen.webp',
       '/assets/sarziarate/Windows.webp'
     ],
-    drawings: [
-      '/assets/sarziarate/Floor1.webp'
-    ],
+    drawings: [],
     specs: { 
       area: { en: '450 sqm', fa: '۴۵۰ متر مربع' },
       status: { en: 'Completed', fa: 'تکمیل شده' },
@@ -292,16 +290,7 @@ export const projects = [
       architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
     },
     isFeatured: true,
-    heroTheme: 'light',
-    spatialPlan: {
-      planImageUrl: '/assets/sarziarate/Floor1.webp',
-      aspectRatio: '1600 / 1200',
-      hotspots: [
-        { id: 1, x: 30, y: 80, rot: 0, title: { en: 'Front Approach', fa: 'نمای ورودی' }, zone: { en: 'Exterior', fa: 'خارجی' }, renderUrl: '/assets/sarziarate/OutFrontSnow.webp' },
-        { id: 2, x: 50, y: 40, rot: 90, title: { en: 'Living Space', fa: 'فضای نشیمن' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/sarziarate/LivingRoom.webp' },
-        { id: 3, x: 75, y: 25, rot: -90, title: { en: 'Kitchen', fa: 'آشپزخانه' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/sarziarate/Kitchen.webp' }
-      ]
-    }
+    heroTheme: 'light'
   },
   {
     id: 'damas-villa',
