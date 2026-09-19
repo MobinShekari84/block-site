@@ -211,7 +211,7 @@ export const projects = [
       materials: { en: 'Warm Oak Wood, Smoked Glass, Metal, Carpet Tiles', fa: 'چوب بلوط گرم، شیشه دودی، فلز، موکت تایل' },
       flooring: { en: 'Herringbone Wood & Charcoal Carpet', fa: 'کفپوش جناقی بلوط و موکت زغالی' },
       lighting: { en: 'Matte, 4000K-5000K', fa: 'نور مات ۴۰۰۰ تا ۵۰۰۰ کلوین' },
-      scenarios: { en: 'Minimal & Maximal', fa: 'حداقلی و حداکثری' }},
+      scenarios: { en: 'Minimal & Maximal', fa: 'حداقلی و حداکثری' },
       status: { en: 'Completed', fa: 'تکمیل شده' },
       materials: { en: 'Wood, Concrete', fa: 'چوب، بتن' },
       architect: { en: 'Block Studio', fa: 'استودیو بلاک' }

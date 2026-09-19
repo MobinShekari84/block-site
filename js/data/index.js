@@ -1,3 +1,3 @@
-export { projects } from './projects.js?v=6';
+export { projects } from './projects.js?v=8';
 export { siteMeta } from './siteMeta.js?v=5';
 export { aboutData } from './aboutData.js?v=5';
