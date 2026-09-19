@@ -76,7 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
       galleryBottomHTML += `</div>`;
     }
 
+    
+    let drawingsHTML = '';
+    const d = projectConfig.drawings || [];
+    if (d.length > 0) {
+      drawingsHTML = `<div class="gallery-triptych reveal">`;
+      d.forEach(img => {
+        drawingsHTML += `<img src="${img}" class="lightbox-trigger" loading="lazy">`;
+      });
+      drawingsHTML += `</div>`;
+    }
+    
     let spatialHTML = '';
+
     if (projectConfig.spatialPlan) {
       spatialHTML = `<div id="spatial-container"></div>`;
     }
@@ -101,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const i18n = {
       narrative: currentLang === 'fa' ? 'شرح پروژه' : 'PROJECT NARRATIVE',
       archive: currentLang === 'fa' ? 'آرشیو بصری' : 'VISUAL ARCHIVE',
+      drawings: currentLang === 'fa' ? 'نقشه‌ها و اسناد' : 'DRAWINGS & DOCUMENTS',
       spatial: currentLang === 'fa' ? 'نقشه و پلان' : 'SPATIAL MAPPING',
       specs: currentLang === 'fa' ? 'مشخصات و متریال' : 'MATERIALITY & SPECIFICATIONS',
     };
@@ -142,7 +155,22 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       ` : ''}
 
-      <!-- 03: SPATIAL MAPPING -->
+      
+      <!-- 03: DRAWINGS -->
+      ${drawingsHTML ? `
+      <div class="architectural-section reveal tonal-shift-light" id="section-drawings">
+        <div class="section-index">
+          <span class="idx-num">03 /</span>
+          <span class="idx-title">${i18n.drawings}</span>
+        </div>
+        <div class="section-body">
+          ${drawingsHTML}
+        </div>
+      </div>
+      ` : ''}
+
+      <!-- 04: SPATIAL MAPPING -->
+
       ${spatialHTML ? `
       <div class="architectural-section reveal tonal-shift-drafting" id="section-spatial">
         <div class="section-index">
@@ -155,11 +183,11 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       ` : ''}
 
-      <!-- 04: MATERIALITY -->
+      <!-- 05: MATERIALITY -->
       ${specsDrawerHTML ? `
       <div class="architectural-section reveal tonal-shift-dark" id="section-specs">
         <div class="section-index">
-          <span class="idx-num">04 /</span>
+          <span class="idx-num">05 /</span>
           <span class="idx-title">${i18n.specs}</span>
         </div>
         <div class="section-body">
