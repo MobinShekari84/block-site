@@ -1633,3 +1633,10 @@ html[lang="en"] .project-description {
   hyphens: auto !important;
   -webkit-hyphens: auto !important;
 }
+
+html[lang="fa"] p,
+html[lang="fa"] .narrative-text,
+html[lang="fa"] .project-description {
+  text-align: justify !important;
+  text-justify: inter-character !important;
+}
