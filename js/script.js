@@ -1,4 +1,4 @@
-import { siteMeta, projects } from './data/index.js?v=17';
+import { siteMeta, projects } from './data/index.js?v=18';
 
 /* ============================================
    BLOCK ARCHITECTURE STUDIO — Main Script
@@ -378,7 +378,8 @@ document.addEventListener('DOMContentLoaded', () => {
       listContainer.innerHTML = filtered.map((p, index) => {
         const num = String(index + 1).padStart(2, '0');
         const year = isFa ? toPersianDigits(p.year) : p.year;
-        const link = `/projects/${p.slug}/`;
+        const prefix = currentLang === 'en' ? '/en' : '';
+        const link = `${prefix}/projects/${p.slug}/`;
         return `
           <a href="${link}" class="mega-list-item" data-id="${p.slug}" data-title="${p.title[currentLang]}" data-meta="${p.category[currentLang]} — ${p.location[currentLang]}, ${year}">
             <span class="mega-list-num">${isFa ? toPersianDigits(num) : num} /</span>
