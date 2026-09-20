@@ -1,74 +1,67 @@
-# Architecture & System Design
+# Block Architecture Studio — System Architecture
 
-## 1. High-Level System Architecture
+This document details the architectural foundation, build pipeline, and runtime execution of the Block Architecture Studio portfolio site.
 
-The Block Architecture Studio platform is transitioning to a modern, server-driven full-stack architecture (e.g., Next.js App Router). This approach allows us to deliver high-performance, statically generated (SSG) portfolio pages for clients while maintaining dynamic, authenticated server-rendered routes (SSR) for the internal Control Panel.
+## 1. High-Level Concept
 
-### Component Dependency Graph
+The platform utilizes a **Custom Static Site Generator (SSG)** built on Node.js (`generator-apps/build_ssg.mjs`). This script parses plain Javascript configuration files (`projects.js`, `siteMeta.js`) and compiles them into heavily optimized, fully static HTML documents for both English (`en/`) and Persian (`/`) locales.
 
-```mermaid
-graph TD
-    Client[Client / Browser] --> CDN[Edge CDN / Image Optimization]
-    CDN --> Next[Web Application Layer]
-    Next --> Middleware[Auth & I18n Middleware]
-    
-    subgraph "Application Core"
-        Middleware --> CP[Control Panel Routes /admin]
-        Middleware --> Public[Public Portfolio Routes /]
-        
-        CP --> API[Internal API /api/admin/*]
-        Public --> SSG[Static & ISR Generation]
-        
-        API --> Zod[Schema Validation Layer]
-        SSG --> DAL[Data Access Layer]
-        
-        Zod --> DAL
-    end
-    
-    subgraph "Storage & Data"
-        DAL --> FS[Flat-File JSON Store]
-        DAL --> Assets[Asset Storage /public/assets]
-    end
-```
+Because the site is 100% statically generated at compile-time:
+* **Zero Client-Side Layout Shift (CLS):** Project DOM structures are physically present in the HTML upon load.
+* **Instant LCP:** No waiting for Javascript to fetch data or render UI before displaying hero images and layouts.
+* **SEO Supremacy:** Crawlers immediately see all textual content, tags, and semantic metadata without needing to execute Javascript.
 
-## 2. Rendering Strategy
-
-- **Public Portfolio (Showcase):** Heavily biased towards Static Site Generation (SSG) and Incremental Static Regeneration (ISR). This guarantees sub-second Largest Contentful Paint (LCP) and zero Cumulative Layout Shift (CLS). Pages are built at deploy time or revalidated on demand when JSON data changes.
-- **Client Interactivity:** Client components (`"use client"`) are restricted to interactive leaf nodes such as image carousels, WebGL/3D spatial viewports, and language toggle state.
-- **Control Panel:** Server-Side Rendered (SSR) with strict session validation. Bypasses the CDN cache to ensure studio members see real-time updates.
-
-## 3. Directory Structure
-
-A clean, modular scaffolding enforcing separation of concerns between presentation, business logic, data, and schema definitions.
+## 2. Directory Architecture
 
 ```text
 /
-├── app/                      # Next.js App Router routes
-│   ├── (public)/             # Portfolio routes (SSG/ISR)
-│   ├── (admin)/              # Control panel routes (SSR, Authenticated)
-│   └── api/                  # API endpoints for CRUD mutations
-├── components/               # React Components
-│   ├── ui/                   # Reusable, stateless structural UI (Buttons, Inputs, Cards)
-│   ├── portfolio/            # Complex showcase components (InteractivePlans, HeroSlideshow)
-│   └── admin/                # Control Panel specific views and forms
-├── data/                     # The Flat-File JSON Database
-│   ├── projects.json
-│   ├── categories.json
-│   └── settings.json
-├── lib/                      # Core Utilities
-│   ├── dal.ts                # Data Access Layer (Atomic reads/writes)
-│   ├── auth.ts               # Session management and hashing
-│   └── i18n.ts               # Bilingual (FA/EN) dictionary resolution
-├── schemas/                  # Zod validation schemas
-│   ├── project.schema.ts
-│   └── settings.schema.ts
-├── public/
-│   └── assets/               # High-res photography, WebP/AVIF media, fonts
-└── docs/                     # Architectural documentation
+├── index.html                    # Root FA Homepage (Source Template)
+├── about-us/index.html           # FA About Us Page
+├── projects/                     # Generated FA Project Pages
+├── en/                           # Generated EN Locale Mirror
+│   ├── index.html
+│   ├── about-us/index.html
+│   └── projects/
+├── css/                          # Core stylesheets
+├── js/                           # Runtime Scripts & Data
+│   ├── data/
+│   │   ├── projects.js           # Single Source of Truth for projects
+│   │   ├── aboutData.js          # About Us content payload
+│   │   ├── siteMeta.js           # Global navigation & Hero text
+│   │   └── assetManifest.js      # AUTO-GENERATED mapping of all imagery
+│   ├── script.js                 # Global runtime (Sliders, UI toggles)
+│   ├── project-template.js       # Intersection observers & lightboxes for projects
+│   └── about.js                  # About Us runtime logic
+├── components/
+│   └── InteractivePlan/          # Standalone WebGL/Canvas spatial mapping tool
+├── generator-apps/               # The Build Pipeline
+│   ├── templates/
+│   │   └── project.html          # Base HTML skeleton for project generation
+│   ├── generate_assets.mjs       # Scrapes /assets and creates assetManifest.js
+│   └── build_ssg.mjs             # The SSG Engine. Compiles the entire site.
+└── assets/                       # Static media (Images, webp, docs)
 ```
 
-## 4. Frontend & Aesthetic Principles
+## 3. The Build Pipeline (`generator-apps/`)
 
-- **Aesthetic Direction:** Spatial, clean, minimalist architectural aesthetic. High typographic discipline utilizing `YekanBakh` (FA) and `Helvetica Neue` (EN).
-- **Layout Integrity:** Use of aspect-ratio wrappers and CSS Grid/Flexbox to ensure visual stability and prevent CLS.
-- **Motion:** Restrict animations to CSS transitions and hardware-accelerated transforms (`transform`, `opacity`). Never block the main thread with heavy JS animations unless isolated within WebGL/Canvas nodes.
+The site is not hand-coded. It is compiled by running two Node.js scripts sequentially.
+
+### A. `generate_assets.mjs`
+Instead of manually typing image paths, this script recursively scans the `/assets/villa/...` directories and automatically builds `js/data/assetManifest.js`. It groups images by strict architectural categories (`exteriorDesign`, `interiorDesign`, `landscapeDesign`, `documents`).
+
+### B. `build_ssg.mjs`
+This is the core engine of the platform. When executed, it:
+1. **Reads Templates:** Reads the source `index.html` and `templates/project.html`.
+2. **Generates DOM:** Loops through every project defined in `js/data/projects.js`. It dynamically constructs the complex HTML for Diptych/Triptych galleries, specification grids, and narratives.
+3. **Injects HTML:** Injects the generated DOM strictly into the `<main id="project-container">` of the template.
+4. **Localization:** It duplicates the process for both Farsi (`lang="fa"`) and English (`lang="en"`). For English pages, it sweeps the HTML and rigorously rewrites all internal `href` attributes (e.g., `href="about-us/"` becomes `href="/en/about-us/"`) to guarantee hermetic locale routing.
+5. **Path Resolution:** It calculates the exact nested depth of the destination file (e.g., `en/projects/damas-villa/index.html` is depth 3) and converts absolute paths to relative prefixes (`../../../`). This ensures the site can be hosted on *any* subfolder without 404ing.
+6. **File Output:** Writes the final, pristine HTML files to their respective destinations.
+
+## 4. Frontend Runtime Strategy
+
+While the HTML is statically generated, Javascript handles the interactive "leaf nodes" of the experience.
+
+* **Lazy Intersection Observers:** In `js/project-template.js`, an `IntersectionObserver` watches elements with the `.reveal` class. As the user scrolls, it applies `.active` to trigger CSS opacity and translation transitions.
+* **Interactive Spatial Plan:** The `InteractivePlan.js` component mounts to `#spatial-container` and binds to the `spatialPlan` object defined in `projects.js`.
+* **State Management:** The user's language preference is stored in `localStorage('blockLang')` to ensure a consistent experience.

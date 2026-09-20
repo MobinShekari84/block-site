@@ -73,6 +73,7 @@ body:not(.lang-fa) .project-title {
 }
 
 .narrative-text {
+  text-align: justify !important;
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   line-height: 1.8;
   color: var(--text-color-primary);
@@ -142,6 +143,7 @@ body:not(.lang-fa) .project-title {
     grid-template-columns: 1fr;
   }
   .narrative-text {
+  text-align: justify !important;
     position: relative;
     top: 0;
   }
@@ -240,11 +242,15 @@ body:not(.lang-fa) .project-title {
 
 /* Thinner typography for English */
 body:not(.lang-fa) .narrative-text {
+  text-align: justify !important;
+  text-justify: inter-word;
+  hyphens: auto;
   font-weight: 300;
   letter-spacing: 0.01em;
 }
 
 body.lang-fa .narrative-text {
+  text-align: justify !important;
   font-weight: 400; /* keep Farsi readable */
 }
 
@@ -548,7 +554,7 @@ body.lang-fa .next-title {
   font-size: clamp(1rem, 1.25vw, 1.15rem);
   line-height: 1.8;
   color: var(--text-color-primary);
-  text-align: justify;
+  text-align: justify !important;
   text-justify: inter-word;
   hyphens: auto;
 }
@@ -662,4 +668,37 @@ body.lang-fa .idx-num,
 body.lang-fa .idx-title {
   font-family: var(--font-persian);
   letter-spacing: normal;
+}
+
+
+
+/* Fix section-index layout */
+.section-index {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  gap: 0.5rem !important;
+}
+
+@media (min-width: 992px) {
+  .section-index {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+/* Always keep section index in a row */
+@media (min-width: 992px) {
+  .section-index {
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 0.5rem !important;
+  }
+}
+
+.narrative-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }

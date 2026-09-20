@@ -72,13 +72,16 @@ body {
 
 /* --- Narrative Section --- */
 .narrative-body {
-  column-count: 1;
-  gap: 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .narrative-body {
-    column-count: 2;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
   }
 }
 
@@ -383,4 +386,14 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+
+
+/* Force section index to be row always */
+.section-index {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  gap: 0.5rem !important;
 }

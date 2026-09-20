@@ -29,7 +29,7 @@ export const siteMeta = {
       nav: 'Navigation',
       contact: 'Contact',
       email: 'info@blockarch.studio',
-      phone: '+98 21 2205 1474\n+98 21 2204 1355\n+98 21 2205 0423',
+      phone: '+98 21 2205 1474\n+98 21 2204 1355\n+98 912 065 2413\n+98 912 379 9746',
       address: 'Unit 3, No. 4, Bidar St.\nFereshteh, Tehran, Iran',
       copyright: '© 2024 Block Architecture Studio. All rights reserved.',
       credit: 'Design & Development by Block Studio'
@@ -65,7 +65,7 @@ export const siteMeta = {
       nav: 'ناوبری',
       contact: 'تماس',
       email: 'info@blockarch.studio',
-      phone: '+۹۸ ۲۱ ۲۲۰۵ ۱۴۷۴\n+۹۸ ۲۱ ۲۲۰۴ ۱۳۵۵\n+۹۸ ۲۱ ۲۲۰۵ ۰۴۲۳',
+      phone: '+۹۸ ۲۱ ۲۲۰۵ ۱۴۷۴\n+۹۸ ۲۱ ۲۲۰۴ ۱۳۵۵\n+۹۸ ۹۱۲ ۰۶۵ ۲۴۱۳\n+۹۸ ۹۱۲ ۳۷۹ ۹۷۴۶',
       address: 'فرشته بیدار پلاک ۴ واحد ۳\nتهران، ایران',
       copyright: '© ۲۰۲۴ استودیو معماری بلاک. تمامی حقوق محفوظ است.',
       credit: 'طراحی و توسعه توسط استودیو بلاک'

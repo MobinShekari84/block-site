@@ -12,57 +12,6 @@
   <link rel="alternate" hreflang="fa" href="https://blockarcstudio.com/">
   <link rel="alternate" hreflang="en" href="https://blockarcstudio.com/en/">
 
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
   <meta name="keywords"
     content="architecture, minimal design, Tehran architecture, residential design, Block Architecture Studio">
   <meta name="author" content="Block Architecture Studio">
@@ -78,8 +27,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/css/styles.css?v=18">
-  <link rel="stylesheet" href="/css/logo.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/logo.css">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -115,7 +64,7 @@
     <ul class="nav-center" id="navCenter">
       <li><a href="#hero" class="nav-link active" id="navHome">Home</a></li>
       <li><a href="#projects" class="nav-link" id="navProjects">Projects</a></li>
-      <li><a href="/en/about-us/" class="nav-link" id="navAbout">About</a></li>
+      <li><a href="../en/about-us/" class="nav-link" id="navAbout">About</a></li>
     </ul>
 
     <div style="display: flex; align-items: center; gap: 1.25rem;">
@@ -130,7 +79,7 @@
         </a>
       </div>
 
-      <button class="lang-switcher" id="langSwitcher" aria-label="Switch language" dir="auto">FA</button>
+      <button class="lang-switcher" id="langSwitcher" aria-label="Switch language" dir="auto" data-alt-url="../">FA</button>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
@@ -147,15 +96,18 @@
     <div class="hero-slideshow">
       <!-- Slide 1 -->
       <div class="hero-slide active">
-        <img src="/assets/damas-villa/MainOutRender.webp" alt="Damas Villa — geometric minimalist exterior" class="hero-image active">
+        <img src="../assets/villa/Damas-Villa/exterior-design/facade_1.webp"
+          alt="Damas Villa — geometric minimalist exterior" class="hero-image active">
       </div>
       <!-- Slide 2 -->
       <div class="hero-slide">
-        <img src="/assets/KhaneDarya199/View1.webp" alt="Khane Darya — coastal serene villa" class="hero-image">
+        <img src="../assets/villa/Khane-Darya-No.199/exterior-design/facade.webp" alt="Khane Darya — coastal serene villa"
+          class="hero-image">
       </div>
       <!-- Slide 3 -->
       <div class="hero-slide">
-        <img src="/assets/sarziarate/OutViewSnow.webp" alt="Sarziarate Villa — winter retreat" class="hero-image">
+        <img src="../assets/villa/Sarziarate-Villa/exterior-design/facade.webp" alt="Sarziarate Villa — winter retreat"
+          class="hero-image">
       </div>
     </div>
 
@@ -165,7 +117,7 @@
       <h1 class="hero-title" id="heroTitle">Where Form
         Meets Light</h1>
       <p class="hero-subtitle" id="heroSubtitle">Villa Alborz — Tehran, 2024</p>
-      <a href="/projects/damas-villa/" class="hero-btn" id="heroActionBtn">
+      <a href="../en/projects/damas-villa/" class="hero-btn" id="heroActionBtn">
         <span id="heroBtnText">Learn More</span>
         <span class="hero-btn-arrow" aria-hidden="true"></span>
       </a>
@@ -201,7 +153,6 @@
     </div>
   </section>
 
-
   <!-- ═══════════════════════════════════════════
        ABOUT SUMMARY SECTION
        ═══════════════════════════════════════════ -->
@@ -215,14 +166,18 @@
       </header>
       <div class="about-summary-split">
         <div class="about-summary-text-col">
-          <p class="text-body about-summary-desc" id="aboutSummaryText">Block Architecture Studio is a Tehran-based practice dedicated to creating spaces where minimal form meets purposeful design. We believe in crafting environments that respond directly to their context, celebrating the interplay of natural light, raw materials, and spatial purity. Our multidisciplinary team approaches each project as a unique narrative, stripping away the unnecessary to reveal the essential structure beneath.</p>
-          <a href="/en/about-us/" class="hero-btn about-summary-link">
+          <p class="text-body about-summary-desc" id="aboutSummaryText">Block Architecture Studio is a Tehran-based
+            practice dedicated to creating spaces where minimal form meets purposeful design. We believe in crafting
+            environments that respond directly to their context, celebrating the interplay of natural light, raw
+            materials, and spatial purity. Our multidisciplinary team approaches each project as a unique narrative,
+            stripping away the unnecessary to reveal the essential structure beneath.</p>
+          <a href="../en/about-us/" class="hero-btn about-summary-link">
             <span id="aboutSummaryBtnText">Learn More</span>
             <span class="hero-btn-arrow" aria-hidden="true"></span>
           </a>
         </div>
         <div class="about-summary-image-col">
-          <img src="/assets/about/In1.webp" alt="Block Architecture Studio" loading="lazy">
+          <img src="../assets/about/in5.webp" alt="Block Architecture Studio" loading="lazy">
         </div>
       </div>
     </div>
@@ -248,7 +203,7 @@
         <ul class="footer-links">
           <li><a href="#hero" class="footer-link link-hover" id="footerHome">Home</a></li>
           <li><a href="#projects" class="footer-link link-hover" id="footerProjects">Projects</a></li>
-          <li><a href="/en/about-us/" class="footer-link link-hover" id="footerAbout">About</a></li>
+          <li><a href="../en/about-us/" class="footer-link link-hover" id="footerAbout">About</a></li>
         </ul>
       </div>
 
@@ -257,10 +212,11 @@
         <h5 class="footer-col-title" id="footerContactTitle">Contact</h5>
         <p class="footer-contact-item" id="footerEmail">info@blockarch.studio</p>
         <p class="footer-contact-item" id="footerPhone" style="white-space: pre-line;">+98 21 2205 1474
-+98 21 2204 1355
-+98 21 2205 0423</p>
+          +98 21 2204 1355
+          +98 912 065 2413
+          +98 912 379 9746</p>
         <p class="footer-contact-item" id="footerAddress" style="white-space: pre-line;">Unit 3, No. 4, Bidar St.
-Fereshteh, Tehran, Iran</p>
+          Fereshteh, Tehran, Iran</p>
       </div>
 
       <!-- Social Column -->
@@ -286,7 +242,7 @@ Fereshteh, Tehran, Iran</p>
   </footer>
 
   <!-- Scripts -->
-  <script type="module" src="/js/script.js?v=18"></script>
+  <script type="module" src="../js/script.js"></script>
 </body>
 
 </html>

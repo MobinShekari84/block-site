@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="idx-title">${i18n[lang].narrative}</span>
         </div>
         <div class="section-body narrative-body">
+          <div class="narrative-image" style="width: 100%; border-radius: 4px; overflow: hidden;">
+            <img src="/assets/about/In1.webp" alt="${i18n[lang].narrative}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
           <p class="narrative-text ${isFa ? 'lang-fa' : ''}">${aboutData.narrative[lang]}</p>
         </div>
       </section>
@@ -122,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const philosophySectionHTML = `
       <section class="architectural-section reveal" id="section-philosophy">
         <div class="section-index">
-          <span class="idx-num">04 /</span>
+          <span class="idx-num">03 /</span>
           <span class="idx-title">${i18n[lang].philosophy}</span>
         </div>
         <div class="section-body philosophy-grid">
@@ -135,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactHTML = `
       <section class="architectural-section reveal tonal-shift-light" id="section-contact">
         <div class="section-index">
-          <span class="idx-num">05 /</span>
+          <span class="idx-num">04 /</span>
           <span class="idx-title">${i18n[lang].contact}</span>
         </div>
         <div class="section-body contact-module">
@@ -145,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="contact-item">
             <span class="contact-label ${isFa ? 'lang-fa' : ''}">${isFa ? 'تلفن' : 'Phone'}</span>
-            <a href="tel:${aboutData.contact.phone.replace(/\s+/g, '')}" class="contact-value" dir="ltr">${aboutData.contact.phone}</a>
+            ${Array.isArray(aboutData.contact.phone) ? aboutData.contact.phone.map(p => `<a href="tel:${p.replace(/\s+/g, '')}" class="contact-value" dir="ltr" style="display:block; margin-bottom:4px;">${p}</a>`).join('') : `<a href="tel:${aboutData.contact.phone.replace(/\s+/g, '')}" class="contact-value" dir="ltr">${aboutData.contact.phone}</a>`}
           </div>
           <div class="contact-item">
             <span class="contact-label ${isFa ? 'lang-fa' : ''}">${isFa ? 'آدرس' : 'Address'}</span>
@@ -163,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ${heroHTML}
       ${narrativeHTML}
       ${collectiveHTML}
-      ${gallerySectionHTML}
+      
       ${philosophySectionHTML}
       ${contactHTML}
     `;

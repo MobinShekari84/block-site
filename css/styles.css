@@ -1618,3 +1618,18 @@ body.lang-fa .mega-menu-preview-meta {
 html[dir="rtl"] .about-summary-link .hero-btn-arrow::after {
   border-color: var(--text-color);
 }
+
+
+/* Fix for English justified text spacing */
+html[lang="en"] .narrative-text,
+html[lang="en"] .about-summary-text,
+html[lang="en"] .about-summary-desc,
+html[lang="en"] .about-content p,
+html[lang="en"] .about-philosophy-text,
+html[lang="en"] p,
+html[lang="en"] .project-description {
+  text-align: justify !important;
+  text-justify: inter-word !important;
+  hyphens: auto !important;
+  -webkit-hyphens: auto !important;
+}

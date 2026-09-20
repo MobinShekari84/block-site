@@ -1,4 +1,4 @@
-import { siteMeta, projects } from './data/index.js?v=18';
+import { siteMeta, projects } from './data/index.js';
 
 /* ============================================
    BLOCK ARCHITECTURE STUDIO — Main Script
@@ -230,14 +230,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if(langBtn) {
     langBtn.addEventListener('click', () => {
-      // URL-based language switching
-      const currentPath = window.location.pathname;
-      if (currentLang === 'en') {
-        // Go to FA (remove /en from start)
-        window.location.href = currentPath.replace(/^\/en/, '') || '/';
+      const altUrl = langBtn.getAttribute('data-alt-url');
+      if (altUrl) {
+        window.location.href = altUrl;
       } else {
-        // Go to EN (add /en to start)
-        window.location.href = '/en' + currentPath;
+        // Fallback if data-alt-url is missing
+        const currentPath = window.location.pathname;
+        if (currentLang === 'en') {
+          window.location.href = currentPath.replace(/\/en(\/|$)/, '/') || '/';
+        } else {
+          window.location.href = '/en' + currentPath;
+        }
       }
     });
   }
