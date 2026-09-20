@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.join(__dirname, '..');
 
-// Read templates (we will use the fa ones as base since they are already there)
+// Read templates
 const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf-8');
 const aboutHtml = fs.readFileSync(path.join(ROOT, 'about-us/index.html'), 'utf-8');
 const projectTemplatePath = path.join(ROOT, 'projects/damas-villa/index.html');
@@ -28,8 +28,14 @@ function injectSEO(html, lang, title, desc, urlPath) {
   <link rel="alternate" hreflang="fa" href="https://blockarcstudio.com${urlPath.replace('/en', '')}">
   <link rel="alternate" hreflang="en" href="https://blockarcstudio.com/en${urlPath.replace('/en', '')}">`;
   
-  // Inject right after title
   processed = processed.replace(/<\/title>/, `</title>\n${metaTags}`);
+  
+  // Update hardcoded language switcher button text to prevent flash of incorrect content
+  if (lang === 'fa') {
+    processed = processed.replace(/<button class="lang-switcher" id="langSwitcher"[^>]*>.*?<\/button>/g, '<button class="lang-switcher" id="langSwitcher" aria-label="Switch language" dir="auto">EN</button>');
+  } else {
+    processed = processed.replace(/<button class="lang-switcher" id="langSwitcher"[^>]*>.*?<\/button>/g, '<button class="lang-switcher" id="langSwitcher" aria-label="Switch language" dir="auto">FA</button>');
+  }
   
   if (lang === 'en') {
     // Fix internal links for english routing

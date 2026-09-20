@@ -1,4 +1,4 @@
-import { siteMeta, projects } from './data/index.js?v=14';
+import { siteMeta, projects } from './data/index.js?v=15';
 
 /* ============================================
    BLOCK ARCHITECTURE STUDIO — Main Script
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideData = siteMeta[currentLang].hero.slides[currentSlide];
         if(heroTitle && slideData) heroTitle.textContent = slideData.title;
     if(heroSubtitle && slideData) heroSubtitle.textContent = slideData.subtitle;
-    if(heroActionBtn && slideData.link) heroActionBtn.href = (lang === 'en' ? '/en' : '') + slideData.link;
+    if(heroActionBtn && slideData.link) heroActionBtn.href = (currentLang === 'en' ? '/en' : '') + slideData.link;
     
     const isFa = currentLang === 'fa';
     const num = String(currentSlide + 1).padStart(2, '0');
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const slideData = t.hero.slides[currentSlide];
             if(heroTitle && slideData) heroTitle.textContent = slideData.title;
       if(heroSubtitle && slideData) heroSubtitle.textContent = slideData.subtitle;
-      if(heroActionBtn && slideData.link) heroActionBtn.href = (lang === 'en' ? '/en' : '') + slideData.link;
+      if(heroActionBtn && slideData.link) heroActionBtn.href = (currentLang === 'en' ? '/en' : '') + slideData.link;
       if(heroBtnText) heroBtnText.textContent = t.hero.btn;
 
       // Update Counter Total
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       projectsGrid.innerHTML = ''; // clear grid
       featuredProjects.forEach((item) => {
         const yearStr = isFa ? toPersianDigits(item.year) : item.year;
-        const prefix = lang === 'en' ? '/en' : '';
+        const prefix = currentLang === 'en' ? '/en' : '';
         const link = `${prefix}/projects/${item.slug}/`;
         
         projectsGrid.innerHTML += `
