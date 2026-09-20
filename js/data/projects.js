@@ -55,12 +55,12 @@ export const projects = [
       en: 'A serene residential project located in the lush landscapes of Sisangan, Mazandaran, designed to harmonize with the surrounding natural beauty.', 
       fa: 'یک پروژه مسکونی آرامش‌بخش واقع در مناظر سرسبز سیسنگان مازندران، که برای هماهنگی با زیبایی‌های طبیعی اطراف طراحی شده است.' 
     },
-    coverImage: '/assets/sisangan-mazandaran/image_1.webp',
+    coverImage: '/assets/sisangan-mazandaran/image_1.webp?v=2',
     galleryImages: [
-      '/assets/sisangan-mazandaran/gallery/000_sisangan_new.webp',
-      '/assets/sisangan-mazandaran/gallery/001_sisangan_new.webp',
-      '/assets/sisangan-mazandaran/gallery/002_sisangan_new.webp',
-      '/assets/sisangan-mazandaran/gallery/003_sisangan_new.webp'
+      '/assets/sisangan-mazandaran/gallery/000_sisangan_new.webp?v=2',
+      '/assets/sisangan-mazandaran/gallery/001_sisangan_new.webp?v=2',
+      '/assets/sisangan-mazandaran/gallery/002_sisangan_new.webp?v=2',
+      '/assets/sisangan-mazandaran/gallery/003_sisangan_new.webp?v=2'
     ],
     drawings: [],
     specs: { 
