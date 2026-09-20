@@ -1,4 +1,4 @@
-import { projects } from './data/index.js';
+import { projects } from './data/index.js?v=14';
 
 document.addEventListener('DOMContentLoaded', () => {
   const projectId = document.body.dataset.projectId;
