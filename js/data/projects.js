@@ -55,9 +55,8 @@ export const projects = [
       en: 'A serene residential project located in the lush landscapes of Sisangan, Mazandaran, designed to harmonize with the surrounding natural beauty.', 
       fa: 'یک پروژه مسکونی آرامش‌بخش واقع در مناظر سرسبز سیسنگان مازندران، که برای هماهنگی با زیبایی‌های طبیعی اطراف طراحی شده است.' 
     },
-    coverImage: '/assets/sisangan-mazandaran/image_1.webp?v=2',
+    coverImage: '/assets/sisangan-mazandaran/gallery/000_sisangan_new.webp?v=2',
     galleryImages: [
-      '/assets/sisangan-mazandaran/gallery/000_sisangan_new.webp?v=2',
       '/assets/sisangan-mazandaran/gallery/001_sisangan_new.webp?v=2',
       '/assets/sisangan-mazandaran/gallery/002_sisangan_new.webp?v=2',
       '/assets/sisangan-mazandaran/gallery/003_sisangan_new.webp?v=2'
@@ -327,9 +326,8 @@ export const projects = [
       en: 'A residential interior overhaul in the Sheikh Bahayi neighborhood, focusing on warm tones, smart layouts, and a seamless connection between living and kitchen areas.', 
       fa: 'یک بازسازی داخلی مسکونی در محله شیخ بهایی، با تمرکز بر رنگ‌های گرم، چیدمان هوشمندانه و ارتباط یکپارچه بین فضاهای نشیمن و آشپزخانه.' 
     },
-    coverImage: '/assets/sheikh-bahayi/image_1.webp',
+    coverImage: '/assets/sheikh-bahayi/gallery/000_016_(1).webp',
     galleryImages: [
-      '/assets/sheikh-bahayi/gallery/000_016_(1).webp',
       '/assets/sheikh-bahayi/gallery/001_017_(1).webp',
       '/assets/sheikh-bahayi/gallery/002_01_(1).webp',
       '/assets/sheikh-bahayi/gallery/003_03_(1).webp',

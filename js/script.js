@@ -1,4 +1,4 @@
-import { siteMeta, projects } from './data/index.js?v=16';
+import { siteMeta, projects } from './data/index.js?v=17';
 
 /* ============================================
    BLOCK ARCHITECTURE STUDIO — Main Script

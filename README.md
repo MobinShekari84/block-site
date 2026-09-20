@@ -1,18 +1,23 @@
 # Block Architecture Studio
 
-A modern, minimal, and fully responsive architecture portfolio website, supporting both English (LTR) and Persian (RTL) languages seamlessly.
+## Project Architecture & Assets
 
-🌍 **Live Preview:** [Block Architecture Studio](https://mobinshekari84.github.io/block-site/)
+### Image Guidelines
+**CRITICAL: Always use a DIFFERENT image for the Hero Cover (`coverImage`) and the first image in the Project Narrative section (`galleryImages[0]`)!**
 
-## Features
-- **Bilingual (English & Persian):** Full structural LTR and RTL support with seamless live switching.
-- **Minimalist UI/UX:** Clean aesthetics suited for an architectural firm.
-- **Custom Font Stack:** Uses `YekanBakh` for flawless Persian typography and `Helvetica Neue` for English.
-- **Fully Responsive:** Adapts elegantly across mobile, tablet, and desktop viewports.
-- **Vanilla Stack:** Built with pure HTML, CSS, and vanilla JavaScript.
+The website design dictates that the `coverImage` is shown in the fullscreen Hero section when a user first opens a project page. The first image of the `galleryImages` array is shown immediately below it in the "Project Narrative" section. If you put the same image in both places, the user will see a jarring duplicate image as they scroll down.
 
-## Setup
-No build tools required. Simply open `index.html` in your browser or serve using any static web server:
-```bash
-python3 -m http.server 8080
+**Correct Example (`js/data/projects.js`):**
+```javascript
+  coverImage: '/assets/my-project/cover.webp',
+  galleryImages: [
+    '/assets/my-project/1.webp',
+    '/assets/my-project/2.webp'
+  ]
 ```
+
+### Static Site Generator (SSG)
+Whenever `js/data/projects.js` or `js/data/siteMeta.js` is modified, you MUST run:
+`node generator-apps/build_ssg.mjs`
+
+This script parses the Javascript databases and injects the raw Farsi HTML into the root directory, and the raw English HTML into the `/en/` subdirectory to ensure flawless Googlebot SEO indexing.
