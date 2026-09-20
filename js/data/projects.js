@@ -57,11 +57,10 @@ export const projects = [
     },
     coverImage: '/assets/sisangan-mazandaran/image_1.webp',
     galleryImages: [
-      '/assets/sisangan-mazandaran/gallery/004_Enscape_2026-05-31-23-46-07.webp',
-      '/assets/sisangan-mazandaran/gallery/002_Enscape_2026-05-31-23-44-17.webp',
-      '/assets/sisangan-mazandaran/gallery/003_Enscape_2026-05-31-23-45-20.webp',
-      '/assets/sisangan-mazandaran/gallery/000_Enscape_2025-10-29-23-13-47.webp',
-      '/assets/sisangan-mazandaran/gallery/001_Enscape_2025-10-29-23-19-11.webp'
+      '/assets/sisangan-mazandaran/gallery/000_sisangan_new.webp',
+      '/assets/sisangan-mazandaran/gallery/001_sisangan_new.webp',
+      '/assets/sisangan-mazandaran/gallery/002_sisangan_new.webp',
+      '/assets/sisangan-mazandaran/gallery/003_sisangan_new.webp'
     ],
     drawings: [],
     specs: { 
@@ -276,7 +275,6 @@ export const projects = [
       '/assets/office-renovation/gallery/007_2.webp',
       '/assets/office-renovation/gallery/008_3.webp',
       '/assets/office-renovation/gallery/009_1.webp',
-      '/assets/office-renovation/gallery/010_UpViewPlan.webp',
       '/assets/office-renovation/gallery/011_01.webp',
       '/assets/office-renovation/gallery/012_03.webp',
       '/assets/office-renovation/gallery/013_02.webp',
