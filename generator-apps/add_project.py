@@ -2,6 +2,7 @@ import json
 import os
 import re
 import sys
+import subprocess
 
 def prompt(text, default=""):
     val = input(f"{text} [{default}]: ").strip()
@@ -11,7 +12,6 @@ print("========================================")
 print("  BLOCK STUDIO - PROJECT GENERATOR")
 print("========================================")
 
-# Ensure script is run from the project root or resolve paths properly
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
 
@@ -37,34 +37,12 @@ fa_area = prompt("Farsi Area", "۵۰۰ متر مربع")
 en_materials = prompt("English Materials", "Concrete, Glass")
 fa_materials = prompt("Farsi Materials", "بتن، شیشه")
 
-# 2. Check for assets folder
 asset_folder = os.path.join(project_root, "assets", slug)
 if not os.path.exists(asset_folder):
     os.makedirs(asset_folder, exist_ok=True)
     print(f"\n[+] Created image folder at assets/{slug}/")
     
-# 3. Generate HTML Page
-project_dir = os.path.join(project_root, "projects", slug)
-if not os.path.exists(project_dir):
-    os.makedirs(project_dir, exist_ok=True)
-html_target = os.path.join(project_dir, "index.html")
-if os.path.exists(html_target):
-    print(f"[!] Warning: {slug}.html already exists. It will be overwritten.")
-
-template_path = os.path.join(script_dir, "templates", "project.html")
-with open(template_path, "r", encoding="utf-8") as f:
-    html_content = f.read()
-
-# Replace placeholders
-html_content = html_content.replace('{{SLUG}}', slug)
-html_content = html_content.replace('{{EN_TITLE}}', en_title)
-
-with open(html_target, "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print(f"[+] Generated projects/{slug}/index.html successfully.")
-
-# 4. Generate JSON Object for projects.js
+# Generate JSON Object for projects.js
 new_project_obj = f"""  {{
     id: '{slug}',
     slug: '{slug}',
@@ -93,16 +71,16 @@ new_project_obj = f"""  {{
   }},
 """
 
-# Insert into projects.js right before damas-villa
+# Insert into projects.js right at the top
 projects_js_path = os.path.join(project_root, "js", "data", "projects.js")
 try:
     with open(projects_js_path, 'r', encoding="utf-8") as f:
         js_content = f.read()
     
-    # Inject before the damas-villa object to keep it at the top
-    if "id: 'damas-villa'," in js_content:
-        js_content = js_content.replace("  {\n    id: 'damas-villa',", new_project_obj + "  {\n    id: 'damas-villa',")
-        
+    # Inject right after "export const projects = ["
+    target = "export const projects = ["
+    if target in js_content:
+        js_content = js_content.replace(target, target + "\n" + new_project_obj)
         with open(projects_js_path, 'w', encoding="utf-8") as f:
             f.write(js_content)
         print(f"[+] Added '{slug}' to js/data/projects.js successfully.")
@@ -111,9 +89,16 @@ try:
 except Exception as e:
     print(f"[!] Failed to modify projects.js: {e}")
 
+# Run the SSG Builder
+print("[+] Running SSG Builder to generate SEO-optimized HTML pages...")
+try:
+    subprocess.run(["node", os.path.join(script_dir, "build_ssg.mjs")], check=True)
+except Exception as e:
+    print(f"[!] SSG Build failed: {e}")
+
 print("\n========================================")
 print(f"DONE! Your new project '{en_title}' is ready.")
 print(f"Next Steps:")
 print(f"1. Put your images in assets/{slug}/")
-print(f"2. Open js/data/projects.js and update the 'coverImage' and 'galleryImages' filenames if they differ from the defaults.")
+print(f"2. Open js/data/projects.js and update the filenames")
 print("========================================")

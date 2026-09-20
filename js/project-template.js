@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextTitle = document.getElementById('nextProjectTitle');
   if (teaser && nextTitle && nextProject) {
     teaser.style.display = 'block';
-    teaser.href = '/projects/' + nextProject.slug + '/';
+    teaser.href = (lang === 'en' ? '/en' : '') + '/projects/' + nextProject.slug + '/';
     
     // Set background image
     const bg = teaser.querySelector('.next-project-bg');

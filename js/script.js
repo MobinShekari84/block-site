@@ -1,4 +1,4 @@
-import { siteMeta, projects } from './data/index.js?v=11';
+import { siteMeta, projects } from './data/index.js?v=12';
 
 /* ============================================
    BLOCK ARCHITECTURE STUDIO — Main Script
@@ -6,7 +6,7 @@ import { siteMeta, projects } from './data/index.js?v=11';
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  let currentLang = localStorage.getItem('blockLang') || 'en';
+  let currentLang = document.documentElement.lang || 'en';
   let currentSlide = 0;
 
   // ── Scroll Reveal ──────────────────────────────
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideData = siteMeta[currentLang].hero.slides[currentSlide];
         if(heroTitle && slideData) heroTitle.textContent = slideData.title;
     if(heroSubtitle && slideData) heroSubtitle.textContent = slideData.subtitle;
-    if(heroActionBtn && slideData.link) heroActionBtn.href = slideData.link;
+    if(heroActionBtn && slideData.link) heroActionBtn.href = (lang === 'en' ? '/en' : '') + slideData.link;
     
     const isFa = currentLang === 'fa';
     const num = String(currentSlide + 1).padStart(2, '0');
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const slideData = t.hero.slides[currentSlide];
             if(heroTitle && slideData) heroTitle.textContent = slideData.title;
       if(heroSubtitle && slideData) heroSubtitle.textContent = slideData.subtitle;
-      if(heroActionBtn && slideData.link) heroActionBtn.href = slideData.link;
+      if(heroActionBtn && slideData.link) heroActionBtn.href = (lang === 'en' ? '/en' : '') + slideData.link;
       if(heroBtnText) heroBtnText.textContent = t.hero.btn;
 
       // Update Counter Total
@@ -180,7 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
       projectsGrid.innerHTML = ''; // clear grid
       featuredProjects.forEach((item) => {
         const yearStr = isFa ? toPersianDigits(item.year) : item.year;
-        const link = `/projects/${item.slug}/`;
+        const prefix = lang === 'en' ? '/en' : '';
+        const link = `${prefix}/projects/${item.slug}/`;
         
         projectsGrid.innerHTML += `
           <article class="project-card reveal">
@@ -229,7 +230,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if(langBtn) {
     langBtn.addEventListener('click', () => {
-      setLanguage(currentLang === 'en' ? 'fa' : 'en');
+      // URL-based language switching
+      const currentPath = window.location.pathname;
+      if (currentLang === 'en') {
+        // Go to FA (remove /en from start)
+        window.location.href = currentPath.replace(/^\/en/, '') || '/';
+      } else {
+        // Go to EN (add /en to start)
+        window.location.href = '/en' + currentPath;
+      }
     });
   }
   
