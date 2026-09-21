@@ -235,5 +235,35 @@ export const projects = [
         { id: 2, x: 70, y: 60, rot: 90, title: { en: 'Kitchen', fa: 'آشپزخانه' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/renovation/Narmak-Renovation/interior-design/kitchen_1.webp' }
       ]
     }
-  }
+  },
+  {
+    id: 'Car-wash',
+    slug: 'car-wash',
+    title: { en: 'Car Wash', fa: 'کارواش' },
+    category: { en: 'Commercial', fa: 'تجاری' },
+    year: 2025,
+    location: { en: 'Tehran', fa: 'تهران' },
+    description: {
+      en: 'A modern, minimalist office renovation designed for Dr. Pour Abedi. The project was proposed in two scenarios (minimal and maximal) to balance budget and scope. The final design prioritizes open workspaces, natural lighting, and elegant acoustic glass partitions. The material palette features warm oak wood, smoked glass, black metal accents, and a neutral base of warm white and light gray.',
+      fa: 'بازسازی و طراحی داخلی مدرن و مینیمال دفتر کار دکتر پور عابدی. این پروژه در دو سناریوی حداقلی (اقتصادی) و حداکثری طراحی شد. طرح نهایی بر فضاهای کاری باز، نور طبیعی و پارتیشن‌های شیشه‌ای آکوستیک تأکید دارد. پالت متریال شامل چوب بلوط گرم، شیشه دودی، فلز مشکی و رنگ‌های پایه سفید گرم و طوسی روشن است.'
+    },
+    coverImage: '/assets/commercial/car-wash/exterior-design/bird-view.webp',
+    narrativeImage: '/assets/commercial/car-wash/interior-design/carwash.webp',
+    specs: {
+      designer: { en: 'Rojin Molaei', fa: 'روژین مولائی' },
+      date: { en: 'June 2026', fa: 'خرداد ۱۴۰۵' },
+      status: { en: 'Designed', fa: 'طراحی شده' },
+      architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
+    },
+    isFeatured: false,
+    heroTheme: 'light',
+    spatialPlan: {
+      planImageUrl: '/assets/commercial/car-wash/documents/plan.webp',
+      aspectRatio: '1600 / 1200',
+      hotspots: [
+        { id: 1, x: 30, y: 30, rot: 45, title: { en: 'Car wash', fa: 'کارواش' }, zone: { en: 'Exterior', fa: 'خارجی' }, renderUrl: '/assets/commercial/car-wash/exterior-design/bird-view.webp' },
+        { id: 2, x: 70, y: 60, rot: 90, title: { en: 'Entrance', fa: 'ورودی' }, zone: { en: 'Exterior', fa: 'خارجی' }, renderUrl: '/assets/commercial/car-wash/exterior-design/entrance.webp' }
+      ]
+    }
+  },
 ];

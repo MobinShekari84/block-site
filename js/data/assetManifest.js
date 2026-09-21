@@ -185,5 +185,24 @@ export const assetManifest = {
     ],
     "landscapeDesign": [],
     "photos": []
+  },
+  "Car-wash": {
+    "documents": [
+      "/assets/commercial/car-wash/documents/plan.webp"
+    ],
+    "exteriorDesign": [
+      "/assets/commercial/car-wash/exterior-design/bird-view.webp",
+      "/assets/commercial/car-wash/exterior-design/entrance_1.webp",
+      "/assets/commercial/car-wash/exterior-design/entrance.webp"
+    ],
+    "interiorDesign": [
+      "/assets/commercial/car-wash/interior-design/carwash.webp",
+      "/assets/commercial/car-wash/interior-design/store_1.webp",
+      "/assets/commercial/car-wash/interior-design/store_2.webp",
+      "/assets/commercial/car-wash/interior-design/store.webp",
+      "/assets/commercial/car-wash/interior-design/waiting-salon.webp"
+    ],
+    "landscapeDesign": [],
+    "photos": []
   }
 };

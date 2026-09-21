@@ -17,6 +17,7 @@ const projectMap = {
   "sheikh-bahayi": "renovation/Sheikh-Bahayi-Renovation",
   "ozgol-renovation-project": "renovation/Ozgol-renovation-project",
   "Narmak-renovation-project": "renovation/Narmak-Renovation",
+  "Car-wash": "commercial/car-wash",
 };
 
 function getWebpFiles(dir) {
