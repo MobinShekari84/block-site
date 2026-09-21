@@ -196,6 +196,7 @@ export const assetManifest = {
       "/assets/commercial/car-wash/exterior-design/entrance.webp"
     ],
     "interiorDesign": [
+      "/assets/commercial/car-wash/interior-design/carwash_1.webp",
       "/assets/commercial/car-wash/interior-design/carwash.webp",
       "/assets/commercial/car-wash/interior-design/store_1.webp",
       "/assets/commercial/car-wash/interior-design/store_2.webp",
