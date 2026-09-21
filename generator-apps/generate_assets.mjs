@@ -15,7 +15,8 @@ const projectMap = {
   "namdar-building": "renovation/Namdar-Building-Renovation",
   "office-renovation": "renovation/Office-Renovation",
   "sheikh-bahayi": "renovation/Sheikh-Bahayi-Renovation",
-  "ozgol-renovation-project": "renovation/Ozgol-renovation-project"
+  "ozgol-renovation-project": "renovation/Ozgol-renovation-project",
+  "Narmak-renovation-project": "renovation/Narmak-Renovation",
 };
 
 function getWebpFiles(dir) {
@@ -39,7 +40,7 @@ const manifest = {};
 
 for (const [id, folderPath] of Object.entries(projectMap)) {
   const fullFolder = path.join(ROOT, `assets/${folderPath}`);
-  
+
   const assets = {
     documents: [],
     exteriorDesign: [],
@@ -53,23 +54,23 @@ for (const [id, folderPath] of Object.entries(projectMap)) {
   if (fs.existsSync(fullFolder)) {
     let allFiles = getWebpFiles(fullFolder);
     allFiles = allFiles.map(f => f.startsWith('/') ? f : '/' + f);
-    
+
     // Sort files logically
-    allFiles.sort((a, b) => a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'}));
-    
+    allFiles.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+
     allFiles.forEach(f => {
       // Ignore original-docs and about
       if (f.includes('/original-docs/') || f.includes('/about/')) return;
-      
+
       const parts = f.split('/');
       const parentFolder = parts[parts.length - 2];
       const projectName = folderPath.split('/')[1];
-      
+
       // Ignore root hero images
       if (parentFolder === projectName) return;
-      
-      const fileWithCache = f; 
-      
+
+      const fileWithCache = f;
+
       if (parentFolder === 'documents' || parentFolder === 'drawings') {
         assets.documents.push(fileWithCache);
       } else if (parentFolder === 'exterior-design') {

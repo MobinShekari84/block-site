@@ -180,7 +180,7 @@ export const projects = [
     id: 'ozgol-renovation-project',
     slug: 'ozgol-renovation-project',
     title: { en: 'Ozgol Renovation', fa: 'بازسازی ازگل' },
-    category: { en: 'Commercial', fa: 'تجاری' },
+    category: { en: 'Residential', fa: 'مسکونی' },
     year: 2026,
     location: { en: 'Tehran', fa: 'تهران' },
     description: {
@@ -196,6 +196,44 @@ export const projects = [
       architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
     },
     isFeatured: false,
-    heroTheme: 'light'
+    heroTheme: 'light',
+    spatialPlan: {
+      planImageUrl: '/assets/renovation/Ozgol-renovation-project/documents/plan.webp',
+      aspectRatio: '1600 / 1200',
+      hotspots: [
+        { id: 1, x: 30, y: 30, rot: 45, title: { en: 'Living Space', fa: 'فضای نشیمن' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/renovation/Ozgol-renovation-project/interior-design/living-room.webp' },
+        { id: 2, x: 70, y: 60, rot: 90, title: { en: 'Kitchen', fa: 'آشپزخانه' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/renovation/Ozgol-renovation-project/interior-design/kitchen_1.webp' }
+      ]
+    }
+  },
+  {
+    id: 'Narmak-renovation-project',
+    slug: 'Narmak-renovation-project',
+    title: { en: 'Narmak Renovation', fa: 'بازسازی نارمک' },
+    category: { en: 'Residential', fa: 'مسکونی' },
+    year: 2026,
+    location: { en: 'Tehran', fa: 'تهران' },
+    description: {
+      en: 'A modern renovation project in Narmak, focusing on maximizing natural light and creating fluid interior spaces.',
+      fa: 'یک پروژه بازسازی مدرن در نارمک، با تمرکز بر به حداکثر رساندن نور طبیعی و ایجاد فضاهای داخلی سیال.'
+    },
+    coverImage: '/assets/renovation/Narmak-Renovation/interior-design/livingroom.webp',
+    narrativeImage: '/assets/renovation/Narmak-Renovation/interior-design/kitchen.webp',
+    specs: {
+      area: { en: 'Unknown', fa: 'نامشخص' },
+      status: { en: 'Completed', fa: 'تکمیل شده' },
+      materials: { en: 'Wood, Concrete', fa: 'چوب، بتن' },
+      architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
+    },
+    isFeatured: false,
+    heroTheme: 'light',
+    spatialPlan: {
+      planImageUrl: '/assets/renovation/Narmak-Renovation/documents/plan.webp',
+      aspectRatio: '1600 / 1200',
+      hotspots: [
+        { id: 1, x: 30, y: 30, rot: 45, title: { en: 'Living Space', fa: 'فضای نشیمن' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/renovation/Narmak-Renovation/interior-design/livingroom_2.webp' },
+        { id: 2, x: 70, y: 60, rot: 90, title: { en: 'Kitchen', fa: 'آشپزخانه' }, zone: { en: 'Interior', fa: 'داخلی' }, renderUrl: '/assets/renovation/Narmak-Renovation/interior-design/kitchen_1.webp' }
+      ]
+    }
   }
 ];

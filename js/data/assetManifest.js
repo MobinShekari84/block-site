@@ -147,9 +147,41 @@ export const assetManifest = {
     "interiorDesign": [
       "/assets/renovation/Ozgol-renovation-project/interior-design/bathroom.webp",
       "/assets/renovation/Ozgol-renovation-project/interior-design/entrance.webp",
+      "/assets/renovation/Ozgol-renovation-project/interior-design/kitchen_1.webp",
       "/assets/renovation/Ozgol-renovation-project/interior-design/kitchen.webp",
-      "/assets/renovation/Ozgol-renovation-project/interior-design/kitchen2.webp",
       "/assets/renovation/Ozgol-renovation-project/interior-design/living-room.webp"
+    ],
+    "landscapeDesign": [],
+    "photos": []
+  },
+  "Narmak-renovation-project": {
+    "documents": [
+      "/assets/renovation/Narmak-Renovation/documents/Plan.webp"
+    ],
+    "exteriorDesign": [],
+    "interiorDesign": [
+      "/assets/renovation/Narmak-Renovation/interior-design/bedroom_1.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/bedroom_2.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/bedroom_3.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/bedroom_4.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/bedroom_5.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/bedroom.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/diningroom.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/entrance_1.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/entrance_3.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/entrance_4.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/entrance_5.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/entrance.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/kitchen_1.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/kitchen_2.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/kitchen_3.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/kitchen.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/livingroom_1.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/livingroom_2.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/livingroom_3.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/livingroom_4.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/livingroom_5.webp",
+      "/assets/renovation/Narmak-Renovation/interior-design/livingroom.webp"
     ],
     "landscapeDesign": [],
     "photos": []
