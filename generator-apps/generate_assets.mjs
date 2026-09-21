@@ -14,7 +14,8 @@ const projectMap = {
   "sarziarate": "villa/Sarziarate-Villa",
   "namdar-building": "renovation/Namdar-Building-Renovation",
   "office-renovation": "renovation/Office-Renovation",
-  "sheikh-bahayi": "renovation/Sheikh-Bahayi-Renovation"
+  "sheikh-bahayi": "renovation/Sheikh-Bahayi-Renovation",
+  "ozgol-renovation-project": "renovation/Ozgol-renovation-project"
 };
 
 function getWebpFiles(dir) {

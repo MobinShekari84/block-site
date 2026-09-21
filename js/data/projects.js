@@ -175,5 +175,27 @@ export const projects = [
     },
     isFeatured: false,
     heroTheme: 'light',
+  },
+  {
+    id: 'ozgol-renovation-project',
+    slug: 'ozgol-renovation-project',
+    title: { en: 'Ozgol Renovation', fa: 'بازسازی ازگل' },
+    category: { en: 'Commercial', fa: 'تجاری' },
+    year: 2026,
+    location: { en: 'Tehran', fa: 'تهران' },
+    description: {
+      en: 'A modern renovation project in Ozgol, focusing on maximizing natural light and creating fluid interior spaces.',
+      fa: 'یک پروژه بازسازی مدرن در ازگل، با تمرکز بر به حداکثر رساندن نور طبیعی و ایجاد فضاهای داخلی سیال.'
+    },
+    coverImage: '/assets/renovation/Ozgol-renovation-project/interior-design/living-room.webp',
+    narrativeImage: '/assets/renovation/Ozgol-renovation-project/interior-design/kitchen.webp',
+    specs: {
+      area: { en: 'Unknown', fa: 'نامشخص' },
+      status: { en: 'Completed', fa: 'تکمیل شده' },
+      materials: { en: 'Wood, Concrete', fa: 'چوب، بتن' },
+      architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
+    },
+    isFeatured: false,
+    heroTheme: 'light'
   }
 ];

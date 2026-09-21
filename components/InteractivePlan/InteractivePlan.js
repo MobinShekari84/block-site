@@ -5,7 +5,7 @@ class InteractivePlan {
     
     this.config = config;
     this.currentLang = document.documentElement.lang || 'en';
-    this.currentCamId = config.hotspots[0].id;
+    this.currentCamId = config.hotspots && config.hotspots.length > 0 ? config.hotspots[0].id : null;
     
     // UI Texts Dictionary (can be expanded)
         this.uiTexts = {

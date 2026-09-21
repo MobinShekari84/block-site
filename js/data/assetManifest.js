@@ -138,5 +138,20 @@ export const assetManifest = {
     ],
     "landscapeDesign": [],
     "photos": []
+  },
+  "ozgol-renovation-project": {
+    "documents": [
+      "/assets/renovation/Ozgol-renovation-project/documents/plan.webp"
+    ],
+    "exteriorDesign": [],
+    "interiorDesign": [
+      "/assets/renovation/Ozgol-renovation-project/interior-design/bathroom.webp",
+      "/assets/renovation/Ozgol-renovation-project/interior-design/entrance.webp",
+      "/assets/renovation/Ozgol-renovation-project/interior-design/kitchen.webp",
+      "/assets/renovation/Ozgol-renovation-project/interior-design/kitchen2.webp",
+      "/assets/renovation/Ozgol-renovation-project/interior-design/living-room.webp"
+    ],
+    "landscapeDesign": [],
+    "photos": []
   }
 };

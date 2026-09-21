@@ -1,5 +1,8 @@
 *.dwg
 *.pdf
 *.jpg
+*.png
+*.jpeg
+*.heic
 plan-*.png
 .DS_Store
