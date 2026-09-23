@@ -1,4 +1,4 @@
-import { siteMeta, projects } from './data/index.js';
+import { siteMeta, projects, heroSliderProjects } from './data/index.js';
 
 /* ============================================
    BLOCK ARCHITECTURE STUDIO — Main Script
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentLang = document.documentElement.lang || 'en';
   let currentSlide = 0;
 
+  
   // ── Scroll Reveal ──────────────────────────────
   window.revealObserver = new IntersectionObserver(
     (entries) => {
@@ -30,7 +31,76 @@ document.addEventListener('DOMContentLoaded', () => {
   const navCenter = document.getElementById('navCenter');
   const navSocial = document.getElementById('navSocial');
   const langBtn = document.getElementById('langSwitcher');
-  const heroSlides = document.querySelectorAll('.hero-slide');
+  // Generate Slides Dynamically
+  const slideshowContainer = document.querySelector('.hero-slideshow');
+  const indicatorsContainer = document.querySelector('.hero-indicators');
+  let heroSlides = [];
+  let indicatorBtns = [];
+  let dynamicHeroData = [];
+
+  if (slideshowContainer && heroSliderProjects) {
+    slideshowContainer.innerHTML = '';
+    indicatorsContainer.innerHTML = '';
+    
+    heroSliderProjects.forEach((slug, index) => {
+      const p = projects.find(proj => proj.slug === slug || proj.id === slug);
+      if (!p) return;
+      
+      dynamicHeroData.push(p);
+
+      // Slide DOM
+      const slide = document.createElement('div');
+      slide.className = `hero-slide ${index === 0 ? 'active' : ''}`;
+      slide.innerHTML = `<img src="${p.coverImage}" class="hero-image ${index === 0 ? 'active' : ''}">`;
+      slideshowContainer.appendChild(slide);
+
+      // Indicator DOM
+      const ind = document.createElement('button');
+      ind.className = `hero-indicator ${index === 0 ? 'active' : ''}`;
+      ind.setAttribute('aria-label', `Go to slide ${index + 1}`);
+      ind.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        goToSlide(index);
+        startSlideshow();
+      });
+      indicatorsContainer.appendChild(ind);
+    });
+    
+    heroSlides = document.querySelectorAll('.hero-slide');
+    indicatorBtns = document.querySelectorAll('.hero-indicator');
+
+    // Generate Side Chevrons
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'hero-nav-arrow prev';
+      prevBtn.setAttribute('aria-label', 'Previous slide');
+      prevBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg>';
+      
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'hero-nav-arrow next';
+      nextBtn.setAttribute('aria-label', 'Next slide');
+      nextBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg>';
+
+      heroSection.appendChild(prevBtn);
+      heroSection.appendChild(nextBtn);
+
+      prevBtn.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        if (currentLang === 'fa') nextSlide();
+        else goToSlide(currentSlide - 1 < 0 ? heroSlides.length - 1 : currentSlide - 1);
+        startSlideshow();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        if (currentLang === 'fa') goToSlide(currentSlide - 1 < 0 ? heroSlides.length - 1 : currentSlide - 1);
+        else nextSlide();
+        startSlideshow();
+      });
+    }
+  }
+
   const heroIndicators = document.querySelectorAll('.hero-indicator');
   const heroTitle = document.getElementById('heroTitle');
   const heroSubtitle = document.getElementById('heroSubtitle');
