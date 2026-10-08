@@ -1,5 +1,16 @@
 {
   "platform": "static",
   "app": "blockarcstudio",
-  "port": 80
+  "port": 80,
+  "headers": [
+    {
+      "source": "**/*.@(html|js|css)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ]
 }
