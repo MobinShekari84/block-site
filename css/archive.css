@@ -192,7 +192,6 @@ body.lang-fa .archive-preview-card {
   font-family: var(--font-persian);
 }
 body.lang-fa .archive-list-left {
-  flex-direction: row-reverse;
   text-align: right;
 }
 
