@@ -220,6 +220,11 @@ function injectSEO(html, lang, title, desc, urlPath, destPath) {
   if (lang === 'en') {
     html = html.replace(/>پروژه‌ها</g, '>Projects<');
     html = html.replace(/>درباره ما</g, '>About<');
+    // Hero translations
+    html = html.replace(/خلوص<br>هندسی/g, 'Geometric<br>Purity');
+    html = html.replace(/ویلای داماس — دماوند، ۲۰۲۶/g, 'Damas Villa — Damavand, 2026');
+    html = html.replace(/بیشتر بدانید/g, 'Learn More');
+
     html = html.replace(/>خانه</g, '>Home<');
     html = html.replace(/>ناوبری</g, '>Navigation<');
     html = html.replace(/>تماس</g, '>Contact<');
