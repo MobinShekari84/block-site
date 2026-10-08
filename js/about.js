@@ -148,11 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="contact-item">
             <span class="contact-label ${isFa ? 'lang-fa' : ''}">${isFa ? 'تلفن' : 'Phone'}</span>
-            ${Array.isArray(aboutData.contact.phone) ? aboutData.contact.phone.map(p => `<a href="tel:${p.replace(/\s+/g, '')}" class="contact-value" dir="ltr" style="display:block; margin-bottom:4px;">${p}</a>`).join('') : `<a href="tel:${aboutData.contact.phone.replace(/\s+/g, '')}" class="contact-value" dir="ltr">${aboutData.contact.phone}</a>`}
+            ${aboutData.contact.phone[lang].map(p => `<a href="tel:${p.replace(/[\s۰-۹]/g, match => match === ' ' ? '' : '0123456789'['۰۱۲۳۴۵۶۷۸۹'.indexOf(match)] || match).replace('+', '%2B')}" class="contact-value" dir="ltr" style="display:block; margin-bottom:4px;">${p}</a>`).join('')}
           </div>
           <div class="contact-item">
             <span class="contact-label ${isFa ? 'lang-fa' : ''}">${isFa ? 'آدرس' : 'Address'}</span>
-            <span class="contact-value ${isFa ? 'lang-fa' : ''}">${aboutData.contact.address[lang]}</span>
+            <a href="https://maps.google.com/?q=Fereshteh, Bidar St., No. 4, Unit 3, Tehran, Iran" target="_blank" class="contact-value ${isFa ? 'lang-fa' : ''}" style="text-decoration: none; color: inherit;">${aboutData.contact.address[lang].replace('\n', '<br>')}</a>
           </div>
           <div class="contact-item">
             <span class="contact-label ${isFa ? 'lang-fa' : ''}">${isFa ? 'ساعات کاری' : 'Hours'}</span>

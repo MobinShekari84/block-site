@@ -216,6 +216,20 @@ function makeRelativePaths(html, destPath) {
   return processed;
 }
 function injectSEO(html, lang, title, desc, urlPath, destPath) {
+
+  if (lang === 'en') {
+    html = html.replace(/>پروژه‌ها</g, '>Projects<');
+    html = html.replace(/>درباره ما</g, '>About<');
+    html = html.replace(/>خانه</g, '>Home<');
+    html = html.replace(/>ناوبری</g, '>Navigation<');
+    html = html.replace(/>تماس</g, '>Contact<');
+    html = html.replace(/>شبکه‌های اجتماعی</g, '>Social<');
+    html = html.replace(/فرشته، خیابان بیدار، پلاک ۴، واحد ۳/g, 'Fereshteh, Bidar St., No. 4, Unit 3\nTehran, Iran');
+    html = html.replace(/© ۲۰۲۴ استودیو معماری بلاک. تمامی حقوق محفوظ است./g, '© 2024 Block Architecture Studio. All rights reserved.');
+    html = html.replace(/طراحی و توسعه توسط استودیو بلاک/g, 'Design & Development by Block Studio');
+    html = html.replace(/\+۹۸ ۲۱ ۲۲۰۵ ۱۴۷۴\n\+۹۸ ۲۱ ۲۲۰۴ ۱۳۵۵\n\+۹۸ ۹۱۲ ۰۶۵ ۲۴۱۳\n\+۹۸ ۹۱۲ ۳۷۹ ۹۷۴۶/g, '+98 21 2204 1355\n+98 912 065 2413\n+98 912 379 9746');
+  }
+
   const dir = lang === 'fa' ? 'rtl' : 'ltr';
   let processed = html.replace(/<html.*?>/, `<html lang="${lang}" dir="${dir}">`);
   processed = processed.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);

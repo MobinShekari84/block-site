@@ -1,0 +1,10 @@
+.git
+.gitignore
+.agents
+generator-apps/
+docs/
+fix_*.py
+add_*.py
+rewrite_*.py
+temp.css
+README.md

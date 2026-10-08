@@ -65,3 +65,14 @@ While the HTML is statically generated, Javascript handles the interactive "leaf
 * **Lazy Intersection Observers:** In `js/project-template.js`, an `IntersectionObserver` watches elements with the `.reveal` class. As the user scrolls, it applies `.active` to trigger CSS opacity and translation transitions.
 * **Interactive Spatial Plan:** The `InteractivePlan.js` component mounts to `#spatial-container` and binds to the `spatialPlan` object defined in `projects.js`.
 * **State Management:** The user's language preference is stored in `localStorage('blockLang')` to ensure a consistent experience.
+
+## 5. Hosting & Deployment (Liara)
+
+The platform is designed to be hosted on **Liara** as a `Static` application.
+- `.liaraignore` prevents build scripts and data sources from being served in production.
+- `liara.json` sets `"platform": "static"` avoiding any node runtime overhead on the edge.
+- Routing strictly uses directory indices (e.g. `projects/damas-villa/index.html` accessed via `/projects/damas-villa/`).
+
+## 6. Dynamic Filtering & Submenus
+
+Projects are filtered on the client side using URL parameters (e.g., `?filter=residential`). The Navbar `dropdown.css` provides the UI, while `js/script.js` intercepts the `window.location.search`, filters the statically provided `projects` array, and re-renders `.projects-grid`. This avoids full page redirects while keeping the Farsi/English routing completely intact.

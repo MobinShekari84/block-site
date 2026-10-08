@@ -89,9 +89,12 @@ export const aboutData = {
     }
   ],
   contact: {
-    address: { en: "Unit 3, No. 4, Bidar St. Fereshteh, Tehran, Iran", fa: "فرشته بیدار پلاک ۴ واحد ۳، تهران، ایران" },
-    email: "info@blockarch.studio",
-    phone: ["+98 21 2205 1474", "+98 21 2204 1355", "+98 912 065 2413", "+98 912 379 9746"],
+    address: { en: "Fereshteh, Bidar St., No. 4, Unit 3\nTehran, Iran", fa: "فرشته، خیابان بیدار، پلاک ۴، واحد ۳" },
+    email: "info@blockarcstudio.com",
+    phone: {
+      en: ["+98 21 2204 1355", "+98 912 065 2413", "+98 912 379 9746"],
+      fa: ["۰۲۱ ۲۲۰۴ ۱۳۵۵", "۰۹۱۲ ۰۶۵ ۲۴۱۳", "۰۹۱۲ ۳۷۹ ۹۷۴۶"]
+    },
     hours: { en: "Sat - Wed: 9AM - 6PM", fa: "شنبه - چهارشنبه: ۹ صبح - ۶ عصر" }
   }
 };

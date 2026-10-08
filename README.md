@@ -28,6 +28,14 @@ node generator-apps/build_ssg.mjs
 
 Once `SSG Build Complete!` prints in your terminal, the site is fully updated and ready for deployment.
 
+### Step 3: Deployment (Liara)
+The site is configured to be hosted on Liara's **Static** platform. The `liara.json` and `.liaraignore` files are already set up. Simply run:
+```bash
+liara deploy
+```
+This pushes the pre-built HTML files, avoiding runtime generation on the server.
+
+
 ## Documentation
 
 For deep technical details on how the system works, refer to the files in the `/docs/` folder:

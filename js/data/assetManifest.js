@@ -205,5 +205,26 @@ export const assetManifest = {
     ],
     "landscapeDesign": [],
     "photos": []
+  },
+  "Nabat-Complex": {
+    "documents": [],
+    "exteriorDesign": [
+      "/assets/commercial/Nabat-Complex/exterior-design/exterior-1.webp",
+      "/assets/commercial/Nabat-Complex/exterior-design/exterior-2.webp",
+      "/assets/commercial/Nabat-Complex/exterior-design/exterior-3.webp",
+      "/assets/commercial/Nabat-Complex/exterior-design/exterior.webp"
+    ],
+    "interiorDesign": [
+      "/assets/commercial/Nabat-Complex/interior-design/Cafe-Restaruant-Interior-1.webp",
+      "/assets/commercial/Nabat-Complex/interior-design/Cafe-Restaruant-Interior-2.webp",
+      "/assets/commercial/Nabat-Complex/interior-design/Cafe-Restaruant-Interior-3.webp",
+      "/assets/commercial/Nabat-Complex/interior-design/Cafe-Restaruant-Interior.webp",
+      "/assets/commercial/Nabat-Complex/interior-design/Cafe-Restaruant-RoofGarden-1.webp",
+      "/assets/commercial/Nabat-Complex/interior-design/Cafe-Restaruant-Roofgarden-2.webp",
+      "/assets/commercial/Nabat-Complex/interior-design/Cafe-Restaruant-Roofgarden-3.webp",
+      "/assets/commercial/Nabat-Complex/interior-design/Cafe-Restaruant-Roofgarden.webp"
+    ],
+    "landscapeDesign": [],
+    "photos": []
   }
 };

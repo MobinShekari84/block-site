@@ -18,6 +18,7 @@ const projectMap = {
   "ozgol-renovation-project": "renovation/Ozgol-renovation-project",
   "Narmak-renovation-project": "renovation/Narmak-Renovation",
   "Car-wash": "commercial/car-wash",
+  "Nabat-Complex": "commercial/Nabat-Complex"
 };
 
 function getWebpFiles(dir) {

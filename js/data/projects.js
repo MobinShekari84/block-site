@@ -127,6 +127,28 @@ export const projects = [
     heroTheme: 'light',
   },
   {
+    id: 'Nabat-Complex',
+    slug: 'nabat-complex',
+    title: { en: 'Nabat Complex', fa: 'مجموعه نبات' },
+    category: { en: 'Commercial', fa: 'تجاری' },
+    year: 2023,
+    location: { en: 'Ardekan Yazd', fa: 'اردکان یزد' },
+    description: {
+      en: 'A multi-purpose commercial complex designed to meet the diverse needs of the community. The complex features a large commercial space, a multi-purpose auditorium, administrative areas, parking, and several green spaces for relaxation and recreation.',
+      fa: 'این پروژه یک مرکز تجاری چند منظوره در شهر اردکان، یزد، است که برای رفع نیازهای متنوع جامعه طراحی شده است. این مجموعه شامل یک فضای تجاری بزرگ، یک سالن اجتماعات چند منظوره، فضاهای اداری، پارکینگ و چندین فضای سبز برای استراحت و آرامش کاربران است.'
+    },
+    coverImage: '/assets/commercial/Nabat-Complex/exterior-design/exterior.webp',
+    narrativeImage: '/assets/commercial/Nabat-Complex/interior-design/Cafe-Restaruant-Interior.webp',
+    specs: {
+      designer: { en: 'Amin Shekari', fa: 'امین شکاری' },
+      date: { en: 'August 2023', fa: 'شهریور ۱۴۰۲' },
+      status: { en: 'Designed', fa: 'طراحی شده' },
+      architect: { en: 'Block Studio', fa: 'استودیو بلاک' }
+    },
+    isFeatured: false,
+    heroTheme: 'light',
+  },
+  {
     id: 'office-renovation',
     slug: 'office-renovation',
     title: { en: 'Office Renovation', fa: 'بازسازی دفتر اداری' },

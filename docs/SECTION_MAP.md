@@ -8,9 +8,9 @@ The homepage acts as the global template.
   * **HTML Structure:** `index.html`
   * **CSS (Navbar design):** `css/styles.css`
   * **Javascript (Toggle Logic):** `js/script.js`
-* **Mega-Menu Overlay (Projects List):**
+* **Dropdown Menus:**
   * **HTML Structure:** `index.html`
-  * **CSS (Mega-Menu design):** `css/styles.css`
+  * **CSS (Dropdown design):** `css/dropdown.css`
 * **Hero Slideshow (The big rotating images):**
   * **HTML Structure:** `index.html`
   * **CSS (Layout & Animations):** `css/styles.css`

@@ -1,6 +1,13 @@
 export const siteMeta = {
   en: {
     nav: { home: 'Home', projects: 'Projects', about: 'About' },
+    filters: {
+      all: 'ALL',
+      residential: 'Residential',
+      commercial: 'Commercial',
+      renovation: 'Renovation',
+      mixed: 'Mixed use'
+    },
     hero: {
             slides: [
         { title: 'Geometric\nPurity', subtitle: 'Damas Villa — Damavand, 2026', link: '/projects/damas-villa/' },
@@ -28,15 +35,22 @@ export const siteMeta = {
       desc: 'Block Architecture Studio is a Tehran-based practice dedicated to creating spaces where minimal form meets purposeful design.',
       nav: 'Navigation',
       contact: 'Contact',
-      email: 'info@blockarch.studio',
-      phone: '+98 21 2205 1474\n+98 21 2204 1355\n+98 912 065 2413\n+98 912 379 9746',
-      address: 'Unit 3, No. 4, Bidar St.\nFereshteh, Tehran, Iran',
+      email: 'info@blockarcstudio.com',
+      phone: '+98 21 2204 1355\n+98 912 065 2413\n+98 912 379 9746',
+      address: 'Fereshteh, Bidar St., No. 4, Unit 3\nTehran, Iran',
       copyright: '© 2024 Block Architecture Studio. All rights reserved.',
       credit: 'Design & Development by Block Studio'
     }
   },
   fa: {
     nav: { home: 'خانه', projects: 'پروژه‌ها', about: 'درباره ما' },
+    filters: {
+      all: 'همه',
+      residential: 'مسکونی',
+      commercial: 'تجاری',
+      renovation: 'بازسازی',
+      mixed: 'چندمنظوره'
+    },
     hero: {
             slides: [
         { title: 'خلوص\nهندسی', subtitle: 'ویلای داماس — دماوند، ۲۰۲۶', link: '/projects/damas-villa/' },
@@ -64,9 +78,9 @@ export const siteMeta = {
       desc: 'استودیو معماری بلاک یک دفتر مستقر در تهران است که فضاهایی را خلق می‌کند که در آن فرم مینیمال با طراحی هدفمند تلاقی می‌کند.',
       nav: 'ناوبری',
       contact: 'تماس',
-      email: 'info@blockarch.studio',
-      phone: '+۹۸ ۲۱ ۲۲۰۵ ۱۴۷۴\n+۹۸ ۲۱ ۲۲۰۴ ۱۳۵۵\n+۹۸ ۹۱۲ ۰۶۵ ۲۴۱۳\n+۹۸ ۹۱۲ ۳۷۹ ۹۷۴۶',
-      address: 'فرشته بیدار پلاک ۴ واحد ۳\nتهران، ایران',
+      email: 'info@blockarcstudio.com',
+      phone: '۰۲۱ ۲۲۰۴ ۱۳۵۵\n۰۹۱۲ ۰۶۵ ۲۴۱۳\n۰۹۱۲ ۳۷۹ ۹۷۴۶',
+      address: 'فرشته، خیابان بیدار، پلاک ۴، واحد ۳',
       copyright: '© ۲۰۲۴ استودیو معماری بلاک. تمامی حقوق محفوظ است.',
       credit: 'طراحی و توسعه توسط استودیو بلاک'
     }

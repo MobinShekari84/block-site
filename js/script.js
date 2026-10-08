@@ -1,3 +1,4 @@
+import { initProjectArchive } from './archive.js';
 import { siteMeta, projects, heroSliderProjects } from './data/index.js';
 
 /* ============================================
@@ -6,6 +7,8 @@ import { siteMeta, projects, heroSliderProjects } from './data/index.js';
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initProjectArchive();
+
   let currentLang = document.documentElement.lang || 'en';
   let currentSlide = 0;
 
@@ -209,6 +212,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const navHome_el = document.getElementById('navHome'); if (navHome_el) navHome_el.textContent = t.nav.home;
     const navProjects_el = document.getElementById('navProjects'); if (navProjects_el) navProjects_el.textContent = t.nav.projects;
     const navAbout_el = document.getElementById('navAbout'); if (navAbout_el) navAbout_el.textContent = t.nav.about;
+    // Filter Nav Links
+    const filterAll = document.querySelectorAll('.nav-filter-all'); filterAll.forEach(el => el.textContent = t.filters.all);
+    const filterRes = document.querySelectorAll('.nav-filter-residential'); filterRes.forEach(el => el.textContent = t.filters.residential);
+    const filterCom = document.querySelectorAll('.nav-filter-commercial'); filterCom.forEach(el => el.textContent = t.filters.commercial);
+    const filterRen = document.querySelectorAll('.nav-filter-renovation'); filterRen.forEach(el => el.textContent = t.filters.renovation);
+    const filterMix = document.querySelectorAll('.nav-filter-mixed'); filterMix.forEach(el => el.textContent = t.filters.mixed);
 
     // Lang button
     if(langBtn) langBtn.textContent = isFa ? 'EN' : 'FA';
@@ -246,9 +255,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Dynamically render featured projects
     const projectsGrid = document.querySelector('.projects-grid');
     if (projectsGrid) {
-      const featuredProjects = projects.filter(p => p.isFeatured);
+      const urlParams = new URLSearchParams(window.location.search);
+      const activeFilter = urlParams.get('filter') || 'featured';
+      
+      let filteredProjects = projects;
+      
+      if (activeFilter === 'featured') {
+        filteredProjects = projects.filter(p => p.isFeatured);
+      } else if (activeFilter !== 'all') {
+        filteredProjects = projects.filter(p => p.category.en.toLowerCase().replace(' ', '-') === activeFilter);
+      }
+
       projectsGrid.innerHTML = ''; // clear grid
-      featuredProjects.forEach((item) => {
+      filteredProjects.forEach((item) => {
         const yearStr = isFa ? toPersianDigits(item.year) : item.year;
         const prefix = currentLang === 'en' ? '/en' : '';
         const link = `${prefix}/projects/${item.slug}/`;
@@ -356,161 +375,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── Mega Menu ─────────────────────────────────
-  function initMegaMenu() {
-    const megaMenuHTML = `
-      <div class="projects-mega-menu" id="projectsMegaMenu" aria-hidden="true">
-        <div class="mega-menu-header">
-          <div class="mega-menu-title" id="megaMenuTitle">PROJECT ARCHIVE</div>
-          <button class="mega-menu-close" id="megaMenuClose" aria-label="Close">
-            <span class="close-text" id="megaMenuCloseText">CLOSE</span>
-            <span class="close-icon">&times;</span>
-          </button>
-        </div>
-        <div class="mega-menu-filters" id="megaMenuFilters">
-          <!-- Filters injected dynamically -->
-        </div>
-        <div class="mega-menu-content">
-          <div class="mega-menu-list" id="megaMenuList"></div>
-          <div class="mega-menu-preview" id="megaMenuPreview">
-            <img src="" alt="Project Preview" id="megaMenuPreviewImg" loading="lazy">
-            <div class="mega-menu-preview-meta" id="megaMenuPreviewMeta"></div>
-          </div>
-        </div>
-      </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', megaMenuHTML);
-
-    const megaMenu = document.getElementById('projectsMegaMenu');
-    const closeBtn = document.getElementById('megaMenuClose');
-    const listContainer = document.getElementById('megaMenuList');
-    const previewImg = document.getElementById('megaMenuPreviewImg');
-    const previewMeta = document.getElementById('megaMenuPreviewMeta');
-    const filtersContainer = document.getElementById('megaMenuFilters');
-    
-    let activeCategory = 'all';
-
-    function openMenu() {
-      megaMenu.setAttribute('aria-hidden', 'false');
-      megaMenu.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      renderList();
-    }
-
-    function closeMenu() {
-      megaMenu.setAttribute('aria-hidden', 'true');
-      megaMenu.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    function handleProjectsClick(e) {
-      e.preventDefault();
-      openMenu();
-    }
-
-    // Attach to triggers
-    const triggers = document.querySelectorAll('#navProjects, #footerProjects');
-    triggers.forEach(t => t.addEventListener('click', handleProjectsClick));
-
-    closeBtn.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && megaMenu.classList.contains('open')) {
-        closeMenu();
-      }
-    });
-
-    function renderList() {
-      const isFa = currentLang === 'fa';
-      const categories = ['all', 'Residential', 'Commercial', 'Cultural', 'Mixed Use', 'Hospitality'];
-      
-      const filterLabels = {
-        'all': isFa ? 'همه' : 'All',
-        'Residential': isFa ? 'مسکونی' : 'Residential',
-        'Commercial': isFa ? 'تجاری' : 'Commercial',
-        'Cultural': isFa ? 'فرهنگی' : 'Cultural',
-        'Mixed Use': isFa ? 'ترکیبی' : 'Mixed Use',
-        'Hospitality': isFa ? 'اقامتی' : 'Hospitality'
-      };
-
-      filtersContainer.innerHTML = categories.map(cat => `
-        <button class="filter-pill ${activeCategory === cat ? 'active' : ''}" data-filter="${cat}">
-          ${filterLabels[cat]}
-        </button>
-      `).join('');
-
-      filtersContainer.querySelectorAll('.filter-pill').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          activeCategory = e.target.getAttribute('data-filter');
-          renderList();
-        });
-      });
-
-      const filtered = activeCategory === 'all' 
-        ? projects 
-        : projects.filter(p => p.category.en === activeCategory);
-
-      listContainer.innerHTML = filtered.map((p, index) => {
-        const num = String(index + 1).padStart(2, '0');
-        const year = isFa ? toPersianDigits(p.year) : p.year;
-        const prefix = currentLang === 'en' ? '/en' : '';
-        const link = `${prefix}/projects/${p.slug}/`;
-        return `
-          <a href="${link}" class="mega-list-item" data-id="${p.slug}" data-title="${p.title[currentLang]}" data-meta="${p.category[currentLang]} — ${p.location[currentLang]}, ${year}">
-            <span class="mega-list-num">${isFa ? toPersianDigits(num) : num} /</span>
-            <span class="mega-list-title">${p.title[currentLang]}</span>
-            <span class="mega-list-year">${year}</span>
-          </a>
-        `;
-      }).join('');
-
-      // Preload images into preview container for instant crossfading
-      const previewContainer = document.getElementById('megaMenuPreview');
-      const existingMeta = document.getElementById('megaMenuPreviewMeta');
-      
-      // We will keep the meta tag but clear the old images
-      previewContainer.innerHTML = filtered.map(p => `
-        <img src="${p.coverImage}" alt="${p.title.en}" id="preview-img-${p.slug}" class="mega-preview-img" loading="eager">
-      `).join('') + `<div class="mega-menu-preview-meta" id="megaMenuPreviewMeta">${existingMeta ? existingMeta.innerHTML : ''}</div>`;
-      
-      const newMeta = document.getElementById('megaMenuPreviewMeta');
-      const listItems = listContainer.querySelectorAll('.mega-list-item');
-      
-      listItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-          const slug = item.getAttribute('data-id');
-          // Hide all images
-          previewContainer.querySelectorAll('.mega-preview-img').forEach(img => {
-            img.classList.remove('active');
-          });
-          // Show current
-          const targetImg = document.getElementById(`preview-img-${slug}`);
-          if (targetImg) targetImg.classList.add('active');
-          
-          newMeta.innerHTML = `<strong>${item.getAttribute('data-title')}</strong><br>${item.getAttribute('data-meta')}`;
-          
-          listItems.forEach(sibling => sibling.classList.remove('hovered'));
-          item.classList.add('hovered');
-        });
-      });
-
-      // trigger first item hover initially
-      if (listItems.length > 0) {
-        listItems[0].dispatchEvent(new Event('mouseenter'));
-      }
-      
-      // Update localized labels
-      const titleEl = document.getElementById('megaMenuTitle');
-      const closeEl = document.getElementById('megaMenuCloseText');
-      if (titleEl) titleEl.textContent = isFa ? 'آرشیو پروژه‌ها' : 'PROJECT ARCHIVE';
-      if (closeEl) closeEl.textContent = isFa ? 'بستن' : 'CLOSE';
-    }
-
-    // Export renderList so setLanguage can call it if the menu is open
-    window.updateMegaMenuLang = () => {
-      if (megaMenu.classList.contains('open')) {
-        renderList();
-      }
-    };
-  }
-
-  initMegaMenu();
+  
 });

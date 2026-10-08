@@ -1,0 +1,211 @@
+/* ============================================
+   PROJECT ARCHIVE OVERLAY (FULLSCREEN)
+   ============================================ */
+
+.project-archive-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-off-white);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-smooth), visibility var(--transition-smooth);
+}
+
+.project-archive-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Header */
+.archive-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3%;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.archive-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-mid-gray);
+}
+
+.archive-close {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-black);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity var(--transition-fast);
+}
+
+.archive-close:hover {
+  opacity: 0.6;
+}
+
+/* Filters */
+.archive-filters {
+  padding: 1.5rem 3%;
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.archive-filters::-webkit-scrollbar { display: none; }
+
+.archive-filter-btn {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 40px;
+  padding: 0.4rem 1.25rem;
+  font-size: 0.8rem;
+  color: var(--color-black);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.archive-filter-btn:hover,
+.archive-filter-btn.active {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+/* Content Layout */
+.archive-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: 0 3% 3rem 3%;
+  gap: 2rem;
+}
+
+/* Left: List */
+.archive-list-wrapper {
+  flex: 0 0 35%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding-right: 1rem;
+}
+
+.archive-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  cursor: pointer;
+  color: var(--color-black);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.archive-list-item:hover {
+  opacity: 0.6;
+}
+
+.archive-list-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.archive-list-num {
+  font-size: 0.8rem;
+  color: var(--color-mid-gray);
+  min-width: 2rem;
+}
+
+.archive-list-name {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-regular);
+}
+
+.archive-list-year {
+  font-size: 0.8rem;
+  color: var(--color-mid-gray);
+}
+
+/* Right: Preview */
+.archive-preview-wrapper {
+  flex: 1;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #eaeaea;
+}
+
+.archive-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--transition-smooth);
+}
+
+.archive-preview-card {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: 4px;
+  min-width: 280px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  pointer-events: none;
+}
+
+.archive-card-title {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.archive-card-meta {
+  font-size: 0.8rem;
+  color: var(--color-mid-gray);
+}
+
+/* RTL Support */
+body.lang-fa .archive-title,
+body.lang-fa .archive-close,
+body.lang-fa .archive-filter-btn {
+  font-family: var(--font-persian);
+  letter-spacing: normal;
+}
+body.lang-fa .archive-list-num {
+  font-family: var(--font-persian);
+}
+body.lang-fa .archive-preview-card {
+  left: auto;
+  right: 2rem;
+  text-align: right;
+  font-family: var(--font-persian);
+}
+body.lang-fa .archive-list-left {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .archive-content {
+    flex-direction: column;
+    padding: 0 5% 2rem 5%;
+  }
+  .archive-list-wrapper {
+    flex: 1;
+    padding-right: 0;
+  }
+  .archive-preview-wrapper {
+    display: none; /* Hide image preview on mobile to focus on list */
+  }
+}
